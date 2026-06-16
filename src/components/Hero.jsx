@@ -60,7 +60,7 @@ const Hero = () => {
                   Only Fruit & Vegetable
                 </p>
 
-                <Button className="!bg-transparent !p-0">
+                <Button className="" variant="transparent">
                   Shop Now
                   <ArrowRight />
                 </Button>
@@ -77,7 +77,7 @@ const Hero = () => {
                 <h4 className="font-semibold text-[32px] leading-[120%] text-white pt-3 pb-8">
                   Special Products Deal of the Month
                 </h4>
-                <Button className="!bg-transparent !p-0">
+                <Button className="" variant="transparent">
                   Shop Now
                   <ArrowRight />
                 </Button>
