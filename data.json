@@ -1,0 +1,783 @@
+{
+  "categories": [
+    {
+      "id": "fresh-fruit",
+      "label": "Fresh Fruit",
+      "icon": "./category.png",
+      "slug": "fresh-fruit"
+    },
+    {
+      "id": "fresh-vegetables",
+      "label": "Fresh Vegetables",
+      "icon": "./category_2.png",
+      "slug": "fresh-vegetables"
+    },
+    {
+      "id": "meat-fish",
+      "label": "Meat & Fish",
+      "icon": "./category.png",
+      "slug": "meat-fish"
+    },
+    {
+      "id": "snacks",
+      "label": "Snacks",
+      "icon": "./category.png",
+      "slug": "snacks"
+    },
+    {
+      "id": "beverages",
+      "label": "Beverages",
+      "icon": "./category.png",
+      "slug": "beverages"
+    },
+    {
+      "id": "beauty-health",
+      "label": "Beauty & Health",
+      "icon": "./category.png",
+      "slug": "beauty-health"
+    },
+    {
+      "id": "bread-bakery",
+      "label": "Bread & Bakery",
+      "icon": "./category.png",
+      "slug": "bread-bakery"
+    },
+    {
+      "id": "baking-needs",
+      "label": "Baking Needs",
+      "icon": "./category.png",
+      "slug": "baking-needs"
+    },
+    {
+      "id": "cooking",
+      "label": "Cooking",
+      "icon": "./category.png",
+      "slug": "cooking"
+    },
+    {
+      "id": "diabetic-food",
+      "label": "Diabetic Food",
+      "icon": "./category.png",
+      "slug": "diabetic-food"
+    },
+    {
+      "id": "dish-detergents",
+      "label": "Dish Detergents",
+      "icon": "./category.png",
+      "slug": "dish-detergents"
+    },
+    { "id": "oil", "label": "Oil", "icon": "./category.png", "slug": "oil" }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Green Apple",
+      "image" : "./p_1.png",
+      "category": "fresh-fruit",
+      "price": 14.89,
+      "originalPrice": 20.99,
+      "unit": "kg",
+      "rating": 3.5,
+      "stock": 50,
+      "sale": true,
+      "tags": ["fruit", "green", "apple"]
+    },
+    {
+      "id": 2,
+      "name": "Fresh Indian Malta",
+      "image" : "./p_1.png",
+      "category": "fresh-fruit",
+      "price": 20.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 30,
+      "sale": false,
+      "tags": ["fruit", "orange", "malta", "citrus"]
+    },
+    {
+      "id": 3,
+      "name": "Banana",
+      "category": "fresh-fruit",
+      "price": 8.0,
+      "originalPrice": null,
+      "unit": "dozen",
+      "rating": 4.5,
+      "stock": 60,
+      "sale": false,
+      "tags": ["fruit", "banana", "yellow"]
+    },
+    {
+      "id": 4,
+      "name": "Mango",
+      "category": "fresh-fruit",
+      "price": 25.0,
+      "originalPrice": 30.0,
+      "unit": "kg",
+      "rating": 5.0,
+      "stock": 20,
+      "sale": true,
+      "tags": ["fruit", "mango", "tropical"]
+    },
+    {
+      "id": 5,
+      "name": "Watermelon",
+      "category": "fresh-fruit",
+      "price": 18.0,
+      "originalPrice": null,
+      "unit": "piece",
+      "rating": 4.0,
+      "stock": 15,
+      "sale": false,
+      "tags": ["fruit", "watermelon", "summer"]
+    },
+
+    {
+      "id": 6,
+      "name": "Chinese Cabbage",
+      "category": "fresh-vegetables",
+      "price": 12.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 3.5,
+      "stock": 40,
+      "sale": false,
+      "tags": ["vegetable", "cabbage", "leafy", "green"]
+    },
+    {
+      "id": 7,
+      "name": "Green Lettuce",
+      "category": "fresh-vegetables",
+      "price": 9.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 3.5,
+      "stock": 35,
+      "sale": false,
+      "tags": ["vegetable", "lettuce", "leafy", "salad"]
+    },
+    {
+      "id": 8,
+      "name": "Eggplant",
+      "category": "fresh-vegetables",
+      "price": 34.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 3.5,
+      "stock": 25,
+      "sale": false,
+      "tags": ["vegetable", "eggplant", "brinjal", "purple"]
+    },
+    {
+      "id": 9,
+      "name": "Big Potatoes",
+      "category": "fresh-vegetables",
+      "price": 20.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 80,
+      "sale": false,
+      "tags": ["vegetable", "potato", "starch"]
+    },
+    {
+      "id": 10,
+      "name": "Corn",
+      "category": "fresh-vegetables",
+      "price": 20.0,
+      "originalPrice": null,
+      "unit": "piece",
+      "rating": 4.0,
+      "stock": 45,
+      "sale": false,
+      "tags": ["vegetable", "corn", "maize", "yellow"]
+    },
+    {
+      "id": 11,
+      "name": "Fresh Cauliflower",
+      "category": "fresh-vegetables",
+      "price": 12.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 30,
+      "sale": false,
+      "tags": ["vegetable", "cauliflower", "white"]
+    },
+    {
+      "id": 12,
+      "name": "Green Capsicum",
+      "category": "fresh-vegetables",
+      "price": 9.0,
+      "originalPrice": 20.99,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 55,
+      "sale": true,
+      "tags": ["vegetable", "capsicum", "pepper", "green"]
+    },
+    {
+      "id": 13,
+      "name": "Green Chili",
+      "category": "fresh-vegetables",
+      "price": 34.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 70,
+      "sale": false,
+      "tags": ["vegetable", "chili", "spicy", "green"]
+    },
+    {
+      "id": 14,
+      "name": "Tomato",
+      "category": "fresh-vegetables",
+      "price": 15.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 60,
+      "sale": false,
+      "tags": ["vegetable", "tomato", "red"]
+    },
+    {
+      "id": 15,
+      "name": "Onion",
+      "category": "fresh-vegetables",
+      "price": 10.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 100,
+      "sale": false,
+      "tags": ["vegetable", "onion"]
+    },
+    {
+      "id": 16,
+      "name": "Garlic",
+      "category": "fresh-vegetables",
+      "price": 22.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 50,
+      "sale": false,
+      "tags": ["vegetable", "garlic", "spice"]
+    },
+    {
+      "id": 17,
+      "name": "Carrot",
+      "category": "fresh-vegetables",
+      "price": 18.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 40,
+      "sale": false,
+      "tags": ["vegetable", "carrot", "orange"]
+    },
+    {
+      "id": 18,
+      "name": "Spinach",
+      "category": "fresh-vegetables",
+      "price": 8.0,
+      "originalPrice": null,
+      "unit": "bunch",
+      "rating": 4.0,
+      "stock": 35,
+      "sale": false,
+      "tags": ["vegetable", "spinach", "leafy", "green"]
+    },
+
+    {
+      "id": 19,
+      "name": "Chicken Breast",
+      "category": "meat-fish",
+      "price": 45.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 20,
+      "sale": false,
+      "tags": ["meat", "chicken", "protein"]
+    },
+    {
+      "id": 20,
+      "name": "Beef",
+      "category": "meat-fish",
+      "price": 80.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 15,
+      "sale": false,
+      "tags": ["meat", "beef", "protein"]
+    },
+    {
+      "id": 21,
+      "name": "Hilsa Fish",
+      "category": "meat-fish",
+      "price": 120.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 5.0,
+      "stock": 10,
+      "sale": false,
+      "tags": ["fish", "hilsa", "seafood"]
+    },
+    {
+      "id": 22,
+      "name": "Rohu Fish",
+      "category": "meat-fish",
+      "price": 55.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 18,
+      "sale": false,
+      "tags": ["fish", "rohu", "freshwater"]
+    },
+    {
+      "id": 23,
+      "name": "Shrimp",
+      "category": "meat-fish",
+      "price": 95.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 12,
+      "sale": false,
+      "tags": ["seafood", "shrimp", "prawn"]
+    },
+    {
+      "id": 24,
+      "name": "Egg",
+      "category": "meat-fish",
+      "price": 12.0,
+      "originalPrice": null,
+      "unit": "dozen",
+      "rating": 4.5,
+      "stock": 100,
+      "sale": false,
+      "tags": ["egg", "protein"]
+    },
+
+    {
+      "id": 25,
+      "name": "Potato Chips",
+      "category": "snacks",
+      "price": 15.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.0,
+      "stock": 60,
+      "sale": false,
+      "tags": ["snack", "chips", "crunchy"]
+    },
+    {
+      "id": 26,
+      "name": "Biscuits",
+      "category": "snacks",
+      "price": 10.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 3.5,
+      "stock": 80,
+      "sale": false,
+      "tags": ["snack", "biscuit", "sweet"]
+    },
+    {
+      "id": 27,
+      "name": "Chanachur",
+      "category": "snacks",
+      "price": 12.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.0,
+      "stock": 50,
+      "sale": false,
+      "tags": ["snack", "chanachur", "spicy"]
+    },
+    {
+      "id": 28,
+      "name": "Chocolate Bar",
+      "category": "snacks",
+      "price": 30.0,
+      "originalPrice": null,
+      "unit": "piece",
+      "rating": 4.5,
+      "stock": 40,
+      "sale": false,
+      "tags": ["snack", "chocolate", "sweet"]
+    },
+
+    {
+      "id": 29,
+      "name": "Mineral Water",
+      "category": "beverages",
+      "price": 20.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.0,
+      "stock": 200,
+      "sale": false,
+      "tags": ["drink", "water", "hydration"]
+    },
+    {
+      "id": 30,
+      "name": "Mango Juice",
+      "category": "beverages",
+      "price": 35.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.0,
+      "stock": 50,
+      "sale": false,
+      "tags": ["drink", "juice", "mango", "fruit"]
+    },
+    {
+      "id": 31,
+      "name": "Cola Soft Drink",
+      "category": "beverages",
+      "price": 25.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 3.5,
+      "stock": 60,
+      "sale": false,
+      "tags": ["drink", "soda", "cola", "carbonated"]
+    },
+    {
+      "id": 32,
+      "name": "Green Tea",
+      "category": "beverages",
+      "price": 40.0,
+      "originalPrice": null,
+      "unit": "box",
+      "rating": 4.5,
+      "stock": 30,
+      "sale": false,
+      "tags": ["drink", "tea", "green", "healthy"]
+    },
+
+    {
+      "id": 33,
+      "name": "Sliced Bread",
+      "category": "bread-bakery",
+      "price": 30.0,
+      "originalPrice": null,
+      "unit": "loaf",
+      "rating": 4.0,
+      "stock": 40,
+      "sale": false,
+      "tags": ["bread", "bakery", "sliced"]
+    },
+    {
+      "id": 34,
+      "name": "Bun",
+      "category": "bread-bakery",
+      "price": 12.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 3.5,
+      "stock": 30,
+      "sale": false,
+      "tags": ["bread", "bakery", "bun", "soft"]
+    },
+    {
+      "id": 35,
+      "name": "Croissant",
+      "category": "bread-bakery",
+      "price": 45.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.5,
+      "stock": 20,
+      "sale": false,
+      "tags": ["bread", "bakery", "croissant", "pastry"]
+    },
+
+    {
+      "id": 36,
+      "name": "All Purpose Flour",
+      "category": "baking-needs",
+      "price": 55.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 70,
+      "sale": false,
+      "tags": ["baking", "flour", "staple"]
+    },
+    {
+      "id": 37,
+      "name": "Sugar",
+      "category": "baking-needs",
+      "price": 45.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 90,
+      "sale": false,
+      "tags": ["baking", "sugar", "sweet", "staple"]
+    },
+    {
+      "id": 38,
+      "name": "Baking Powder",
+      "category": "baking-needs",
+      "price": 20.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.0,
+      "stock": 40,
+      "sale": false,
+      "tags": ["baking", "powder", "leavening"]
+    },
+    {
+      "id": 39,
+      "name": "Cocoa Powder",
+      "category": "baking-needs",
+      "price": 60.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.5,
+      "stock": 25,
+      "sale": false,
+      "tags": ["baking", "cocoa", "chocolate"]
+    },
+
+    {
+      "id": 40,
+      "name": "Basmati Rice",
+      "category": "cooking",
+      "price": 75.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 100,
+      "sale": false,
+      "tags": ["cooking", "rice", "grain", "staple"]
+    },
+    {
+      "id": 41,
+      "name": "Lentil (Masoor Dal)",
+      "category": "cooking",
+      "price": 50.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.0,
+      "stock": 80,
+      "sale": false,
+      "tags": ["cooking", "dal", "lentil", "protein"]
+    },
+    {
+      "id": 42,
+      "name": "Turmeric Powder",
+      "category": "cooking",
+      "price": 25.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.0,
+      "stock": 60,
+      "sale": false,
+      "tags": ["cooking", "spice", "turmeric"]
+    },
+    {
+      "id": 43,
+      "name": "Cumin Seeds",
+      "category": "cooking",
+      "price": 30.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.0,
+      "stock": 45,
+      "sale": false,
+      "tags": ["cooking", "spice", "cumin"]
+    },
+    {
+      "id": 44,
+      "name": "Soy Sauce",
+      "category": "cooking",
+      "price": 35.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.0,
+      "stock": 35,
+      "sale": false,
+      "tags": ["cooking", "sauce", "soy", "condiment"]
+    },
+
+    {
+      "id": 45,
+      "name": "Diabetic Biscuits",
+      "category": "diabetic-food",
+      "price": 50.0,
+      "originalPrice": null,
+      "unit": "pack",
+      "rating": 4.0,
+      "stock": 20,
+      "sale": false,
+      "tags": ["diabetic", "sugar-free", "biscuit", "healthy"]
+    },
+    {
+      "id": 46,
+      "name": "Brown Rice",
+      "category": "diabetic-food",
+      "price": 80.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 25,
+      "sale": false,
+      "tags": ["diabetic", "rice", "whole-grain", "healthy"]
+    },
+    {
+      "id": 47,
+      "name": "Oats",
+      "category": "diabetic-food",
+      "price": 65.0,
+      "originalPrice": null,
+      "unit": "kg",
+      "rating": 4.5,
+      "stock": 30,
+      "sale": false,
+      "tags": ["diabetic", "oats", "fiber", "healthy"]
+    },
+
+    {
+      "id": 48,
+      "name": "Dish Wash Liquid",
+      "category": "dish-detergents",
+      "price": 40.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.0,
+      "stock": 50,
+      "sale": false,
+      "tags": ["cleaning", "dish", "liquid", "detergent"]
+    },
+    {
+      "id": 49,
+      "name": "Dish Wash Bar",
+      "category": "dish-detergents",
+      "price": 20.0,
+      "originalPrice": null,
+      "unit": "piece",
+      "rating": 4.0,
+      "stock": 70,
+      "sale": false,
+      "tags": ["cleaning", "dish", "bar", "detergent"]
+    },
+    {
+      "id": 50,
+      "name": "Scrubber",
+      "category": "dish-detergents",
+      "price": 15.0,
+      "originalPrice": null,
+      "unit": "piece",
+      "rating": 3.5,
+      "stock": 80,
+      "sale": false,
+      "tags": ["cleaning", "scrubber", "kitchen"]
+    },
+
+    {
+      "id": 51,
+      "name": "Soybean Oil",
+      "category": "oil",
+      "price": 90.0,
+      "originalPrice": null,
+      "unit": "litre",
+      "rating": 4.0,
+      "stock": 60,
+      "sale": false,
+      "tags": ["oil", "soybean", "cooking"]
+    },
+    {
+      "id": 52,
+      "name": "Mustard Oil",
+      "category": "oil",
+      "price": 110.0,
+      "originalPrice": null,
+      "unit": "litre",
+      "rating": 4.5,
+      "stock": 40,
+      "sale": false,
+      "tags": ["oil", "mustard", "cooking"]
+    },
+    {
+      "id": 53,
+      "name": "Olive Oil",
+      "category": "oil",
+      "price": 250.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 5.0,
+      "stock": 20,
+      "sale": false,
+      "tags": ["oil", "olive", "healthy"]
+    },
+    {
+      "id": 54,
+      "name": "Coconut Oil",
+      "category": "oil",
+      "price": 130.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.5,
+      "stock": 25,
+      "sale": false,
+      "tags": ["oil", "coconut", "cooking"]
+    },
+
+    {
+      "id": 55,
+      "name": "Hand Wash",
+      "category": "beauty-health",
+      "price": 35.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.0,
+      "stock": 40,
+      "sale": false,
+      "tags": ["hygiene", "handwash", "soap"]
+    },
+    {
+      "id": 56,
+      "name": "Shampoo",
+      "category": "beauty-health",
+      "price": 75.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.0,
+      "stock": 30,
+      "sale": false,
+      "tags": ["hair", "shampoo", "beauty"]
+    },
+    {
+      "id": 57,
+      "name": "Body Lotion",
+      "category": "beauty-health",
+      "price": 80.0,
+      "originalPrice": null,
+      "unit": "bottle",
+      "rating": 4.5,
+      "stock": 25,
+      "sale": false,
+      "tags": ["skin", "lotion", "beauty", "moisturizer"]
+    },
+    {
+      "id": 58,
+      "name": "Toothpaste",
+      "category": "beauty-health",
+      "price": 40.0,
+      "originalPrice": null,
+      "unit": "tube",
+      "rating": 4.5,
+      "stock": 50,
+      "sale": false,
+      "tags": ["dental", "toothpaste", "hygiene"]
+    }
+  ]
+}
