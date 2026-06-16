@@ -229,7 +229,7 @@ const Header = () => {
                             <Link
                               key={subitem.id}
                               to={subitem.href}
-                              className="block px-4 py-2.5 text-black_900 font-medium text-sm hover:bg-home hover:text-white transition-colors duration-150"
+                              className="block px-4 py-2.5 text-black_900 font-medium text-sm hover:bg-home hover:text-gray_500 transition-colors duration-150"
                             >
                               {subitem.label}
                             </Link>
