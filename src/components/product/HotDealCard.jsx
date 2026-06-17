@@ -6,10 +6,11 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
 import Button from "../global/Button";
+import UseCountDown from "../../hooks/UseCountDown";
 
 const HotDealCard = ({ product }) => {
   const { name, image, price, originalPrice, rating, sale } = product;
-
+  const {days,hours ,minutes,seconds} = UseCountDown("2026-08-29")
   const discount =
     originalPrice &&
     Math.round(((originalPrice - price) / originalPrice) * 100);
@@ -23,9 +24,9 @@ const HotDealCard = ({ product }) => {
       )}
       {/* Sale Badge */}
       {/* {sale && ( */}
-        <span className=" absolute top-4 left-26  bg-[#2388FF] text-white text-sm font-medium px-3 py-1 rounded-md">
-          Sale {discount}%
-        </span>
+      <span className=" absolute top-4 left-27  bg-[#2388FF] text-white text-sm font-medium px-3 py-1 rounded-md">
+        Sale {discount}%
+      </span>
       {/* )} */}
 
       {/* floating icons */}
@@ -49,10 +50,6 @@ const HotDealCard = ({ product }) => {
 
       {/* Product Info */}
       <div className="p-3">
-        {/* 
-        <h3 className="text-[14px] leading-[150%] font-normal text-gray_700">
-          {name}
-        </h3> */}
         <div className="flex items-center justify-center text-center">
           <div>
             <h3 className="text-[18px] leading-[150%] font-normal text-gray_700 group-hover:text-success_207">
@@ -70,10 +67,6 @@ const HotDealCard = ({ product }) => {
               )}
             </div>
           </div>
-
-          {/* <button className="p-2.5 rounded-full bg-gray_50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition">
-            <HiOutlineShoppingBag size={20} />
-          </button> */}
         </div>
 
         {/* Rating */}
@@ -91,6 +84,34 @@ const HotDealCard = ({ product }) => {
           })}
         </div>
       </div>
+          <p className="text-[14px] leading-[18px] text-gray_400 text-center font-normal pb-1.5">Hurry up! Offer ends In:</p>
+{/* timmer layout */}
+        <div className="flex items-center justify-center gap-10 ">
+              <div className="flex flex-col items-center justify-center  ">
+                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{days}</span>
+                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+                  Days
+                </span>
+              </div>
+              <div className="flex flex-col items-center justify-center ">
+                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{hours}</span>
+                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+                  Hours
+                </span>
+              </div>
+              <div className="flex flex-col items-center justify-center  ">
+                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{minutes}</span>
+                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+                  Mins
+                </span>
+              </div>
+              <div className="flex flex-col items-center justify-center ">
+                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{seconds}</span>
+                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+                 Secs
+                </span>
+              </div>
+            </div>
     </div>
   );
 };
