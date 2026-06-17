@@ -4,6 +4,7 @@ import Feature from '../components/Feature';
 import Categories from '../components/categories/Categories';
 import Product from '../components/product/Product';
 import Follow from '../components/Follow';
+import HotDeal from '../components/product/HotDeal';
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
     <Feature />
     <Categories />
     <Product />
+    <HotDeal />
     <Follow />
     </>
   )

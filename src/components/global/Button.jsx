@@ -23,6 +23,7 @@ const Button = ({
         font-semibold
         leading-[120%]
         flex items-center
+        justify-center
         gap-4
         rounded-full
         ${className}

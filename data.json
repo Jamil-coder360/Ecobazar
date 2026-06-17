@@ -3,7 +3,7 @@
     {
       "id": "fresh-fruit",
       "label": "Fresh Fruit",
-      "icon": "./category.png",
+      "icon": "./category_1.png",
       "slug": "fresh-fruit"
     },
     {
@@ -15,58 +15,58 @@
     {
       "id": "meat-fish",
       "label": "Meat & Fish",
-      "icon": "./category.png",
+      "icon": "./category_3.png",
       "slug": "meat-fish"
     },
     {
       "id": "snacks",
       "label": "Snacks",
-      "icon": "./category.png",
+      "icon": "./category_4.png",
       "slug": "snacks"
     },
     {
       "id": "beverages",
       "label": "Beverages",
-      "icon": "./category.png",
+      "icon": "./category_5.png",
       "slug": "beverages"
     },
     {
       "id": "beauty-health",
       "label": "Beauty & Health",
-      "icon": "./category.png",
+      "icon": "./category_6.png",
       "slug": "beauty-health"
     },
     {
       "id": "bread-bakery",
       "label": "Bread & Bakery",
-      "icon": "./category.png",
+      "icon": "./category_7.png",
       "slug": "bread-bakery"
     },
     {
       "id": "baking-needs",
       "label": "Baking Needs",
-      "icon": "./category.png",
+      "icon": "./category_8.png",
       "slug": "baking-needs"
     },
     {
       "id": "cooking",
       "label": "Cooking",
-      "icon": "./category.png",
+      "icon": "./category_9.png",
       "slug": "cooking"
     },
     {
       "id": "diabetic-food",
       "label": "Diabetic Food",
-      "icon": "./category.png",
+      "icon": "./category_10.png",
       "slug": "diabetic-food"
     },
     {
       "id": "dish-detergents",
       "label": "Dish Detergents",
-      "icon": "./category.png",
+      "icon": "./category_11.png",
       "slug": "dish-detergents"
     },
-    { "id": "oil", "label": "Oil", "icon": "./category.png", "slug": "oil" }
+    { "id": "oil", "label": "Oil", "icon": "./category_12.png", "slug": "oil" }
   ],
 
   "products": [
@@ -86,7 +86,7 @@
     {
       "id": 2,
       "name": "Fresh Indian Malta",
-      "image" : "./p_1.png",
+      "image" : "./p_2.png",
       "category": "fresh-fruit",
       "price": 20.0,
       "originalPrice": null,
@@ -99,6 +99,8 @@
     {
       "id": 3,
       "name": "Banana",
+      "image" : "./p_3.jpg",
+
       "category": "fresh-fruit",
       "price": 8.0,
       "originalPrice": null,
@@ -111,6 +113,8 @@
     {
       "id": 4,
       "name": "Mango",
+      "image" : "./p_4.png",
+
       "category": "fresh-fruit",
       "price": 25.0,
       "originalPrice": 30.0,
@@ -123,6 +127,8 @@
     {
       "id": 5,
       "name": "Watermelon",
+      "image" : "./p_5.jpg",
+
       "category": "fresh-fruit",
       "price": 18.0,
       "originalPrice": null,
@@ -136,6 +142,8 @@
     {
       "id": 6,
       "name": "Chinese Cabbage",
+      "image" : "./p_6.png",
+
       "category": "fresh-vegetables",
       "price": 12.0,
       "originalPrice": null,
@@ -148,6 +156,8 @@
     {
       "id": 7,
       "name": "Green Lettuce",
+      "image" : "./p_7.png",
+
       "category": "fresh-vegetables",
       "price": 9.0,
       "originalPrice": null,
@@ -160,6 +170,8 @@
     {
       "id": 8,
       "name": "Eggplant",
+      "image" : "./p_8.png",
+
       "category": "fresh-vegetables",
       "price": 34.0,
       "originalPrice": null,
@@ -172,6 +184,8 @@
     {
       "id": 9,
       "name": "Big Potatoes",
+      "image" : "./p_9.png",
+
       "category": "fresh-vegetables",
       "price": 20.0,
       "originalPrice": null,
@@ -184,6 +198,8 @@
     {
       "id": 10,
       "name": "Corn",
+      "image" : "./p_10.png",
+
       "category": "fresh-vegetables",
       "price": 20.0,
       "originalPrice": null,
@@ -196,6 +212,8 @@
     {
       "id": 11,
       "name": "Fresh Cauliflower",
+      "image" : "./p_11.png",
+
       "category": "fresh-vegetables",
       "price": 12.0,
       "originalPrice": null,
@@ -208,6 +226,8 @@
     {
       "id": 12,
       "name": "Green Capsicum",
+      "image" : "./p_12.png",
+
       "category": "fresh-vegetables",
       "price": 9.0,
       "originalPrice": 20.99,
@@ -220,6 +240,8 @@
     {
       "id": 13,
       "name": "Green Chili",
+      "image" : "./p_13.png",
+
       "category": "fresh-vegetables",
       "price": 34.0,
       "originalPrice": null,
