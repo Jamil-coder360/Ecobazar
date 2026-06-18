@@ -5,6 +5,9 @@ import Categories from '../components/categories/Categories';
 import Product from '../components/product/Product';
 import Follow from '../components/Follow';
 import HotDeal from '../components/product/HotDeal';
+import Bannar from '../components/Bannar';
+import DiscountBannar from '../components/DiscountBannar';
+import Featured from '../components/product/Featured';
 
 const HomePage = () => {
   return (
@@ -13,6 +16,9 @@ const HomePage = () => {
     <Feature />
     <Categories />
     <Product />
+    <Bannar />
+    <DiscountBannar />
+    <Featured />
     <HotDeal />
     <Follow />
     </>

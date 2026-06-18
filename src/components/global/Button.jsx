@@ -10,7 +10,7 @@ const Button = ({
   const variantClasses = {
     transparent: "bg-transparent text-success_207 !p-0",
     green: "bg-success_207 text-white",
-    white: "bg-white text-black border border-[#000000]/40 rounded",
+    white: "bg-white text-success_207 border border-[#000000]/40 rounded",
   };
 
   return (

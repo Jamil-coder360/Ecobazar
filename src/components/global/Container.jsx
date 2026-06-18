@@ -1,6 +1,6 @@
-const Container = ({ children, className = "" }) => {
+const Container = ({ children, className = "" , ...props }) => {
   return (
-    <div className={`w-full max-w-(--container) mx-auto ${className}`}>
+    <div {...props} className={`w-full max-w-(--container) mx-auto ${className}`}>
       {children}
     </div>
   );
