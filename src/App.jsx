@@ -8,6 +8,7 @@ import ShopPage from './pages/ShopPage';
 import QuickView from './pages/QuickView';
 import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path:"/view",
         element: <QuickView />
+      },
+      {
+        path:"/product/:id",
+        element: <ProductDetailPage />
       },
       {
         path:"/signin",

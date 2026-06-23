@@ -141,13 +141,13 @@ const Header = () => {
               </div>
               <span className="text-gray_100 w-[1px] px-5">|</span>
 
-              <Link className="text-gray_600 text-[12px] font-normal leading-[130%]">
+              <Link to={"/signin"} className="text-gray_600 text-[12px] font-normal leading-[130%]">
                 Sign In
               </Link>
               <span className="text-gray_600 text-[12px] font-normal leading-[130%] px-1">
                 /
               </span>
-              <Link className="text-gray_600 text-[12px] font-normal leading-[130%] ">
+              <Link to={"/signup"} className="text-gray_600 text-[12px] font-normal leading-[130%] ">
                 Sign Up
               </Link>
             </div>

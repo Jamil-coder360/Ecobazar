@@ -11,7 +11,7 @@ const SignUpPage = () => {
       <Section>
         <Container>
           <div className="flex items-center justify-center py-20">
-            <div className="w-[520px] border border-gray_50 shadow-xl rounded-2  flex flex-col items-center justify-center gap-5 p-6">
+            <div className="w-[520px] border border-gray_50 shadow-xl rounded-[8px]  flex flex-col items-center justify-center gap-5 p-6">
               <h2 className="text-[32px] leading-[120%] text-gray_900 font-semibold text-center">
                 Create Account
               </h2>
