@@ -5,6 +5,9 @@ import Roots from './components/main/Roots';
 import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
 import ShopPage from './pages/ShopPage';
+import QuickView from './pages/QuickView';
+import SignUpPage from './pages/SignUpPage';
+import SignInPage from './pages/SignInPage';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +21,18 @@ const router = createBrowserRouter([
       {
         path:"/shop",
         element: <ShopPage />
+      },
+      {
+        path:"/view",
+        element: <QuickView />
+      },
+      {
+        path:"/signin",
+        element: <SignInPage />
+      },
+      {
+        path:"/signup",
+        element: <SignUpPage />
       },
       {
         path:"*",

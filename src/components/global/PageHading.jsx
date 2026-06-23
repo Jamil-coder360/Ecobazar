@@ -12,13 +12,17 @@ const bgPage = (image) => ({
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
 });
-const PageHading = ({pagename="404 Error Page"}) => {
+const PageHading = ({pagename="404 Error Page" , mainname}) => {
   return (
     <Section style={bgPage(page)} className="py-12">
         <Container>
             <div className="flex items-center gap-2">
             <GoHome size={24}  className="text-gray_500" />
             <MdOutlineKeyboardArrowRight size={16}  className="text-gray_500" />
+            <h4 className="text-gray_500 text-base font-normal">{mainname}</h4>
+            {mainname&&(
+            <MdOutlineKeyboardArrowRight size={16}  className="text-gray_500" />
+            )}
             <h4 className="text-success_207 text-base font-normal">{pagename}</h4>
 
             </div>
