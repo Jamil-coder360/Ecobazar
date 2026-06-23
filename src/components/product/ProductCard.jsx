@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
     Math.round(((originalPrice - price) / originalPrice) * 100);
 
   return (
-    <div className=" relative group bg-white border border-gray-100 hover:border-success_207 hover:shadow-success_207 rounded-md hover:shadow-sm transition-all duration-300 w-[264px] h-[327px] overflow-hidden ">
+    <div className=" relative group bg-white border border-gray-100 hover:border-success_207 hover:shadow-success_207 rounded-md hover:shadow-sm transition-all duration-300 w-full h-[327px] overflow-hidden ">
       {/* Sale Badge */}
       {sale && (
         <span className=" absolute top-4 left-4  bg-success_error text-white text-sm font-medium px-3 py-1 rounded-md">
