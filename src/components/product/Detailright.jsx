@@ -32,12 +32,12 @@ export default function DetailRight() {
   const increment = () => setQuantity((q) => q + 1);
 
   return (
-    <div className=" bg-white flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl">
+    <div className=" bg-white flex items-center justify-center py-6">
+      <div className="w-full ">
 
         {/* Title + Badge */}
         <div className="flex items-start gap-4 flex-wrap">
-          <h1 className="text-4xl font-extrabold text-gray-900 leading-tight">
+          <h1 className="text-[36px] font-semibold text-gray_900 leading-[120%] flex items-center">
             Chinese Cabbage
           </h1>
           <span className="mt-1.5 px-3 py-1 rounded-lg bg-green-100 text-green-700 text-sm font-semibold self-start">
@@ -80,18 +80,18 @@ export default function DetailRight() {
           {/* Share */}
           <div className="flex items-center gap-3">
             <span className="text-gray-700 font-semibold text-base">Share item:</span>
-            <button className="w-9 h-9 rounded-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center transition-colors">
+            <button className="w-9 h-9 rounded-full  hover:bg-green-600 hover:text-white  text-gray-600  flex items-center justify-center transition-colors">
               {/* <FacebookIcon /> */}
               <RiFacebookFill />
             </button>
-            <button className="w-9 h-9 rounded-full hover:bg-gray-100 text-gray-600 flex items-center justify-center transition-colors">
+            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white  text-gray-600 flex items-center justify-center transition-colors">
              
              <IoLogoTwitter />
             </button>
-            <button className="w-9 h-9 rounded-full hover:bg-gray-100 text-gray-600 flex items-center justify-center transition-colors">
+            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white  text-gray-600 flex items-center justify-center transition-colors">
              <FaPinterestP />
             </button>
-            <button className="w-9 h-9 rounded-full hover:bg-gray-100 text-gray-600 flex items-center justify-center transition-colors">
+            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white  text-gray-600 flex items-center justify-center transition-colors">
              <FaInstagram />
             </button>
           </div>
