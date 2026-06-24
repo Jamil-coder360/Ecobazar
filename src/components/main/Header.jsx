@@ -197,19 +197,24 @@ const Header = () => {
             </button>
           </div>
           <div className="flex items-center ">
+            <Link to={"/wishlist"}>
+            
             <div className="relative">
               <IoMdHeartEmpty size={32} />
               <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-semibold">
                 {wishlistCount}
               </span>
             </div>
+            </Link>
             <span className="text-gray-200 w-[1px] px-4">|</span>
+            <Link to={"/cart"}>
             <div className="relative">
               <HiOutlineShoppingBag size={32} />
               <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-green-500 text-white text-[11px] font-semibold">
                 {cartCount}
               </span>
             </div>
+            </Link>
             <div className="pl-3">
               <p className="text-gray_700 text-[11px] font-normal leading-[120%] ">
                 Shopping cart:
