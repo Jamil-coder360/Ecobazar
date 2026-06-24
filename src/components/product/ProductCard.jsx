@@ -3,10 +3,11 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
+import { useQuickView } from "../../context/QuickViewContext";
 
 const ProductCard = ({ product }) => {
+  const { showQuickView } = useQuickView();
   const { name, image, price, originalPrice, rating, sale } = product;
-
   const discount =
     originalPrice &&
     Math.round(((originalPrice - price) / originalPrice) * 100);
@@ -25,12 +26,16 @@ const ProductCard = ({ product }) => {
       <button className=" absolute top-4 right-4 opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition">
         <IoMdHeartEmpty size={20} />
       </button>
-      <button className="absolute top-15.5 right-4 opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition">
+      <button
+        type="button"
+        onClick={() => showQuickView?.(product)}
+        className="absolute top-15.5 right-4 opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+      >
         <LuEye size={20} />
       </button>
 
       {/* Product Image */}
-      <div className="w-[264px] h-[240px]">
+      <div className="w-full h-[240px]">
         <img src={image} alt={name} className="w-full h-full " />
       </div>
 

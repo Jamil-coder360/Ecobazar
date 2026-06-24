@@ -1,4 +1,3 @@
-import { HeartOffIcon } from "lucide-react";
 import { useState } from "react";
 import { FaInstagram, FaPinterestP, FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
@@ -24,7 +23,7 @@ function StarRating({ count, total = 5 }) {
 
 const tags = ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"];
 
-export default function DetailRight() {
+export default function DetailRight({ product }) {
   const [quantity, setQuantity] = useState(5);
   const [wishlisted, setWishlisted] = useState(false);
 
@@ -38,7 +37,7 @@ export default function DetailRight() {
         {/* Title + Badge */}
         <div className="flex items-start gap-4 flex-wrap">
           <h1 className="text-[36px] font-semibold text-gray_900 leading-[120%] flex items-center">
-            Chinese Cabbage
+            {product?.name || "Product"}
           </h1>
           <span className="mt-1.5 px-3 py-1 rounded-lg bg-green-100 text-green-700 text-sm font-semibold self-start">
             In Stock
@@ -48,7 +47,7 @@ export default function DetailRight() {
         {/* Rating + SKU */}
         <div className="flex items-center gap-3 mt-3 flex-wrap">
           <StarRating count={4} />
-          <span className="text-gray-500 text-sm">4 Review</span>
+          <span className="text-gray-500 text-sm">{product?.rating || 0} Review</span>
           <span className="text-gray-300">•</span>
           <span className="text-gray-500 text-sm">
             <span className="font-semibold text-gray-700">SKU:</span> 2,51,594
@@ -57,8 +56,8 @@ export default function DetailRight() {
 
         {/* Price */}
         <div className="flex items-center gap-4 mt-5 flex-wrap">
-          <span className="text-2xl text-gray-400 line-through font-medium">$48.00</span>
-          <span className="text-4xl font-extrabold text-gray-900">$17.28</span>
+          <span className="text-2xl text-gray-400 line-through font-medium">{product?.originalPrice ? `$${product.originalPrice}` : ""}</span>
+          <span className="text-4xl font-extrabold text-gray-900">${product?.price ?? "0.00"}</span>
           <span className="px-4 py-1.5 rounded-full bg-red-100 text-red-500 text-sm font-semibold">
             64% Off
           </span>
@@ -67,7 +66,7 @@ export default function DetailRight() {
         <hr className="my-6 border-gray-100" />
 
         {/* Brand + Share */}
-        <div className="flex items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center justify-between  gap-4">
           {/* Brand */}
           <div className="flex items-center gap-3">
             <span className="text-gray-700 font-semibold text-base">Brand:</span>
@@ -99,9 +98,7 @@ export default function DetailRight() {
 
         {/* Description */}
         <p className="mt-5 text-gray-500 leading-relaxed text-base">
-          Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-          himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla
-          varius magna a consequat pulvinar.
+          {product?.description || "No description available for this product."}
         </p>
 
         <hr className="my-6 border-gray-100" />

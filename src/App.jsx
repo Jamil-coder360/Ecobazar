@@ -5,10 +5,10 @@ import Roots from './components/main/Roots';
 import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
 import ShopPage from './pages/ShopPage';
-import QuickView from './pages/QuickView';
 import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import { QuickViewProvider } from './context/QuickViewContext';
 
 const router = createBrowserRouter([
   {
@@ -22,10 +22,6 @@ const router = createBrowserRouter([
       {
         path:"/shop",
         element: <ShopPage />
-      },
-      {
-        path:"/view",
-        element: <QuickView />
       },
       {
         path:"/product/:id",
@@ -49,8 +45,10 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <RouterProvider router={router} />
-  )
-}
+    <QuickViewProvider>
+      <RouterProvider router={router} />
+    </QuickViewProvider>
+  );
+};
 
-export default App
+export default App;

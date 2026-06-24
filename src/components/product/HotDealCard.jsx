@@ -1,6 +1,6 @@
 import React from "react";
 import deal from "../../assets/deal.png";
-import { ShoppingBag } from "lucide-react";
+import { useQuickView } from "../../context/QuickViewContext";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -9,6 +9,7 @@ import Button from "../global/Button";
 import UseCountDown from "../../hooks/UseCountDown";
 
 const HotDealCard = ({ product }) => {
+  const { showQuickView } = useQuickView();
   const { name, image, price, originalPrice, rating, sale } = product;
   const {days,hours ,minutes,seconds} = UseCountDown("2026-08-29")
   const discount =
@@ -38,7 +39,11 @@ const HotDealCard = ({ product }) => {
         <Button variant="green" className="w-[371px] !text-center">
           Add to Cart <HiOutlineShoppingBag size={15} />
         </Button>
-        <button className="opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition">
+        <button
+          type="button"
+          onClick={() => showQuickView(product)}
+          className="opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+        >
           <LuEye size={20} />
         </button>
       </div>
