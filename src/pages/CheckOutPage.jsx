@@ -1,8 +1,14 @@
 import React from 'react'
+import PageHading from '../components/global/PageHading';
 
 const CheckOutPage = () => {
   return (
-    <div>CheckOutPage</div>
+   <>
+   <PageHading 
+   pagename="Checkout"
+   mainname={"Shopping Cart"}
+   />
+   </>
   )
 }
 

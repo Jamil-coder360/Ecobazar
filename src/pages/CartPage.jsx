@@ -24,21 +24,19 @@ const CartPage = () => {
       <Section className="pt-10 pb-20">
         <Container>
           <div>
-            <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900 text-center">
+            <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900 text-center mb-8">
               Shopping cart
             </h3>
             <div className=" grid grid-cols-[872px_auto] gap-6">
-              <div className="w-full space-y-10 mt-8">
+              <div className="w-full space-y-10 ">
                 <table className="w-full">
                   <thead>
                     <tr className="text-gray_500 text-[14px] font-medium tracking-[3%] shadow-sm rounded-md border border-gray_100">
                       <th className="px-5 h-[72px] text-left">Product</th>
                       <th className="px-5 h-[72px] text-left">Price</th>
                       <th className="px-5 h-[72px] text-center">Quantity</th>
-                      <th className="px-5 h-[72px] text-center">
-                        Stock Status
-                      </th>
-                      <th className="px-5 h-[72px] text-right">Action</th>
+                      <th className="px-5 h-[72px] text-center">Subtotal</th>
+                      {/* <th className="px-5 h-[72px] text-right">Action</th> */}
                     </tr>
                   </thead>
 
@@ -64,7 +62,7 @@ const CartPage = () => {
                           ${item.price.toFixed(2)}
                         </td>
                         <td className="px-5 h-[72px] text-center">
-                          <div className="inline-flex items-center gap-2 border border-gray-200 rounded-full px-3 py-2">
+                          <div className="flex items-center justify-between gap-2 border border-gray-200 rounded-full px-3 py-2">
                             <button
                               type="button"
                               onClick={() =>
@@ -75,7 +73,7 @@ const CartPage = () => {
                                   }),
                                 )
                               }
-                              className="text-gray-600 font-bold"
+                              className="w-8 h-8 flex items-center justify-center text-gray-600 text-[14px] font-bold bg-gray_100 rounded-full"
                             >
                               −
                             </button>
@@ -90,15 +88,15 @@ const CartPage = () => {
                                   }),
                                 )
                               }
-                              className="text-gray-600 font-bold"
+                              className="w-8 h-8 flex items-center justify-center text-gray-600 text-[14px] font-bold bg-gray_100 rounded-full"
                             >
                               +
                             </button>
                           </div>
                         </td>
                         <td className="px-5 h-[72px] text-center">
-                          <span className="text-green-600 font-medium">
-                            In Stock
+                          <span className="text-gray_900 font-medium text-base">
+                            <span>{subtotal?.toLocaleString()}</span>
                           </span>
                         </td>
                         <td className="px-5 h-[72px]">
@@ -115,6 +113,20 @@ const CartPage = () => {
                       </tr>
                     ))}
                   </tbody>
+                  <tfoot>
+                    <tr>
+                      <td
+                        colSpan={4}
+                        className="border border-gray_100 shadow-sm rounded-md"
+                      >
+                        <div className="flex items-center justify-between py-4 px-5">
+                          <Button>Return to Shop</Button>
+
+                          <Button>Update Cart</Button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
               <div>
