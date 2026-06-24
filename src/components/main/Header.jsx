@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../global/Button";
-import { ArrowBigRight, ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon } from "lucide-react";
 import { FaChevronDown } from "react-icons/fa";
 
 import { Link } from "react-router";
@@ -10,6 +10,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import Section from "../global/Section";
 import { LuPhoneCall } from "react-icons/lu";
+import { useAppSelector } from "../../store/hooks";
 
 export const menuItems = [
   {
@@ -119,6 +120,12 @@ export const menuItems = [
 ];
 
 const Header = () => {
+  const wishlistCount = useAppSelector((state) => state.wishlist.items.length);
+  const cartCount = useAppSelector((state) => state.cart.items.length);
+  const cartTotal = useAppSelector((state) =>
+    state.cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+  );
+
   return (
     <header>
       <section className="py-3.25 border-b border-b-gray_200">
@@ -190,15 +197,25 @@ const Header = () => {
             </button>
           </div>
           <div className="flex items-center ">
-            <IoMdHeartEmpty size={32} />
+            <div className="relative">
+              <IoMdHeartEmpty size={32} />
+              <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-semibold">
+                {wishlistCount}
+              </span>
+            </div>
             <span className="text-gray-200 w-[1px] px-4">|</span>
-            <HiOutlineShoppingBag size={32} />
+            <div className="relative">
+              <HiOutlineShoppingBag size={32} />
+              <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-green-500 text-white text-[11px] font-semibold">
+                {cartCount}
+              </span>
+            </div>
             <div className="pl-3">
               <p className="text-gray_700 text-[11px] font-normal leading-[120%] ">
                 Shopping cart:
               </p>
               <strong className="text-gray_900 text-[14px] font-medium leading-[100%] pt-2">
-                $57.00
+                ${cartTotal.toFixed(2)}
               </strong>
             </div>
           </div>

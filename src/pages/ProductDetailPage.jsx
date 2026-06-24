@@ -13,7 +13,7 @@ import PageHading from "../components/global/PageHading";
 import ProductDes from "../components/product/ProductDes";
 import ProductCard from "../components/product/ProductCard";
 
-const ProductDetailPage = () => {
+const ProductDetailPage = ({product}) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/products")
@@ -34,25 +34,25 @@ const ProductDetailPage = () => {
         <Container className=" bg-white ">
           <div>
             <div className="grid grid-cols-[648px_auto] gap-6 p-10 relative">
-              <div className="grid grid-cols-[80px_auto]">
-                <div className="grid grid-cols-1">
-                  <div className="w-20 h-22.5 overflow-hidden">
-                    <img src={view_1} alt="image" className="w-full h-full" />
-                  </div>
-                  <div className="w-20 h-22.5 overflow-hidden">
-                    <img src={view_2} alt="image" className="w-full h-full" />
-                  </div>
-                  <div className="w-20 h-22.5 overflow-hidden">
-                    <img src={view_3} alt="image" className="w-full h-full" />
-                  </div>
-                  <div className="w-20 h-22.5 overflow-hidden">
-                    <img src={view_4} alt="image" className="w-full h-full" />
-                  </div>
+             <div className="grid grid-cols-[80px_auto] gap-3 items-center justify-between">
+              <div className="grid grid-cols-1 gap-4">
+                <div className="w-20 h-22.5 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="w-full h-full" />
                 </div>
-                <div className="w-[556px] h-[556px] overflow-hidden">
-                  <img src={view} alt="image" className="w-full h-full" />
+                <div className="w-20 h-22.5 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="w-full h-full" />
+                </div>
+                <div className="w-20 h-22.5 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="w-full h-full" />
+                </div>
+                <div className="w-20 h-22.5 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="w-full h-full" />
                 </div>
               </div>
+              <div className="w-[556px] h-[556px] overflow-hidden">
+                <img src={product.image} alt={product.name} className="w-full h-full" />
+              </div>
+            </div>
               <div>
                 {/* <h3 className="text-[36px] font-semibold text-gray_900 leading-[120%] flex items-center">
                 Chinese Cabbage

@@ -1,11 +1,15 @@
-import { ShoppingBag } from "lucide-react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
 import { useQuickView } from "../../context/QuickViewContext";
+import { Link } from "react-router";
+import { useAppDispatch } from "../../store/hooks";
+import { addToCart } from "../../store/cartSlice";
+import { addToWishlist } from "../../store/wishlistSlice";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useAppDispatch();
   const { showQuickView } = useQuickView();
   const { name, image, price, originalPrice, rating, sale } = product;
   const discount =
@@ -23,7 +27,11 @@ const ProductCard = ({ product }) => {
 
       {/* floating icons */}
 
-      <button className=" absolute top-4 right-4 opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition">
+      <button
+        type="button"
+        onClick={() => dispatch(addToWishlist(product))}
+        className=" absolute top-4 right-4 opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+      >
         <IoMdHeartEmpty size={20} />
       </button>
       <button
@@ -35,9 +43,12 @@ const ProductCard = ({ product }) => {
       </button>
 
       {/* Product Image */}
+      <Link to={`/product/${product.id}`}>
+      
       <div className="w-full h-[240px]">
         <img src={image} alt={name} className="w-full h-full " />
       </div>
+      </Link>
 
       {/* Product Info */}
       <div className="p-3">
@@ -63,7 +74,11 @@ const ProductCard = ({ product }) => {
             </div>
           </div>
 
-          <button className="p-2.5 rounded-full bg-gray_50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition">
+          <button
+            type="button"
+            onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
+            className="p-2.5 rounded-full bg-gray_50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition"
+          >
             <HiOutlineShoppingBag size={20} />
           </button>
         </div>

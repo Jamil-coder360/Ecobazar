@@ -3,6 +3,9 @@ import { FaInstagram, FaPinterestP, FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoLogoTwitter } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { addToCart } from "../../store/cartSlice";
+import { addToWishlist } from "../../store/wishlistSlice";
 
 function StarRating({ count, total = 5 }) {
   return (
@@ -24,8 +27,11 @@ function StarRating({ count, total = 5 }) {
 const tags = ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"];
 
 export default function DetailRight({ product }) {
+  const dispatch = useAppDispatch();
   const [quantity, setQuantity] = useState(5);
-  const [wishlisted, setWishlisted] = useState(false);
+  const wishlisted = useAppSelector((state) =>
+    product ? state.wishlist.items.some((item) => item.id === product.id) : false,
+  );
 
   const decrement = () => setQuantity((q) => Math.max(1, q - 1));
   const increment = () => setQuantity((q) => q + 1);
@@ -125,18 +131,22 @@ export default function DetailRight({ product }) {
           </div>
 
           {/* Add to Cart */}
-          <button className="flex-1 min-w-[180px] flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold text-base rounded-full py-3 px-6 transition-colors shadow-sm">
+          <button
+            type="button"
+            className="flex-1 min-w-[180px] flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold text-base rounded-full py-3 px-6 transition-colors shadow-sm"
+            onClick={() => product && dispatch(addToCart({ ...product, quantity }))}
+          >
             Add to Cart
             <HiOutlineShoppingBag size={15} />
           </button>
 
           {/* Wishlist */}
           <button
-            onClick={() => setWishlisted((w) => !w)}
+            type="button"
+            onClick={() => product && dispatch(addToWishlist(product))}
             className="w-12 h-12 rounded-full bg-green-50 hover:bg-green-100 flex items-center justify-center transition-colors"
           >
-            {/* <HeartIc filled={wishlisted} /> */}
-            <FaRegHeart />
+            <FaRegHeart className={wishlisted ? "text-red-500" : "text-gray-500"} />
           </button>
         </div>
 

@@ -7,8 +7,12 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
 import Button from "../global/Button";
 import UseCountDown from "../../hooks/UseCountDown";
+import { useAppDispatch } from "../../store/hooks";
+import { addToCart } from "../../store/cartSlice";
+import { addToWishlist } from "../../store/wishlistSlice";
 
 const HotDealCard = ({ product }) => {
+  const dispatch = useAppDispatch();
   const { showQuickView } = useQuickView();
   const { name, image, price, originalPrice, rating, sale } = product;
   const {days,hours ,minutes,seconds} = UseCountDown("2026-08-29")
@@ -33,10 +37,19 @@ const HotDealCard = ({ product }) => {
       {/* floating icons */}
 
       <div className="flex items-center justify-center gap-2 absolute top-[377px] left-6">
-        <button className="  opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition">
+        <button
+          type="button"
+          onClick={() => dispatch(addToWishlist(product))}
+          className="  opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+        >
           <IoMdHeartEmpty size={20} />
         </button>
-        <Button variant="green" className="w-[371px] !text-center">
+        <Button
+          type="button"
+          variant="green"
+          className="w-[371px] !text-center"
+          onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
+        >
           Add to Cart <HiOutlineShoppingBag size={15} />
         </Button>
         <button
