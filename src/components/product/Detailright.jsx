@@ -4,8 +4,8 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { IoLogoTwitter } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { addToCart } from "../../store/cartSlice";
-import { addToWishlist } from "../../store/wishlistSlice";
+import { addToCart } from "../../features/cart/cartSlice";
+import { addToWishlist } from "../../features/wish/wishlistSlice";
 
 function StarRating({ count, total = 5 }) {
   return (

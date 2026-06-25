@@ -8,8 +8,8 @@ import { LuEye } from "react-icons/lu";
 import Button from "../global/Button";
 import UseCountDown from "../../hooks/UseCountDown";
 import { useAppDispatch } from "../../store/hooks";
-import { addToCart } from "../../store/cartSlice";
-import { addToWishlist } from "../../store/wishlistSlice";
+import { addToCart } from "../../features/cart/cartSlice";
+import { addToWishlist } from "../../features/wish/wishlistSlice";
 
 const HotDealCard = ({ product }) => {
   const dispatch = useAppDispatch();

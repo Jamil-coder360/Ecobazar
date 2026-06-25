@@ -12,6 +12,7 @@ import { QuickViewProvider } from "./context/QuickViewContext";
 import WishlistPage from "./pages/WishlistPage";
 import CartPage from "./pages/CartPage";
 import CheckOutPage from "./pages/CheckOutPage";
+import AccounPage from "./pages/AccountPage";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/signin",
         element: <SignInPage />,
+      },
+      {
+        path:"/account",
+        element:<AccounPage />,
       },
       {
         path: "/signup",

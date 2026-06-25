@@ -8,8 +8,8 @@ import { RiFacebookFill } from "react-icons/ri";
 import { IoLogoTwitter } from "react-icons/io";
 import { FaInstagram, FaPinterestP } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { removeFromWishlist } from "../store/wishlistSlice";
-import { addToCart } from "../store/cartSlice";
+import { removeFromWishlist } from "../features/wish/wishlistSlice";
+import { addToCart } from "../features/cart/cartSlice";
 
 const WishlistPage = () => {
   const dispatch = useAppDispatch();

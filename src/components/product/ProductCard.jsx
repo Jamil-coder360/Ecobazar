@@ -5,8 +5,8 @@ import { LuEye } from "react-icons/lu";
 import { useQuickView } from "../../context/QuickViewContext";
 import { Link } from "react-router";
 import { useAppDispatch } from "../../store/hooks";
-import { addToCart } from "../../store/cartSlice";
-import { addToWishlist } from "../../store/wishlistSlice";
+import { addToCart } from "../../features/cart/cartSlice";
+import { addToWishlist } from "../../features/wish/wishlistSlice";
 
 const ProductCard = ({ product }) => {
   const dispatch = useAppDispatch();

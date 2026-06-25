@@ -67,7 +67,7 @@ const ShopPage = () => {
                 </div>
                 <p className="text-base leading-[150%] font-normal text-gray_600">
                   <span className="text-base leading-[120%] font-semibold text-gray_900 pr-2">
-                    52
+                    {products.length}
                   </span>
                   Results Found
                 </p>

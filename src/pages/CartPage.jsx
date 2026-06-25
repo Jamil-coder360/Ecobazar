@@ -6,7 +6,7 @@ import Section from "../components/global/Section";
 import Container from "../components/global/Container";
 import { useAppDispatch } from "../store/hooks";
 import { useAppSelector } from "../store/hooks";
-import { removeFromCart, updateQuantity } from "../store/cartSlice";
+import { removeFromCart, updateQuantity } from "../features/cart/cartSlice";
 
 const CartPage = () => {
   const dispatch = useAppDispatch();
@@ -113,10 +113,10 @@ const CartPage = () => {
                       </tr>
                     ))}
                   </tbody>
-                  <tfoot>
-                    <tr>
+                  <tfoot className="w-full">
+                    <tr className="w-full">
                       <td
-                        colSpan={4}
+                        colSpan={5}
                         className="border border-gray_100 shadow-sm rounded-md"
                       >
                         <div className="flex items-center justify-between py-4 px-5">
