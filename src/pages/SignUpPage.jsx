@@ -3,8 +3,37 @@ import Section from "../components/global/Section";
 import Container from "../components/global/Container";
 import { Eye } from "lucide-react";
 import Button from "../components/global/Button";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const SignUpPage = () => {
+ const {signUp} = useContext(AuthContext);
+  const [userValue,setUserValue]= useState({
+  email:"",
+  password: "",
+  confirmpassword:""
+ }) 
+
+ const handleInputChange = (e) => {
+  const {name, value} = e.target;
+  setUserValue((prev) => {
+    return{...prev, [name]:value};
+  });
+console.log(userValue);
+  // console.log(e.target.name);
+  // console.log(e.target.value);
+ };
+const handleSignUp = () => {
+    signUp( userValue.email,userValue.password ,userValue.confirmpassword );
+
+  setUserValue({
+  email:"",
+  password:"",
+  confirmpassword:"",
+
+})
+};
+
   return (
     <>
       <PageHading mainname={"Account"} pagename={"Create Account"} />
@@ -19,23 +48,29 @@ const SignUpPage = () => {
               <div className="relative flex flex-col gap-3 w-full">
                 <input
                   type="text"
-                  name="Email"
-                  id="Email"
+                  name="email"
+                  id="email"
+                  value={userValue.email}
+                  onChange={(e)=>handleInputChange(e)}
                   placeholder="Email"
                   className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
                 />
                 <input
-                  type="text"
-                  name="Password"
-                  id="Password"
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={userValue.pagename}
+                  onChange={(e)=>handleInputChange(e)}
                   placeholder="Password"
                   className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
                 />
                 <Eye className="absolute right-4 top-23 -translate-y-1/2 cursor-pointer text-gray-500" />
                 <input
-                  type="text"
-                  name="Password"
-                  id="Password"
+                  type="password"
+                  name="confirmpassword"
+                  value={userValue.confirmpassword}
+                  onChange={(e)=>handleInputChange(e)}
+                  id="confirmpassword"
                   placeholder="Confirm Password"
                   className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
                 />
@@ -52,9 +87,9 @@ const SignUpPage = () => {
                   </p> */}
                 </div>
               </div>
-              <Button variant="green" className="w-full">
-                Create Account
-              </Button>
+            <Button onClick={handleSignUp} variant="green" className="w-full">
+  Create Account
+</Button>
               <div className="flex items-center gap-1 pb-2">
                 <p className="text-[14px] leading-[150%] text-gray_600 font-normal ">
                   Already have account

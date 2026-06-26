@@ -4,11 +4,16 @@ import { Provider } from 'react-redux'
 import './index.css'
 import App from './App.jsx'
 import { store } from './store'
+import AuthProvider from './context/AuthContext.jsx';
+import { ToastContainer } from "react-toastify";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
+      <AuthProvider>
+      <ToastContainer />
       <App />
+      </AuthProvider>
     </Provider>
   </StrictMode>,
 )

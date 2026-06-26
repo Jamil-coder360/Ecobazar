@@ -9,6 +9,7 @@ import Dashboard from "../components/account/Dashboard";
 import WishlistPage from "./WishlistPage";
 import CartPage from "./CartPage";
 import Setting from "../components/account/Setting";
+import LogOut from "../components/account/LogOut";
 
 const navItems = [
   {
@@ -39,6 +40,7 @@ const navItems = [
   {
     label: "Log out",
     icon:<IoLogOutOutline />,
+    component: <LogOut />
   },
 ];
 

@@ -1,6 +1,6 @@
-import React from "react";
+import { useContext } from "react";
 import Button from "../global/Button";
-import { ChevronDownIcon } from "lucide-react";
+import { ChevronDownIcon, User } from "lucide-react";
 import { FaChevronDown } from "react-icons/fa";
 
 import { Link } from "react-router";
@@ -11,6 +11,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import Section from "../global/Section";
 import { LuPhoneCall } from "react-icons/lu";
 import { useAppSelector } from "../../store/hooks";
+import { AuthContext } from "../../context/AuthContext";
 
 export const menuItems = [
   {
@@ -125,6 +126,7 @@ const Header = () => {
   const cartTotal = useAppSelector((state) =>
     state.cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0),
   );
+  const {user} =useContext(AuthContext);
 
   return (
     <header>
@@ -148,6 +150,14 @@ const Header = () => {
               </div>
               <span className="text-gray_100 w-[1px] px-5">|</span>
 
+              { user ? (
+                <>
+                <Link to={"/account"}>
+                <User />
+                </Link>
+                </>
+              ): 
+                 <>
               <Link to={"/signin"} className="text-gray_600 text-[12px] font-normal leading-[130%]">
                 Sign In
               </Link>
@@ -157,6 +167,14 @@ const Header = () => {
               <Link to={"/signup"} className="text-gray_600 text-[12px] font-normal leading-[130%] ">
                 Sign Up
               </Link>
+                </>
+              }
+
+              {/* {user && (
+                <User />
+              )} */}
+
+
             </div>
           </div>
         </Container>
