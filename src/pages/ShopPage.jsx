@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import Section from "../components/global/Section";
 import Container from "../components/global/Container";
 import PageHading from "../components/global/PageHading";
@@ -7,14 +8,19 @@ import { ChevronDown } from "lucide-react";
 import ProductCard from "../components/product/ProductCard";
 
 const ShopPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState("Latest");
+  const selectedCategory = searchParams.get("category") || "";
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
-    fetch("https://ecobazar-ktbd.onrender.com/products")
+    const query = selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}` : "";
+    fetch(`https://ecobazar-ktbd.onrender.com/products${query}`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+      .then((data) => setProducts(data))
+      .catch(() => setProducts([]));
+  }, [selectedCategory]);
   return (
     <>
       <PageHading pagename="Categories" />
@@ -22,7 +28,16 @@ const ShopPage = () => {
         <Container>
           <div className="grid grid-cols-[312px_auto] gap-6">
             <div>
-              <GroceryFilter />
+              <GroceryFilter
+                selectedCategory={selectedCategory}
+                onCategoryChange={(category) => {
+                  if (category) {
+                    setSearchParams({ category });
+                  } else {
+                    setSearchParams({});
+                  }
+                }}
+              />
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex items-center justify-between">
@@ -31,7 +46,7 @@ const ShopPage = () => {
                     Sort by:
                   </span>
 
-                  <div className="relative w-[166px]">
+                  <div className="relative w-41.5">
                     <button
                       onClick={() => setOpen(!open)}
                       className="w-full border border-gray-200 rounded-md px-4 py-2 bg-white text-left flex items-center justify-between"

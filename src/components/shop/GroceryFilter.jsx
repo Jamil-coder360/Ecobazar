@@ -3,19 +3,51 @@ import { useState } from "react";
 import { Link } from "react-router";
 import Banner_6 from "../../assets/Bannar-6.png"
 const categories = [
-  { name: "Fresh Fruit", count: 25, total: 134 },
-  { name: "Vegetables", count: 150, total: 150 },
-  { name: "Cooking", count: 54, total: 54 },
-  { name: "Snacks", count: 47, total: 47 },
-  { name: "Beverages", count: 43, total: 43 },
-  { name: "Beauty & Health", count: 38, total: 38 },
-  { name: "Bread & Bakery", count: 15, total: 15 },
+  { name: "Fresh Fruit", slug: "fresh-fruit", count: 134, total: 134 },
+  { name: "Fresh Vegetables", slug: "fresh-vegetables", count: 150, total: 150 },
+  { name: "Meat & Fish", slug: "meat-fish", count: 32, total: 32 },
+  { name: "Snacks", slug: "snacks", count: 47, total: 47 },
+  { name: "Beverages", slug: "beverages", count: 43, total: 43 },
+  { name: "Beauty & Health", slug: "beauty-health", count: 38, total: 38 },
+  { name: "Bread & Bakery", slug: "bread-bakery", count: 15, total: 15 },
+  { name: "Baking Needs", slug: "baking-needs", count: 20, total: 20 },
+  { name: "Cooking", slug: "cooking", count: 54, total: 54 },
+  { name: "Diabetic Food", slug: "diabetic-food", count: 12, total: 12 },
+  { name: "Dish Detergents", slug: "dish-detergents", count: 18, total: 18 },
+  { name: "Oil", slug: "oil", count: 24, total: 24 },
 ];
 
 const tags = [
-  "Healthy", "Low fat", "Vegetarian", "Kid foods",
-  "Vitamins", "Bread", "Meat", "Snacks", "Tiffin",
-  "Launch", "Dinner", "Breackfast", "Fruit",
+  "vegetable",
+  "fruit",
+  "healthy",
+  "cooking",
+  "drink",
+  "oil",
+  "protein",
+  "snack",
+  "bakery",
+  "bread",
+  "cleaning",
+  "diabetic",
+  "leafy",
+  "spice",
+  "staple",
+  "sweet",
+  "beauty",
+  "meat",
+  "seafood",
+  "hygiene",
+  "mango",
+  "orange",
+  "rice",
+  "chili",
+  "juice",
+  "banana",
+  "apple",
+  "chips",
+  "chicken",
+  "fish",
 ];
 
 const ratings = [5, 4, 3, 2, 1];
@@ -87,11 +119,20 @@ function SectionHeader({ title, open, onToggle }) {
   );
 }
 
-export default function GroceryFilter() {
-  const [selectedCategory, setSelectedCategory] = useState("Vegetables");
-  const [priceRange, setPriceRange] = useState([50, 15000]);
-  const [selectedRatings, setSelectedRatings] = useState([4]);
-  const [selectedTags, setSelectedTags] = useState(["Low fat", "Dinner"]);
+export default function GroceryFilter({
+  selectedCategory,
+  onCategoryChange,
+  priceRange,
+  onPriceRangeChange,
+  selectedRatings,
+  onToggleRating,
+  selectedTags,
+  onToggleTag,
+}) {
+  const [localSelectedCategory, setLocalSelectedCategory] = useState("fresh-vegetables");
+  const [localPriceRange, setLocalPriceRange] = useState([0, 15000]);
+  const [localSelectedRatings, setLocalSelectedRatings] = useState([]);
+  const [localSelectedTags, setLocalSelectedTags] = useState([]);
   const [openSections, setOpenSections] = useState({
     categories: true,
     price: true,
@@ -99,20 +140,31 @@ export default function GroceryFilter() {
     tags: true,
   });
 
+  const currentCategory = selectedCategory ?? localSelectedCategory;
+  const currentPriceRange = priceRange ?? localPriceRange;
+  const currentRatings = selectedRatings ?? localSelectedRatings;
+  const currentTags = selectedTags ?? localSelectedTags;
+  const changeCategory = onCategoryChange ?? setLocalSelectedCategory;
+  const changePriceRange = onPriceRangeChange ?? setLocalPriceRange;
+  const changeToggleRating = onToggleRating ?? ((r) =>
+    {
+      setLocalSelectedRatings((prev) =>
+        prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r]
+      );
+    }
+  );
+  const changeToggleTag = onToggleTag ?? ((tag) =>
+    {
+      setLocalSelectedTags((prev) =>
+        prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+      );
+    }
+  );
+
   const toggleSection = (key) =>
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
 
-  const toggleRating = (r) =>
-    setSelectedRatings((prev) =>
-      prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r]
-    );
-
-  const toggleTag = (tag) =>
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
-
-    const getBgImage = (image) => ({
+  const getBgImage = (image) => ({
   backgroundImage: `url(${image})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -121,7 +173,7 @@ export default function GroceryFilter() {
 
   return (
     <div className="">
-      <div className="w-full max-w-[312px] ">
+      <div className="w-full max-w-78 ">
         {/* Header */}
         <div className="px-4  pb-6 flex items-center justify-between">
           <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">
@@ -144,24 +196,24 @@ export default function GroceryFilter() {
               <div className="space-y-2 mt-1">
                 {categories.map((cat) => (
                   <label
-                    key={cat.name}
+                    key={cat.slug}
                     className="flex items-center gap-3 cursor-pointer group"
                   >
                     <div
-                      className={`w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
-                        selectedCategory === cat.name
+                      className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
+                        currentCategory === cat.slug
                           ? "border-green-500 bg-green-500"
                           : "border-gray-300 group-hover:border-green-400"
                       }`}
-                      onClick={() => setSelectedCategory(cat.name)}
+                      onClick={() => changeCategory(cat.slug)}
                     >
-                      {selectedCategory === cat.name && (
+                      {currentCategory === cat.slug && (
                         <div className="w-1.5 h-1.5 rounded-full bg-white" />
                       )}
                     </div>
                     <span
                       className="text-sm text-gray_900 flex-1"
-                      onClick={() => setSelectedCategory(cat.name)}
+                      onClick={() => changeCategory(cat.slug)}
                     >
                       {cat.name}{" "}
                       <span className="text-gray-400">({cat.count})</span>
@@ -186,13 +238,13 @@ export default function GroceryFilter() {
                     type="range"
                     min={50}
                     max={15000}
-                    value={priceRange[1]}
+                    value={currentPriceRange[1]}
                     onChange={(e) =>
-                      setPriceRange([priceRange[0], Number(e.target.value)])
+                      changePriceRange([currentPriceRange[0], Number(e.target.value)])
                     }
                     className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
                     style={{
-                      background: `linear-gradient(to right, #22c55e ${((priceRange[0] - 50) / 1450) * 100}%, #22c55e ${((priceRange[1] - 50) / 1450) * 100}%, #e5e7eb ${((priceRange[1] - 50) / 1450) * 100}%)`,
+                      background: `linear-gradient(to right, #22c55e ${((currentPriceRange[0] - 50) / 14950) * 100}%, #22c55e ${((currentPriceRange[1] - 50) / 14950) * 100}%, #e5e7eb ${((currentPriceRange[1] - 50) / 14950) * 100}%)`,
                       accentColor: "#22c55e",
                     }}
                   />
@@ -200,7 +252,7 @@ export default function GroceryFilter() {
                 <p className="text-sm text-gray-500 mt-2">
                   Price:{" "}
                   <span className="font-medium text-gray-700">
-                    {priceRange[0]} — {priceRange[1]}
+                    {currentPriceRange[0]} — {currentPriceRange[1]}
                   </span>
                 </p>
               </div>
@@ -219,20 +271,20 @@ export default function GroceryFilter() {
                 {ratings.map((r) => (
                   <label key={r} className="flex items-center gap-3 cursor-pointer group">
                     <div
-                      className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
-                        selectedRatings.includes(r)
+                      className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
+                        currentRatings.includes(r)
                           ? "border-green-500 bg-green-500"
                           : "border-gray-300 group-hover:border-green-400"
                       }`}
-                      onClick={() => toggleRating(r)}
+                      onClick={() => changeToggleRating(r)}
                     >
-                      {selectedRatings.includes(r) && (
+                      {currentRatings.includes(r) && (
                         <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 12 12">
                           <path d="M10 3L5 8.5 2 5.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                         </svg>
                       )}
                     </div>
-                    <div className="flex items-center gap-2" onClick={() => toggleRating(r)}>
+                    <div className="flex items-center gap-2" onClick={() => changeToggleRating(r)}>
                       <StarRating count={r} />
                       <span className="text-sm text-gray-600">
                         {r === 5 ? "5.0" : `${r}.0 & up`}
@@ -256,9 +308,9 @@ export default function GroceryFilter() {
                 {tags.map((tag) => (
                   <button
                     key={tag}
-                    onClick={() => toggleTag(tag)}
+                    onClick={() => changeToggleTag(tag)}
                     className={`text-xs px-3 py-1.5 rounded-full border transition-all font-medium ${
-                      selectedTags.includes(tag)
+                      currentTags.includes(tag)
                         ? "bg-green-500 text-white border-green-500"
                         : tag === "Dinner"
                         ? "border-violet-400 text-violet-600 bg-violet-50 hover:bg-violet-100"
@@ -273,7 +325,7 @@ export default function GroceryFilter() {
           </div>
 
           {/* Promo Banner */}
-          <div className="rounded-xl overflow-hidden w-[312px] h-[295px] bg-gray-100 mt-4 relative" style={getBgImage(Banner_6)}>
+          <div className="rounded-xl overflow-hidden w-78 h-73.75 bg-gray-100 mt-4 relative" style={getBgImage(Banner_6)}>
             <div className="px-5 pt-4 pb-2 relative z-10">
               <p className="text-2xl font-bold text-orange-500">
                 79% <span className="text-gray-700 font-semibold text-lg">Discount</span>
@@ -300,7 +352,7 @@ export default function GroceryFilter() {
                   }`}
                 >
                   <div
-                    className={`w-14 h-14 rounded-xl ${p.color} flex items-center justify-center text-2xl flex-shrink-0`}
+                    className={`w-14 h-14 rounded-xl ${p.color} flex items-center justify-center text-2xl shrink-0`}
                   >
                     {p.emoji}
                   </div>

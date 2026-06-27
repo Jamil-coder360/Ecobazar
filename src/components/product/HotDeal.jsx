@@ -9,7 +9,8 @@ import HotDealCard from "./HotDealCard";
 const HotDeal = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/products")
+       fetch(`https://ecobazar-ktbd.onrender.com/products`)
+
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
