@@ -11,6 +11,7 @@ import { removeFromCart, updateQuantity } from "../features/cart/cartSlice";
 const CartPage = () => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
+  const normalizeImage = (src) => (src ? src.replace(/^\.\//, "/") : "");
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
@@ -50,7 +51,7 @@ const CartPage = () => {
                           <div className="flex items-center gap-2">
                             <div className="size-[54px] overflow-hidden py-3">
                               <img
-                                src={item.image}
+                                src={normalizeImage(item.image)}
                                 alt={item.name}
                                 className="h-full"
                               />

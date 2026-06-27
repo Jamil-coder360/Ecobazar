@@ -12,6 +12,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useAppDispatch();
   const { showQuickView } = useQuickView();
   const { name, image, price, originalPrice, rating, sale } = product;
+  const imageUrl = image ? image.replace(/^\.\//, "/") : "";
   const discount =
     originalPrice &&
     Math.round(((originalPrice - price) / originalPrice) * 100);
@@ -46,7 +47,7 @@ const ProductCard = ({ product }) => {
       <Link to={`/product/${product.id}`}>
       
       <div className="w-full h-[240px]">
-        <img src={image} alt={name} className="w-full h-full " />
+        <img src={imageUrl} alt={name} className="w-full h-full " />
       </div>
       </Link>
 

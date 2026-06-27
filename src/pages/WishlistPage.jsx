@@ -14,6 +14,7 @@ import { addToCart } from "../features/cart/cartSlice";
 const WishlistPage = () => {
   const dispatch = useAppDispatch();
   const wishlistItems = useAppSelector((state) => state.wishlist.items);
+  const normalizeImage = (src) => (src ? src.replace(/^\.\//, "/") : "");
 
   return (
     <>
@@ -41,7 +42,7 @@ const WishlistPage = () => {
                       <td className="px-5 h-[72px]">
                         <div className="flex items-center gap-2">
                           <div className="size-[54px] overflow-hidden py-3">
-                            <img src={item.image} alt={item.name} className="h-full" />
+                            <img src={normalizeImage(item.image)} alt={item.name} className="h-full" />
                           </div>
                           <p>{item.name}</p>
                         </div>

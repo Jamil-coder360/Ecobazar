@@ -5,6 +5,7 @@ import DetailRight from "../components/product/Detailright";
 import { X } from "lucide-react";
 const QuickView = ({ onClose, product }) => {
   if (!product) return null;
+  const imageUrl = product.image ? product.image.replace(/^\.\//, "/") : "";
 
   return (
     <Section className="fixed inset-0 z-50 bg-[#000000]/70 overflow-auto">
@@ -14,20 +15,20 @@ const QuickView = ({ onClose, product }) => {
             <div className="grid grid-cols-[80px_auto] gap-3 items-center justify-between">
               <div className="grid grid-cols-1 gap-4">
                 <div className="w-20 h-22.5 overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-full" />
+                  <img src={imageUrl} alt={product.name} className="w-full h-full" />
                 </div>
                 <div className="w-20 h-22.5 overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-full" />
+                  <img src={imageUrl} alt={product.name} className="w-full h-full" />
                 </div>
                 <div className="w-20 h-22.5 overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-full" />
+                  <img src={imageUrl} alt={product.name} className="w-full h-full" />
                 </div>
                 <div className="w-20 h-22.5 overflow-hidden">
-                  <img src={product.image} alt={product.name} className="w-full h-full" />
+                  <img src={imageUrl} alt={product.name} className="w-full h-full" />
                 </div>
               </div>
               <div className="w-[556px] h-[556px] overflow-hidden">
-                <img src={product.image} alt={product.name} className="w-full h-full" />
+                <img src={imageUrl} alt={product.name} className="w-full h-full" />
               </div>
             </div>
             <div>
