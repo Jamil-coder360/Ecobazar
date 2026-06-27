@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = ({
-  Tagname = "button",
+  as: Tagname = "button",
   children,
   className = "",
   variant = "white",

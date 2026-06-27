@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router";
 import Banner_6 from "../../assets/Bannar-6.png"
 const categories = [
   { name: "Fresh Fruit", count: 25, total: 134 },
@@ -278,9 +279,9 @@ export default function GroceryFilter() {
                 79% <span className="text-gray-700 font-semibold text-lg">Discount</span>
               </p>
               <p className="text-sm text-gray-500">on your first order</p>
-              <button className="mt-2 text-green-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+              <Link to="/shop" className="mt-2 text-green-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">
                 Shop Now →
-              </button>
+              </Link>
             </div>
        
           </div>

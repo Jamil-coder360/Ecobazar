@@ -1,38 +1,59 @@
 import PageHading from "../components/global/PageHading";
 import Section from "../components/global/Section";
 import Container from "../components/global/Container";
-import { Eye } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import Button from "../components/global/Button";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
- const {signUp} = useContext(AuthContext);
-  const [userValue,setUserValue]= useState({
-  email:"",
-  password: "",
-  confirmpassword:""
- }) 
+  const { signUp, logOut } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
- const handleInputChange = (e) => {
-  const {name, value} = e.target;
-  setUserValue((prev) => {
-    return{...prev, [name]:value};
+  const [userValue, setUserValue] = useState({
+    email: "",
+    password: "",
+    confirmpassword: "",
   });
-console.log(userValue);
-  // console.log(e.target.name);
-  // console.log(e.target.value);
- };
-const handleSignUp = () => {
-    signUp( userValue.email,userValue.password ,userValue.confirmpassword );
 
-  setUserValue({
-  email:"",
-  password:"",
-  confirmpassword:"",
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserValue((prev) => {
+      return { ...prev, [name]: value };
+    });
+    console.log(userValue);
+    // console.log(e.target.name);
+    // console.log(e.target.value);
+  };
+  const handleSignUp = () => {
+    if (userValue.password !== userValue.confirmpassword) {
+      toast.warning("password not match");
+      return;
+    }
 
-})
-};
+    signUp(userValue.email, userValue.password, userValue.confirmpassword)
+      .then((result) => {
+        // সাথে সাথে logout, user set হওয়ার আগেই
+        return logOut();
+      })
+      .then(() => {
+        setUserValue({
+          email: "",
+          password: "",
+          confirmpassword: "",
+        });
+        toast.success("Account created successfully!");
+        navigate("/signin");
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(error.message);
+      });
+  };
 
   return (
     <>
@@ -51,33 +72,53 @@ const handleSignUp = () => {
                   name="email"
                   id="email"
                   value={userValue.email}
-                  onChange={(e)=>handleInputChange(e)}
-                  placeholder="Email"
+                  onChange={(e) => handleInputChange(e)}
+                  placeholder="E`mail"
                   className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
                 />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={userValue.pagename}
-                  onChange={(e)=>handleInputChange(e)}
-                  placeholder="Password"
-                  className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
-                />
-                <Eye className="absolute right-4 top-23 -translate-y-1/2 cursor-pointer text-gray-500" />
-                <input
-                  type="password"
-                  name="confirmpassword"
-                  value={userValue.confirmpassword}
-                  onChange={(e)=>handleInputChange(e)}
-                  id="confirmpassword"
-                  placeholder="Confirm Password"
-                  className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
-                />
-                <Eye className="absolute right-4 top-39.75 -translate-y-1/2 cursor-pointer text-gray-500" />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={userValue.password}
+                    onChange={(e) => handleInputChange(e)}
+                    placeholder="Password"
+                    className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2  text-gray-500"
+                  >
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  </button>
+                </div>
+                <div className="relative">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    name="confirmpassword"
+                    value={userValue.confirmpassword}
+                    onChange={(e) => handleInputChange(e)}
+                    id="confirmpassword"
+                    placeholder="Confirm Password"
+                    className="py-3.5 px-4 border border-gray_100 rounded-[10px] w-full"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2  text-gray-500"
+                  >
+                    {showConfirmPassword ? (
+                      <EyeOff size={20} />
+                    ) : (
+                      <Eye size={20} />
+                    )}
+                  </button>
+                </div>
                 <div className="flex items-center justify-between">
                   <div className="flex gap-1.5">
-                    <input type="checkbox" name="" id="" />
+                    <input type="checkbox" name="" id="" required />
                     <p className="text-[14px] leading-[150%] text-gray_600 font-normal ">
                       Accept all terms & Conditions
                     </p>
@@ -87,9 +128,9 @@ const handleSignUp = () => {
                   </p> */}
                 </div>
               </div>
-            <Button onClick={handleSignUp} variant="green" className="w-full">
-  Create Account
-</Button>
+              <Button onClick={handleSignUp} variant="green" className="w-full">
+                Create Account
+              </Button>
               <div className="flex items-center gap-1 pb-2">
                 <p className="text-[14px] leading-[150%] text-gray_600 font-normal ">
                   Already have account

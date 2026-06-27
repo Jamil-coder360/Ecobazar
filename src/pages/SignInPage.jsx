@@ -104,7 +104,7 @@ return (
 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex gap-1.5">
-                    <input type="checkbox" name="" id="" />
+                    <input type="checkbox" name="" id="" required />
                     <p className="text-[14px] leading-[150%] text-gray_600 font-normal ">
                       Remember me
                     </p>

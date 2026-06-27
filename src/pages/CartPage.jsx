@@ -96,7 +96,7 @@ const CartPage = () => {
                         </td>
                         <td className="px-5 h-[72px] text-center">
                           <span className="text-gray_900 font-medium text-base">
-                            <span>{subtotal?.toLocaleString()}</span>
+                            <span>{(item.price * item.quantity)?.toLocaleString()}</span>
                           </span>
                         </td>
                         <td className="px-5 h-[72px]">

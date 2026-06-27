@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router';
 import Section from './global/Section';
 import Container from './global/Container';
 
@@ -33,7 +34,7 @@ const DiscountBannar = () => {
                 </span> */}
               </p>
 
-              <Button variant="green">
+              <Button as={Link} to="/shop" variant="green">
                 Shop Now <ArrowRight />
               </Button>
             </div>

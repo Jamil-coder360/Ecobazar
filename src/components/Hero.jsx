@@ -8,6 +8,7 @@ import bannar_big from "../assets/bannar_big.png";
 import bannar_up from "../assets/bannar_up.png";
 import bannar_down from "../assets/bannar_down.png";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 
 //  background image setup
 const getBgImage = (image) => ({
@@ -40,9 +41,11 @@ const Hero = () => {
                 Free shipping on all your order.
               </p>
             </div>
-            <Button className="mt-7">
-              Shop now <ArrowRight />{" "}
-            </Button>
+            <div className="flex">
+              <Button as={Link} to={"/shop"} className="mt-7  flex items-start">
+                Shop now <ArrowRight />{" "}
+              </Button>
+            </div>
           </div>
           <div className="grid  grid-rows-2 gap-6">
             <div
@@ -60,7 +63,12 @@ const Hero = () => {
                   Only Fruit & Vegetable
                 </p>
 
-                <Button className="" variant="transparent">
+                <Button
+                  as={Link}
+                  to={"/shop"}
+                  className=""
+                  variant="transparent"
+                >
                   Shop Now
                   <ArrowRight />
                 </Button>
@@ -77,7 +85,12 @@ const Hero = () => {
                 <h4 className="font-semibold text-[32px] leading-[120%] text-white pt-3 pb-8">
                   Special Products Deal of the Month
                 </h4>
-                <Button className="" variant="transparent">
+                <Button
+                  as={Link}
+                  to={"/shop"}
+                  className=""
+                  variant="transparent"
+                >
                   Shop Now
                   <ArrowRight />
                 </Button>

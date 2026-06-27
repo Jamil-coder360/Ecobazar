@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 import Section from "./global/Section";
 import Container from "./global/Container";
 
@@ -73,7 +74,7 @@ const Bannar = () => {
                   </span>
                 </div>
               </div>
-              <Button>
+              <Button as={Link} to="/shop">
                 Shop Now <ArrowRight />
               </Button>
             </div>
@@ -97,7 +98,7 @@ const Bannar = () => {
                 </span>
               </p>
 
-              <Button>
+              <Button as={Link} to="/shop">
                 Shop Now <ArrowRight />
               </Button>
             </div>
@@ -121,7 +122,7 @@ const Bannar = () => {
                   64% OFF
                 </span>
               </p>
-              <Button>
+              <Button as={Link} to="/shop">
                 Shop Now <ArrowRight />
               </Button>
             </div>

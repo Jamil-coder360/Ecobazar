@@ -6,9 +6,12 @@ import { useNavigate } from "react-router";
 const LogOut = () => {
   const { logOut } = useContext(AuthContext);
   const navigate = useNavigate();
-  const handleLogout = () => {
-    logOut(navigate("/"));
+
+  const handleLogout = async () => {
+    await logOut();
+    navigate("/");
   };
+
   return (
     <div className=" flex items-center justify-center">
       <div className="bg-white rounded-[10px] shadow-2xl flex items-center justify-center w-100 h-50">

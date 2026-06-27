@@ -1,62 +1,72 @@
 import { createContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,signOut ,onAuthStateChanged
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 import auth from "../firebase.config";
 import { toast } from "react-toastify";
+import { clearCart, setCartItems } from "../features/cart/cartSlice";
+import { clearWishlist, setWishlistItems } from "../features/wish/wishlistSlice";
+import { loadStateForUser, setPersistedUser } from "../store";
 
 export const AuthContext = createContext({
   user: {},
   setUser: () => {},
 });
+
 const AuthProvider = ({ children }) => {
- const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
 
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    const restoreUserState = (currentUser) => {
+      if (currentUser) {
+        setPersistedUser(currentUser.uid);
+        const persistedState = loadStateForUser(currentUser.uid);
+        dispatch(setCartItems(persistedState?.cart?.items ?? []));
+        dispatch(setWishlistItems(persistedState?.wishlist?.items ?? []));
+      } else {
+        setPersistedUser(null);
+        dispatch(clearCart());
+        dispatch(clearWishlist());
+      }
+    };
 
-  return () => unsubscribe();
-}, []);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      restoreUserState(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
 
   const signUp = (email, password, confirmpassword) => {
-    createUserWithEmailAndPassword(auth, email, password, confirmpassword)
-      .then((userCredential) => {
-        // Signed up
-        const user = userCredential.user;
-        // ...
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
+    return createUserWithEmailAndPassword(auth, email, password, confirmpassword);
   };
-const signIn = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password);
-};
-const logOut = ()=>{
-  if (!user) {
-    toast.warning("No user found");
-    return;
-  }
-// const auth = getAuth();
-return signOut(auth).then(() => {
-  toast.success("Logout Successful ✅");
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
-}
+
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+      toast.success("Logout Successful ✅");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <AuthContext value={{ user, setUser, signUp, signIn ,logOut }}>
+    <AuthContext.Provider value={{ user, setUser, signUp, signIn, logOut }}>
       {children}
-    </AuthContext>
+    </AuthContext.Provider>
   );
 };
+
 export default AuthProvider;
