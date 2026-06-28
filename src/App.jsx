@@ -13,6 +13,8 @@ import WishlistPage from "./pages/WishlistPage";
 import CartPage from "./pages/CartPage";
 import CheckOutPage from "./pages/CheckOutPage";
 import AccounPage from "./pages/AccountPage";
+import FaqPage from "./pages/FaqPage";
+import ContactPage from "./pages/ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "/signin",
         element: <SignInPage />,
+      },
+      {
+        path: "/faqs",
+        element: <FaqPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
       {
         path:"/account",
