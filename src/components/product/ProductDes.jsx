@@ -39,7 +39,7 @@ export default function ProductDes() {
   return (
     <div className="  py-8 font-sans">
       {/* Tabs */}
-      <div className="flex gap-8 border-b border-gray-200 mb-8">
+      <div className="flex items-center justify-center gap-8 border-b border-gray-200 mb-8">
         {tabs.map((tab) => (
           <button
             key={tab}

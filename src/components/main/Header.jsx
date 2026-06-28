@@ -49,39 +49,6 @@ export const menuItems = [
   },
   {
     id: 3,
-    name: "Categories",
-    path: "/categories",
-    hasDropdown: true,
-    submenu: [
-      {
-        id: 1,
-        label: "Men's Fashion",
-        href: "/categories/mens-fashion",
-      },
-      {
-        id: 2,
-        label: "Women's Fashion",
-        href: "/categories/womens-fashion",
-      },
-      {
-        id: 3,
-        label: "Beauty & Health",
-        href: "/categories/beauty-health",
-      },
-      {
-        id: 4,
-        label: "Home & Kitchen",
-        href: "/categories/home-kitchen",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Deals",
-    path: "/deals",
-  },
-  {
-    id: 5,
     name: "Pages",
     path: "/pages",
     hasDropdown: true,
@@ -109,13 +76,18 @@ export const menuItems = [
     ],
   },
   {
-    id: 6,
+    id: 4,
     name: "Blog",
     path: "/blog",
   },
   {
-    id: 7,
-    name: "Contact",
+    id: 5,
+    name: "About Us",
+    path: "/about",
+  },
+  {
+    id: 6,
+    name: "Contact Us",
     path: "/contact",
   },
 ];
@@ -126,7 +98,7 @@ const Header = () => {
   const cartTotal = useAppSelector((state) =>
     state.cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0),
   );
-  const {user} =useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <header>
@@ -150,31 +122,35 @@ const Header = () => {
               </div>
               <span className="text-gray_100 w-[1px] px-5">|</span>
 
-              { user ? (
+              {user ? (
                 <>
-                <Link to={"/account"}>
-                <User />
-                </Link>
+                  <Link to={"/account"}>
+                    <User />
+                  </Link>
                 </>
-              ): 
-                 <>
-              <Link to={"/signin"} className="text-gray_600 text-[12px] font-normal leading-[130%]">
-                Sign In
-              </Link>
-              <span className="text-gray_600 text-[12px] font-normal leading-[130%] px-1">
-                /
-              </span>
-              <Link to={"/signup"} className="text-gray_600 text-[12px] font-normal leading-[130%] ">
-                Sign Up
-              </Link>
+              ) : (
+                <>
+                  <Link
+                    to={"/signin"}
+                    className="text-gray_600 text-[12px] font-normal leading-[130%]"
+                  >
+                    Sign In
+                  </Link>
+                  <span className="text-gray_600 text-[12px] font-normal leading-[130%] px-1">
+                    /
+                  </span>
+                  <Link
+                    to={"/signup"}
+                    className="text-gray_600 text-[12px] font-normal leading-[130%] "
+                  >
+                    Sign Up
+                  </Link>
                 </>
-              }
+              )}
 
               {/* {user && (
                 <User />
               )} */}
-
-
             </div>
           </div>
         </Container>
@@ -182,10 +158,9 @@ const Header = () => {
       <Section className=" py-6">
         <Container className="flex items-center  justify-between gap-10">
           <Link to={"/"}>
-          
-          <div>
-            <img src="./logo.png" alt="logo" className="w-[183px] h-[38px]" />
-          </div>
+            <div>
+              <img src="./logo.png" alt="logo" className="w-[183px] h-[38px]" />
+            </div>
           </Link>
           <div className="flex items-center w-full max-w-[498px] border border-gray_200 rounded-lg bg-white overflow-hidden shadow-sm">
             {/* Search Icon */}
@@ -219,22 +194,21 @@ const Header = () => {
           </div>
           <div className="flex items-center ">
             <Link to={"/wishlist"}>
-            
-            <div className="relative">
-              <IoMdHeartEmpty size={32} />
-              <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-semibold">
-                {wishlistCount}
-              </span>
-            </div>
+              <div className="relative">
+                <IoMdHeartEmpty size={32} />
+                <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-semibold">
+                  {wishlistCount}
+                </span>
+              </div>
             </Link>
             <span className="text-gray-200 w-[1px] px-4">|</span>
             <Link to={"/cart"}>
-            <div className="relative">
-              <HiOutlineShoppingBag size={32} />
-              <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-green-500 text-white text-[11px] font-semibold">
-                {cartCount}
-              </span>
-            </div>
+              <div className="relative">
+                <HiOutlineShoppingBag size={32} />
+                <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-green-500 text-white text-[11px] font-semibold">
+                  {cartCount}
+                </span>
+              </div>
             </Link>
             <div className="pl-3">
               <p className="text-gray_700 text-[11px] font-normal leading-[120%] ">

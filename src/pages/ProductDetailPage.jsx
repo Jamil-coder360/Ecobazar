@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Section from "../components/global/Section";
 import Container from "../components/global/Container";
-import view from "../assets/view.png";
-import view_1 from "../assets/view_1.png";
-import view_2 from "../assets/view_2.png";
-import view_3 from "../assets/view_3.png";
-import view_4 from "../assets/view_4.png";
 import DetailRight from "../components/product/Detailright";
-import { X } from "lucide-react";
 import PageHading from "../components/global/PageHading";
 import ProductDes from "../components/product/ProductDes";
 import ProductCard from "../components/product/ProductCard";
@@ -16,9 +10,61 @@ import { useParams } from "react-router";
 const ProductDetailPage = () => {
   const [product, setProduct] = useState(null);
   const [detail, setDetail] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const { id } = useParams();
 
   const imageUrl = product?.image ? product.image.replace(/^\.\//, "/") : "";
+
+  const getProductValue = (item, keys) => {
+    for (const key of keys) {
+      const value = item?.[key];
+      if (Array.isArray(value)) {
+        const firstValue = value.find((entry) => typeof entry === "string" && entry.trim());
+        if (firstValue) return firstValue.trim();
+      }
+      if (typeof value === "string" && value.trim()) {
+        return value.trim();
+      }
+    }
+    return "";
+  };
+
+  const getRelatedItems = (currentItem, items) => {
+    if (!currentItem || !items?.length) return [];
+
+    const currentId = currentItem.id ?? currentItem._id;
+    const currentCategory = getProductValue(currentItem, [
+      "category",
+      "categoryName",
+      "type",
+      "subcategory",
+      "subCategory",
+    ]);
+    const currentTag = getProductValue(currentItem, ["tag", "tags"]);
+
+    const matched = items.filter((item) => {
+      const itemId = item.id ?? item._id;
+      if (itemId === currentId) return false;
+
+      const itemCategory = getProductValue(item, [
+        "category",
+        "categoryName",
+        "type",
+        "subcategory",
+        "subCategory",
+      ]);
+      const itemTag = getProductValue(item, ["tag", "tags"]);
+
+      const sameCategory =
+        currentCategory && itemCategory && currentCategory.toLowerCase() === itemCategory.toLowerCase();
+      const sameTag =
+        currentTag && itemTag && currentTag.toLowerCase() === itemTag.toLowerCase();
+
+      return sameCategory || sameTag;
+    });
+
+    return matched.length ? matched.slice(0, 4) : items.filter((item) => (item.id ?? item._id) !== currentId).slice(0, 4);
+  };
 
   useEffect(() => {
     if (!id) return;
@@ -31,15 +77,23 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
   useEffect(() => {
     fetch(`https://ecobazar-ktbd.onrender.com/products`)
       .then((res) => res.json())
-      .then((data) => setDetail(data));
+      .then((data) => {
+        setDetail(data);
+        setRelatedProducts(getRelatedItems(product, data));
+      });
   }, []);
+
+  useEffect(() => {
+    if (!product || !detail.length) return;
+    setRelatedProducts(getRelatedItems(product, detail));
+  }, [product, detail]);
 
   return (
     <>
       <PageHading
-        pagename="Chinese Cabbage"
-        mainname={"Category "}
-        subname={"Vegetables"}
+        pagename={product?.name || "Product Detail"}
+        mainname={getProductValue(product, ["category", "categoryName", "type"]) || "Category"}
+        subname={getProductValue(product, ["subcategory", "subCategory"]) || "Products"}
       />
 
       <Section className="">
@@ -61,8 +115,8 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
                   <img src={imageUrl} alt={product?.name} className="w-full h-full" />
                 </div>
               </div>
-              <div className="w-[556px] h-[556px] overflow-hidden">
-                <img src={imageUrl} alt={product?.name} className="w-full h-full" />
+              <div className="w-full max-w-[556px] h-[320px] sm:h-[420px] lg:h-[556px] overflow-hidden">
+                <img src={imageUrl} alt={product?.name} className="w-full h-full object-cover" />
               </div>
             </div>
               <div>
@@ -80,9 +134,9 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
               <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900 text-center mb-8">
                 Related Products
               </h3>
-              <div className="grid grid-cols-4 gap-6">
-                {detail.slice(1, 5).map((product) => (
-                  <ProductCard key={product.id} product={product} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                {relatedProducts.map((item) => (
+                  <ProductCard key={item.id ?? item._id} product={item} />
                 ))}
               </div>
             </div>
