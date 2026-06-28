@@ -10,6 +10,8 @@ import WishlistPage from "./WishlistPage";
 import CartPage from "./CartPage";
 import Setting from "../components/account/Setting";
 import LogOut from "../components/account/LogOut";
+import Section from "../components/global/Section";
+import PageHading from "../components/global/PageHading";
 
 const navItems = [
   {
@@ -25,12 +27,12 @@ const navItems = [
   {
     label: "Wishlist",
     icon: <IoMdHeartEmpty />,
-    component : <WishlistPage />
+    component : <WishlistPage showPageHeading={false} />
   },
   {
     label: "Shopping Cart",
     icon:  <HiOutlineShoppingBag /> ,
-    component : <CartPage />
+    component : <CartPage showPageHeading={false} />
   },
   {
     label: "Settings",
@@ -53,6 +55,14 @@ const activeItem = navItems.find(
   (item) => item.label === activeNav
 );
   return (
+    <>
+    <PageHading 
+    mainname={"Account"}
+    pagename={activeItem.label}
+    />
+    
+    <Section>
+
     <div className=" bg-gray-50 font-sans">
       {/* Mobile top bar */}
       <div className="md:hidden flex items-center justify-between  py-3 bg-white border-b border-gray-100 shadow-sm">
@@ -79,7 +89,7 @@ const activeItem = navItems.find(
         <aside
           className={`
             ${sidebarOpen ? "block" : "hidden"} md:block
-            w-full md:w-56 shrink-0
+            w-full md:w-[312px] shrink-0
             absolute md:static top-[57px] left-0 right-0 z-20 md:z-auto
             bg-white md:bg-white
             shadow-lg md:shadow-none
@@ -113,11 +123,13 @@ const activeItem = navItems.find(
             ))}
           </nav>
         </aside>
-        <div className="flex-1">
+        <div className="flex-1 w-[984px]">
                       {activeItem?.component}
         </div>
 
       </div>
     </div>
+    </Section>
+    </>
   );
 }

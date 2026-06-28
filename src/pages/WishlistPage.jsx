@@ -11,14 +11,14 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { removeFromWishlist } from "../features/wish/wishlistSlice";
 import { addToCart } from "../features/cart/cartSlice";
 
-const WishlistPage = () => {
+const WishlistPage = ({showPageHeading=true}) => {
   const dispatch = useAppDispatch();
   const wishlistItems = useAppSelector((state) => state.wishlist.items);
   const normalizeImage = (src) => (src ? src.replace(/^\.\//, "/") : "");
 
   return (
     <>
-      <PageHading pagename="Wishlist" />
+      {showPageHeading&&<PageHading pagename="Wishlist" />}
       <Section className="pt-10 pb-20">
         <Container>
           <div>

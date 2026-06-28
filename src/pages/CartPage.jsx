@@ -8,7 +8,7 @@ import { useAppDispatch } from "../store/hooks";
 import { useAppSelector } from "../store/hooks";
 import { removeFromCart, updateQuantity } from "../features/cart/cartSlice";
 
-const CartPage = () => {
+const CartPage = ({showPageHeading=true}) => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
   const normalizeImage = (src) => (src ? src.replace(/^\.\//, "/") : "");
@@ -21,15 +21,17 @@ const CartPage = () => {
 
   return (
     <>
-      <PageHading pagename="Shopping cart" />
+    {showPageHeading&&<PageHading pagename="Shopping cart" /> }
       <Section className="pt-10 pb-20">
         <Container>
           <div>
             <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900 text-center mb-8">
               Shopping cart
             </h3>
-            <div className=" grid grid-cols-[872px_auto] gap-6">
+<div className="grid grid-cols-1 xl:grid-cols-[1fr_424px] gap-6 items-start">
               <div className="w-full space-y-10 ">
+               <div className=" overflow-scroll rounded-xl border border-gray_100">
+
                 <table className="w-full">
                   <thead>
                     <tr className="text-gray_500 text-[14px] font-medium tracking-[3%] shadow-sm rounded-md border border-gray_100">
@@ -129,6 +131,7 @@ const CartPage = () => {
                     </tr>
                   </tfoot>
                 </table>
+                </div>
               </div>
               <div>
                 {/* <div className="flex items-start  justify-between gap-[173px]"> */}

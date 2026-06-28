@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-
+import user_1 from "../../assets/user_1.png"
 const Input = ({ label, optional, ...props }) => (
   <div className="flex flex-col gap-1">
     <label className="text-sm text-gray-600">
@@ -92,7 +92,7 @@ const SectionCard = ({ title, children }) => (
 
 export default function Setting() {
   const fileRef = useRef(null);
-  const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState();
 
   // Account fields
   const [account, setAccount] = useState({
@@ -140,7 +140,7 @@ export default function Setting() {
 
         {/* Account Settings */}
         <SectionCard title="Account Settings">
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="grid grid-cols-[512px_auto] gap-29">
             {/* Form fields */}
             <div className="flex-1 flex flex-col gap-4">
               <Input
@@ -173,11 +173,12 @@ export default function Setting() {
 
             {/* Avatar */}
             <div className="flex flex-col items-center gap-3 sm:pt-2">
-              <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-green-100 bg-gradient-to-br from-green-200 to-green-400 flex items-center justify-center shrink-0">
+              <div className="w-[224px] h-[224px] rounded-full overflow-hidden ring-4 ring-green-100 bg-gradient-to-br from-green-200 to-green-400 flex items-center justify-center shrink-0">
                 {avatar ? (
-                  <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
+                  <img src={user_1} alt="Avatar" className="w-full h-full object-cover" />
                 ) : (
-                  <span className="text-white text-2xl font-bold select-none">DN</span>
+                                 <img src={user_1} alt="Avatar" className="w-full h-full object-cover" />
+
                 )}
               </div>
               <input

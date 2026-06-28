@@ -45,10 +45,9 @@ const ProductCard = ({ product }) => {
 
       {/* Product Image */}
       <Link to={`/product/${product.id}`}>
-      
-      <div className="w-full h-[240px]">
-        <img src={imageUrl} alt={name} className="w-full h-full " />
-      </div>
+        <div className="w-full h-[240px]">
+          <img src={imageUrl} alt={name} className="w-full h-full " />
+        </div>
       </Link>
 
       {/* Product Info */}
@@ -59,9 +58,11 @@ const ProductCard = ({ product }) => {
         </h3> */}
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-[14px] leading-[150%] font-normal text-gray_700 group-hover:text-success_207">
-              {name}
-            </h3>
+            <Link to={`/product/${product.id}`}>
+              <h3 className="text-[14px] leading-[150%] font-normal text-gray_700 group-hover:text-success_207">
+                {name}
+              </h3>
+            </Link>
             <div className="flex items-center gap-.5">
               <span className="text-base font-medium text-gray_900">
                 ${price}

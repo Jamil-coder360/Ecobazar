@@ -1,10 +1,15 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
-import Banner_6 from "../../assets/Bannar-6.png"
+import Banner_6 from "../../assets/Bannar-6.png";
 const categories = [
   { name: "Fresh Fruit", slug: "fresh-fruit", count: 134, total: 134 },
-  { name: "Fresh Vegetables", slug: "fresh-vegetables", count: 150, total: 150 },
+  {
+    name: "Fresh Vegetables",
+    slug: "fresh-vegetables",
+    count: 150,
+    total: 150,
+  },
   { name: "Meat & Fish", slug: "meat-fish", count: 32, total: 32 },
   { name: "Snacks", slug: "snacks", count: 47, total: 47 },
   { name: "Beverages", slug: "beverages", count: 43, total: 43 },
@@ -105,8 +110,12 @@ function SectionHeader({ title, open, onToggle }) {
       onClick={onToggle}
       className="flex items-center justify-between w-full py-3 text-left"
     >
-      <span className="font-medium text-gray_900 text-[20px] leading-[150%]">{title}</span>
-      <ChevronUp   className={`w-4 h-4 text-gray-500 transition-transform ${open ? "" : "rotate-180"}`}/>
+      <span className="font-medium text-gray_900 text-[20px] leading-[150%]">
+        {title}
+      </span>
+      <ChevronUp
+        className={`w-4 h-4 text-gray-500 transition-transform ${open ? "" : "rotate-180"}`}
+      />
       {/* <svg
         className={`w-4 h-4 text-gray-500 transition-transform ${open ? "" : "rotate-180"}`}
         fill="none"
@@ -129,7 +138,8 @@ export default function GroceryFilter({
   selectedTags,
   onToggleTag,
 }) {
-  const [localSelectedCategory, setLocalSelectedCategory] = useState("fresh-vegetables");
+  const [localSelectedCategory, setLocalSelectedCategory] =
+    useState("fresh-vegetables");
   const [localPriceRange, setLocalPriceRange] = useState([0, 15000]);
   const [localSelectedRatings, setLocalSelectedRatings] = useState([]);
   const [localSelectedTags, setLocalSelectedTags] = useState([]);
@@ -146,30 +156,30 @@ export default function GroceryFilter({
   const currentTags = selectedTags ?? localSelectedTags;
   const changeCategory = onCategoryChange ?? setLocalSelectedCategory;
   const changePriceRange = onPriceRangeChange ?? setLocalPriceRange;
-  const changeToggleRating = onToggleRating ?? ((r) =>
-    {
+  const changeToggleRating =
+    onToggleRating ??
+    ((r) => {
       setLocalSelectedRatings((prev) =>
-        prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r]
+        prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r],
       );
-    }
-  );
-  const changeToggleTag = onToggleTag ?? ((tag) =>
-    {
+    });
+  const changeToggleTag =
+    onToggleTag ??
+    ((tag) => {
       setLocalSelectedTags((prev) =>
-        prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+        prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
       );
-    }
-  );
+    });
 
   const toggleSection = (key) =>
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
 
   const getBgImage = (image) => ({
-  backgroundImage: `url(${image})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
-});
+    backgroundImage: `url(${image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  });
 
   return (
     <div className="">
@@ -177,8 +187,18 @@ export default function GroceryFilter({
         {/* Header */}
         <div className="px-4  pb-6 flex items-center justify-between">
           <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z"
+              />
             </svg>
             Filter
           </button>
@@ -240,7 +260,10 @@ export default function GroceryFilter({
                     max={15000}
                     value={currentPriceRange[1]}
                     onChange={(e) =>
-                      changePriceRange([currentPriceRange[0], Number(e.target.value)])
+                      changePriceRange([
+                        currentPriceRange[0],
+                        Number(e.target.value),
+                      ])
                     }
                     className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
                     style={{
@@ -269,7 +292,10 @@ export default function GroceryFilter({
             {openSections.rating && (
               <div className="space-y-2 mt-1">
                 {ratings.map((r) => (
-                  <label key={r} className="flex items-center gap-3 cursor-pointer group">
+                  <label
+                    key={r}
+                    className="flex items-center gap-3 cursor-pointer group"
+                  >
                     <div
                       className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
                         currentRatings.includes(r)
@@ -279,12 +305,26 @@ export default function GroceryFilter({
                       onClick={() => changeToggleRating(r)}
                     >
                       {currentRatings.includes(r) && (
-                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 12 12">
-                          <path d="M10 3L5 8.5 2 5.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                        <svg
+                          className="w-2.5 h-2.5 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 12 12"
+                        >
+                          <path
+                            d="M10 3L5 8.5 2 5.5"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            fill="none"
+                          />
                         </svg>
                       )}
                     </div>
-                    <div className="flex items-center gap-2" onClick={() => changeToggleRating(r)}>
+                    <div
+                      className="flex items-center gap-2"
+                      onClick={() => changeToggleRating(r)}
+                    >
                       <StarRating count={r} />
                       <span className="text-sm text-gray-600">
                         {r === 5 ? "5.0" : `${r}.0 & up`}
@@ -313,8 +353,8 @@ export default function GroceryFilter({
                       currentTags.includes(tag)
                         ? "bg-green-500 text-white border-green-500"
                         : tag === "Dinner"
-                        ? "border-violet-400 text-violet-600 bg-violet-50 hover:bg-violet-100"
-                        : "border-gray-200 text-gray-600 bg-white hover:bg-gray-50 hover:border-gray-300"
+                          ? "border-violet-400 text-violet-600 bg-violet-50 hover:bg-violet-100"
+                          : "border-gray-200 text-gray-600 bg-white hover:bg-gray-50 hover:border-gray-300"
                     }`}
                   >
                     {tag}
@@ -325,22 +365,32 @@ export default function GroceryFilter({
           </div>
 
           {/* Promo Banner */}
-          <div className="rounded-xl overflow-hidden w-78 h-73.75 bg-gray-100 mt-4 relative" style={getBgImage(Banner_6)}>
+          <div
+            className="rounded-xl overflow-hidden w-78 h-73.75 bg-gray-100 mt-4 relative"
+            style={getBgImage(Banner_6)}
+          >
             <div className="px-5 pt-4 pb-2 relative z-10">
               <p className="text-2xl font-bold text-orange-500">
-                79% <span className="text-gray-700 font-semibold text-lg">Discount</span>
+                79%{" "}
+                <span className="text-gray-700 font-semibold text-lg">
+                  Discount
+                </span>
               </p>
               <p className="text-sm text-gray-500">on your first order</p>
-              <Link to="/shop" className="mt-2 text-green-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+              <Link
+                to="/shop"
+                className="mt-2 text-green-600 font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+              >
                 Shop Now →
               </Link>
             </div>
-       
           </div>
 
           {/* Sale Products */}
           <div className="pt-4">
-            <h3 className="font-bold text-gray-800 text-base mb-3">Sale Products</h3>
+            <h3 className="font-bold text-gray-800 text-base mb-3">
+              Sale Products
+            </h3>
             <div className="space-y-3">
               {products.map((p) => (
                 <div

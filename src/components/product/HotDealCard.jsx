@@ -10,12 +10,13 @@ import UseCountDown from "../../hooks/UseCountDown";
 import { useAppDispatch } from "../../store/hooks";
 import { addToCart } from "../../features/cart/cartSlice";
 import { addToWishlist } from "../../features/wish/wishlistSlice";
+import { Link } from "react-router";
 
 const HotDealCard = ({ product }) => {
   const dispatch = useAppDispatch();
   const { showQuickView } = useQuickView();
   const { name, image, price, originalPrice, rating, sale } = product;
-  const {days,hours ,minutes,seconds} = UseCountDown("2026-08-29")
+  const { days, hours, minutes, seconds } = UseCountDown("2026-08-29");
   const discount =
     originalPrice &&
     Math.round(((originalPrice - price) / originalPrice) * 100);
@@ -62,17 +63,21 @@ const HotDealCard = ({ product }) => {
       </div>
 
       {/* Product Image */}
-      <div className="w-[525px] h-[448px]">
-        <img src={deal} alt={name} className="w-full h-full " />
-      </div>
+      <Link to={`/product/${product.id}`}>
+        <div className="w-[525px] h-[448px]">
+          <img src={deal} alt={name} className="w-full h-full " />
+        </div>
+      </Link>
 
       {/* Product Info */}
       <div className="p-3">
         <div className="flex items-center justify-center text-center">
           <div>
-            <h3 className="text-[18px] leading-[150%] font-normal text-gray_700 group-hover:text-success_207">
-              {name}
-            </h3>
+            <Link to={`/product/${product.id}`}>
+              <h3 className="text-[18px] leading-[150%] font-normal text-gray_700 group-hover:text-success_207">
+                {name}
+              </h3>
+            </Link>
             <div className="flex items-center gap-2">
               <span className="text-[24px] font-semibold leading-[150%] text-gray_900">
                 ${price}
@@ -102,34 +107,44 @@ const HotDealCard = ({ product }) => {
           })}
         </div>
       </div>
-          <p className="text-[14px] leading-[18px] text-gray_400 text-center font-normal pb-1.5">Hurry up! Offer ends In:</p>
-{/* timmer layout */}
-        <div className="flex items-center justify-center gap-10 ">
-              <div className="flex flex-col items-center justify-center  ">
-                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{days}</span>
-                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
-                  Days
-                </span>
-              </div>
-              <div className="flex flex-col items-center justify-center ">
-                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{hours}</span>
-                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
-                  Hours
-                </span>
-              </div>
-              <div className="flex flex-col items-center justify-center  ">
-                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{minutes}</span>
-                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
-                  Mins
-                </span>
-              </div>
-              <div className="flex flex-col items-center justify-center ">
-                <span className="text-[18px] leading-[150%]  font-medium text-gray-900">{seconds}</span>
-                <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
-                 Secs
-                </span>
-              </div>
-            </div>
+      <p className="text-[14px] leading-[18px] text-gray_400 text-center font-normal pb-1.5">
+        Hurry up! Offer ends In:
+      </p>
+      {/* timmer layout */}
+      <div className="flex items-center justify-center gap-10 ">
+        <div className="flex flex-col items-center justify-center  ">
+          <span className="text-[18px] leading-[150%]  font-medium text-gray-900">
+            {days}
+          </span>
+          <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+            Days
+          </span>
+        </div>
+        <div className="flex flex-col items-center justify-center ">
+          <span className="text-[18px] leading-[150%]  font-medium text-gray-900">
+            {hours}
+          </span>
+          <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+            Hours
+          </span>
+        </div>
+        <div className="flex flex-col items-center justify-center  ">
+          <span className="text-[18px] leading-[150%]  font-medium text-gray-900">
+            {minutes}
+          </span>
+          <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+            Mins
+          </span>
+        </div>
+        <div className="flex flex-col items-center justify-center ">
+          <span className="text-[18px] leading-[150%]  font-medium text-gray-900">
+            {seconds}
+          </span>
+          <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-gray-400">
+            Secs
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
