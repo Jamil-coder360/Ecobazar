@@ -181,9 +181,12 @@ const Header = () => {
       </section>
       <Section className=" py-6">
         <Container className="flex items-center  justify-between gap-10">
+          <Link to={"/"}>
+          
           <div>
             <img src="./logo.png" alt="logo" className="w-[183px] h-[38px]" />
           </div>
+          </Link>
           <div className="flex items-center w-full max-w-[498px] border border-gray_200 rounded-lg bg-white overflow-hidden shadow-sm">
             {/* Search Icon */}
             <span className="pl-4 pr-3 text-gray_400 flex items-center">
