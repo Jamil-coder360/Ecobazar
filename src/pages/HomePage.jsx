@@ -8,6 +8,9 @@ import HotDeal from '../components/product/HotDeal';
 import Bannar from '../components/Bannar';
 import DiscountBannar from '../components/DiscountBannar';
 import Featured from '../components/product/Featured';
+import Blog from '../components/blog/Blog';
+import Testimonial from '../components/testimonial/Testimonial';
+import CompanyLogo from '../components/CompanyLogo';
 
 const HomePage = () => {
   return (
@@ -17,9 +20,12 @@ const HomePage = () => {
     <Categories />
     <Product />
     <Bannar />
+    <HotDeal />
     <DiscountBannar />
     <Featured />
-    <HotDeal />
+    <Blog />
+    <Testimonial />
+    <CompanyLogo />
     <Follow />
     </>
   )
