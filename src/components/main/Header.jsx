@@ -66,7 +66,7 @@ export const menuItems = [
       {
         id: 3,
         label: "FAQ",
-        href: "/faq",
+        href: "/faqs",
       },
       {
         id: 4,
