@@ -159,8 +159,8 @@ const CartPage = ({ showPageHeading = true }) => {
                       </div>
                       <div className="flex justify-center pb-10">
                         <Button
-                          TagName={"Link"}
-                          href="/checkout"
+                         as={Link}
+                         to="/check"
                           className="mt-4 mb-8  w-full"
                           variant="green"
                         >
