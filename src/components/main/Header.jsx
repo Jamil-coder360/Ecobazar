@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import Button from "../global/Button";
 import { ChevronDownIcon, User } from "lucide-react";
 import { FaChevronDown } from "react-icons/fa";
@@ -12,6 +12,7 @@ import Section from "../global/Section";
 import { LuPhoneCall } from "react-icons/lu";
 import { useAppSelector } from "../../store/hooks";
 import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 export const menuItems = [
   {
@@ -99,7 +100,48 @@ const Header = () => {
     state.cart.items.reduce((sum, item) => sum + item.price * item.quantity, 0),
   );
   const { user } = useContext(AuthContext);
+  const [searchText, setSearchText] = useState("");
+  const [products, setProducts] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
+  useEffect(() => {
+    axios.get("https://ecobazar-ktbd.onrender.com/products")
+      .then((res) => {
+        setProducts(res.data || []);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch products:", err);
+        setProducts([]);
+      });
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  console.log(user);
+
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
+    setShowDropdown(true);
+  };
+
+  const searchResult = (products || []).filter((element) => {
+    if (!searchText || searchText.trim().length === 0) {
+      return false;
+    }
+
+    return element.name && element.name.toLowerCase().includes(searchText.toLowerCase());
+  });
   return (
     <header>
       <section className="py-3.25 border-b border-b-gray_200">
@@ -162,35 +204,86 @@ const Header = () => {
               <img src="./logo.png" alt="logo" className="w-[183px] h-[38px]" />
             </div>
           </Link>
-          <div className="flex items-center w-full max-w-[498px] border border-gray_200 rounded-lg bg-white overflow-hidden shadow-sm">
-            {/* Search Icon */}
-            <span className="pl-4 pr-3 text-gray_400 flex items-center">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <line x1="16.5" y1="16.5" x2="22" y2="22" />
-              </svg>
-            </span>
+          <div ref={dropdownRef} className="relative w-full max-w-[498px]">
+            <div className="flex items-center w-full border border-gray_200 rounded-lg bg-white overflow-hidden shadow-sm focus-within:border-green-500 transition-colors">
+              {/* Search Icon */}
+              <span className="pl-4 pr-3 text-gray_400 flex items-center">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <line x1="16.5" y1="16.5" x2="22" y2="22" />
+                </svg>
+              </span>
 
-            {/* Input */}
-            <input
-              type="search"
-              placeholder="Search"
-              className="flex-1 py-3 px-2 text-base text-gray_700 bg-transparent outline-none border-none"
-            />
+              {/* Input */}
+              <input
+                value={searchText}
+                onChange={handleSearch}
+                onFocus={() => setShowDropdown(true)}
+                type="search"
+                placeholder="Search"
+                className="flex-1 py-3 px-2 text-base text-gray_700 bg-transparent outline-none border-none"
+              />
 
-            {/* Button */}
-            <button className="bg-green-500 hover:bg-green-600 text-white font-bold text-base px-7 py-3 transition-colors">
-              Search
-            </button>
+              {/* Button */}
+              <button className="bg-green-500 hover:bg-green-600 text-white font-bold text-base px-7 py-3 transition-colors cursor-pointer">
+                Search
+              </button>
+            </div>
+
+            {/* Dropdown Results */}
+            {showDropdown && searchText.trim().length > 0 && (
+              <div className="absolute left-0 right-0 top-full mt-1.5 bg-white border border-gray-200 rounded-lg shadow-lg max-h-[350px] overflow-y-auto z-50">
+                {searchResult.length > 0 ? (
+                  <div className="py-1">
+                    {searchResult.map((product) => (
+                      <Link
+                        key={product.id}
+                        to={`/product/${product.id}`}
+                        onClick={() => {
+                          setSearchText("");
+                          setShowDropdown(false);
+                        }}
+                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
+                      >
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-10 h-10 object-contain rounded border border-gray-100 bg-white"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-800 truncate">
+                            {product.name}
+                          </p>
+                          <div className="flex items-center gap-2 mt-0.5">
+                            <span className="text-xs text-green-600 font-semibold">
+                              ${product.price.toFixed(2)}
+                            </span>
+                            {product.originalPrice && (
+                              <span className="text-[10px] text-gray-400 line-through">
+                                ${product.originalPrice.toFixed(2)}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="p-4 text-center text-sm text-gray-500">
+                    No products found for "{searchText}"
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           <div className="flex items-center ">
             <Link to={"/wishlist"}>
