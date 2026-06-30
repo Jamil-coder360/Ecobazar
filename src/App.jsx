@@ -8,13 +8,15 @@ import ShopPage from "./pages/ShopPage";
 import SignUpPage from "./pages/SignUpPage";
 import SignInPage from "./pages/SignInPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
-import { QuickViewProvider } from "./context/QuickViewContext";
+
 import WishlistPage from "./pages/WishlistPage";
 import CartPage from "./pages/CartPage";
 import CheckOutPage from "./pages/CheckOutPage";
 import AccounPage from "./pages/AccountPage";
 import FaqPage from "./pages/FaqPage";
 import ContactPage from "./pages/ContactPage";
+import PopupCart from "./pages/PopupCart";
+
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
+        path: "/pop",
+        element: <PopupCart />,
+      },
+      {
         path: "/check",
         element: <CheckOutPage />,
       },
@@ -58,8 +64,8 @@ const router = createBrowserRouter([
         element: <ContactPage />,
       },
       {
-        path:"/account",
-        element:<AccounPage />,
+        path: "/account",
+        element: <AccounPage />,
       },
       {
         path: "/signup",
@@ -74,11 +80,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return (
-    <QuickViewProvider>
-      <RouterProvider router={router} />
-    </QuickViewProvider>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

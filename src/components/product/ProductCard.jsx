@@ -7,10 +7,12 @@ import { Link } from "react-router";
 import { useAppDispatch } from "../../store/hooks";
 import { addToCart } from "../../features/cart/cartSlice";
 import { addToWishlist } from "../../features/wish/wishlistSlice";
+import { useCartPopup } from "../../context/CartPopupContext";
 
 const ProductCard = ({ product }) => {
   const dispatch = useAppDispatch();
   const { showQuickView } = useQuickView();
+  const {showCartPopup} = useCartPopup();
   const { name, image, price, originalPrice, rating, sale } = product;
   const imageUrl = image ? image.replace(/^\.\//, "/") : "";
   const discount =
@@ -78,7 +80,10 @@ const ProductCard = ({ product }) => {
 
           <button
             type="button"
-            onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
+        onClick={() => {
+  dispatch(addToCart({ ...product, quantity: 1 }));
+  showCartPopup(product);
+}}
             className="p-2.5 rounded-full bg-gray_50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition"
           >
             <HiOutlineShoppingBag size={20} />
