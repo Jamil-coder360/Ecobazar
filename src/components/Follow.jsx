@@ -50,7 +50,7 @@ const Follow = () => {
               Follow us on Instagram
             </h3>
           </div>
-          <div className="grid grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-6 lg:gap-6">
 
           {followData.map((item)=>(
 

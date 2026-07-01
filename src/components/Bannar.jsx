@@ -25,10 +25,10 @@ const Bannar = () => {
   return (
     <Section className="py-15">
       <Container>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div
             style={getBgImage(Banner_1)}
-            className=" w-106  pt-[35px] pb-[296px] rounded-xl"
+            className="w-full lg:w-106 py-8 lg:pt-[35px] lg:pb-[296px] rounded-xl"
           >
             <div className="flex flex-col  items-center ">
               <p className=" text-[14px] leading-[100%] font-medium text-white tracking-[3%]">
@@ -81,7 +81,7 @@ const Bannar = () => {
           </div>
           <div
             style={getBgImage(Banner_2)}
-            className=" w-106  pt-[35px] pb-[296px] rounded-xl"
+            className=" w-full lg:w-106 py-8 lg:pt-[35px] lg:pb-[296px] rounded-xl"
           >
             <div className="flex flex-col  items-center ">
               <p className=" text-[14px] leading-[100%] font-medium text-white tracking-[3%]">
@@ -105,7 +105,7 @@ const Bannar = () => {
           </div>
           <div
             style={getBgImage(Banner_3)}
-            className=" w-106  pt-[35px] pb-[296px] rounded-xl"
+            className="w-full lg:w-106  py-8 lg:pt-[35px] lg:pb-[296px] rounded-xl"
           >
             <div className="flex flex-col  items-center ">
               <p className=" text-[14px] leading-[100%] font-medium text-gray_900 tracking-[3%]">

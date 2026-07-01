@@ -27,7 +27,7 @@ const Featured = () => {
               View All <ArrowRight />{" "}
             </Button>
           </div>
-          <div className="grid grid-cols-5">
+          <div className="grid grid-cols-2 lg:grid-cols-5">
             {products.slice(0, 5).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

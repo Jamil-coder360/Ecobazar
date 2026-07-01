@@ -2,7 +2,7 @@ import quort from "../../assets/quort.png";
 import test_1 from "../../assets/test_1.png";
 export default function TestimonialCard() {
   return (
-    <div className="w-[424px] bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+    <div className="w-full lg:w-[424px] bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
       {/* Quote Icon */}
       <div className="text-5xl font-serif text-green-200 leading-none mb-4">
         <img src={quort} alt="" />

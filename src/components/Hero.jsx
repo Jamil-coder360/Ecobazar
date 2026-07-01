@@ -22,22 +22,22 @@ const Hero = () => {
   return (
     <Section className="py-6">
       <Container>
-        <div className="grid grid-cols-[872px_423px] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[872px_423px] gap-6">
           <div
             style={getBgImage(bannar_big)}
-            className="py-[155px] pl-15 rounded-[10px] "
+            className="py-20 lg:py-[155px] pl-15 rounded-[10px] "
           >
-            <h2 className="text-white text-[72px] leading-[120%] font-semibold w-[596px]  pb-7">
+            <h2 className="text-white text-[40px] lg:text-[72px] leading-[120%] font-semibold lg:w-[596px]  pb-7">
               Fresh & Healthy Organic Food
             </h2>
             <div className="relative after:content-[''] after:absolute after:-ml-3 after:left-0 after:bottom-0 after:w-[2px] after:h-[65px] after:bg-success_bright flex flex-col">
-              <h4 className="text-white text-[20px] leading-[150%] font-medium w-[596px]  pb-2">
+              <h4 className="text-white text-[20px] leading-[150%] font-medium lg:w-[596px]  pb-2">
                 Sale up to{" "}
                 <span className="bg-branding_warm py-1 px-3 rounded-sm ">
                   30% OFF
                 </span>
               </h4>
-              <p className="text-white/80 text-[14px] leading-[150%] font-normal w-[596px]  ">
+              <p className="text-white/80 text-[14px] leading-[150%] font-normal lg:w-[596px]  ">
                 Free shipping on all your order.
               </p>
             </div>

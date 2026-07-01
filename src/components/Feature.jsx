@@ -41,7 +41,7 @@ const Feature = () => {
   return (
     <Section>
         <Container>
-            <div className="grid  grid-cols-4 items-center justify-between gap-1.25 p-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 items-center justify-between gap-1.25 p-5 lg:p-10">
                 {data.map((item)=>(
 
             <div key={item.id} className="flex items-center gap-4  max-w-[306px]">

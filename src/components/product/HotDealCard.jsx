@@ -21,7 +21,7 @@ const HotDealCard = ({ product }) => {
     originalPrice &&
     Math.round(((originalPrice - price) / originalPrice) * 100);
   return (
-    <div className=" relative group bg-white border border-gray-100 hover:border-success_207 hover:shadow-success_207 rounded-md hover:shadow-sm transition-all duration-300 w-[528px] h-[654px] overflow-hidden ">
+    <div className=" relative group bg-white border border-gray-100 hover:border-success_207 hover:shadow-success_207 rounded-md hover:shadow-sm transition-all duration-300 w-full lg:w-[528px] h-full lg:h-[654px] overflow-hidden ">
       {/* Sale Badge */}
       {sale && (
         <span className=" absolute top-4 left-4  bg-success_error text-white text-sm font-medium px-3 py-1 rounded-md">
@@ -41,14 +41,14 @@ const HotDealCard = ({ product }) => {
         <button
           type="button"
           onClick={() => dispatch(addToWishlist(product))}
-          className="  opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+          className="  lg:opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
         >
           <IoMdHeartEmpty size={20} />
         </button>
         <Button
           type="button"
           variant="green"
-          className="w-[371px] !text-center"
+          className=" lg:w-[371px] !text-center"
           onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
         >
           Add to Cart <HiOutlineShoppingBag size={15} />
@@ -56,7 +56,7 @@ const HotDealCard = ({ product }) => {
         <button
           type="button"
           onClick={() => showQuickView(product)}
-          className="opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+          className="lg:opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
         >
           <LuEye size={20} />
         </button>
@@ -64,7 +64,7 @@ const HotDealCard = ({ product }) => {
 
       {/* Product Image */}
       <Link to={`/product/${product.id}`}>
-        <div className="w-[525px] h-[448px]">
+        <div className="w-full lg:w-[525px] h-full lg:h-[448px]">
           <img src={deal} alt={name} className="w-full h-full " />
         </div>
       </Link>

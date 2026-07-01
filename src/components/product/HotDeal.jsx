@@ -29,17 +29,17 @@ const HotDeal = () => {
               View All <ArrowRight />{" "}
             </Button>
           </div>
-          <div className="grid  grid-cols-[528px_auto] grid-rows-[654px_auto]">
-            <div className="w-[528px] h-[654px] ">
+          <div className="grid  grid-cols-1 lg:grid-cols-[528px_auto] grid-rows-[654px_auto]">
+            <div className="w-full lg:w-[528px] h-full lg:h-[654px] ">
               {products.length > 0 && <HotDealCard product={products[0]} />}
             </div>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-2 lg:grid-cols-3">
               {products.slice(6, 12).map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-5 w-(--container) ">
+          <div className="grid grid-cols-2 lg:grid-cols-5 lg:w-(--container) ">
             {products.slice(6, 11).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

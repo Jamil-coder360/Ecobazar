@@ -21,7 +21,7 @@ const CompanyLogo = () => {
   return (
     <Section className="py-15">
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between">
           {companyLogos.map(({ id, Icon }, index) => (
             <div
               key={id}

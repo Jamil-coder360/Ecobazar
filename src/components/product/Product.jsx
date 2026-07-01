@@ -8,8 +8,7 @@ import ProductCard from "./ProductCard";
 const Product = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-       fetch(`https://ecobazar-ktbd.onrender.com/products`)
-
+    fetch(`https://ecobazar-ktbd.onrender.com/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -20,14 +19,14 @@ const Product = () => {
       <Container>
         <div>
           <div className="flex items-center justify-between mb-8">
-            <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900">
+            <h3 className="font-semibold text-base lg:text-[32px] leading-[120%] text-gray_900">
               Popular Products
             </h3>
             <Button variant={"transparent"}>
               View All <ArrowRight />{" "}
             </Button>
           </div>
-          <div className="grid grid-cols-5">
+          <div className="grid grid-cols-2 gap-3 lg:gap-0 lg:grid-cols-5">
             {products.slice(0, 10).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

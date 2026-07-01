@@ -140,7 +140,7 @@ export default function GroceryFilter({
 }) {
   const [localSelectedCategory, setLocalSelectedCategory] =
     useState("fresh-vegetables");
-  const [localPriceRange, setLocalPriceRange] = useState([0, 15000]);
+  const [localPriceRange, setLocalPriceRange] = useState([0, 1500]);
   const [localSelectedRatings, setLocalSelectedRatings] = useState([]);
   const [localSelectedTags, setLocalSelectedTags] = useState([]);
   const [openSections, setOpenSections] = useState({
@@ -256,8 +256,8 @@ export default function GroceryFilter({
                 <div className="relative">
                   <input
                     type="range"
-                    min={50}
-                    max={15000}
+                    min={0}
+                    max={1500}
                     value={currentPriceRange[1]}
                     onChange={(e) =>
                       changePriceRange([

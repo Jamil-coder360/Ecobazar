@@ -62,7 +62,7 @@ const Footer = () => {
             {/* Email input + button */}
             <div className="flex items-center">
               {/* Input Container */}
-              <div className="bg-white border border-gray-200 border-r-0 rounded-l-full px-5 py-3.5 shadow-sm w-[400px]">
+              <div className="bg-white border border-gray-200 border-r-0 rounded-l-full px-5 py-3.5 shadow-sm lg:w-[400px]">
                 <input
                   type="email"
                   placeholder="Your email address"
