@@ -115,7 +115,7 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
                   <img src={imageUrl} alt={product?.name} className="w-full h-full" />
                 </div>
               </div>
-              <div className="w-full max-w-[556px] h-[320px] sm:h-[420px] lg:h-[556px] overflow-hidden">
+              <div className=" w-[556px] h-[320px] sm:h-[420px] lg:h-[556px] overflow-hidden">
                 <img src={imageUrl} alt={product?.name} className="w-full h-full object-cover" />
               </div>
             </div>
