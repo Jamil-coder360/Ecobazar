@@ -612,6 +612,8 @@
     {
       "id": 41,
       "name": "Lentil (Masoor Dal)",
+      "image" : "./p_41.jpg",
+
       "category": "cooking",
       "price": 50.0,
       "originalPrice": null,
@@ -624,6 +626,7 @@
     {
       "id": 42,
       "name": "Turmeric Powder",
+      "image" : "./p_42.jpg",
       "category": "cooking",
       "price": 25.0,
       "originalPrice": null,
@@ -636,6 +639,7 @@
     {
       "id": 43,
       "name": "Cumin Seeds",
+      "image" : "./p_43.jpg",
       "category": "cooking",
       "price": 30.0,
       "originalPrice": null,
@@ -648,6 +652,7 @@
     {
       "id": 44,
       "name": "Soy Sauce",
+      "image" : "./p_44.jpg",
       "category": "cooking",
       "price": 35.0,
       "originalPrice": null,
@@ -661,6 +666,7 @@
     {
       "id": 45,
       "name": "Diabetic Biscuits",
+      "image" : "./p_45.jpg",
       "category": "diabetic-food",
       "price": 50.0,
       "originalPrice": null,
@@ -673,6 +679,7 @@
     {
       "id": 46,
       "name": "Brown Rice",
+      "image" : "./p_46.jpg",
       "category": "diabetic-food",
       "price": 80.0,
       "originalPrice": null,
@@ -685,6 +692,7 @@
     {
       "id": 47,
       "name": "Oats",
+      "image" : "./p_47.jpg",
       "category": "diabetic-food",
       "price": 65.0,
       "originalPrice": null,
@@ -698,6 +706,7 @@
     {
       "id": 48,
       "name": "Dish Wash Liquid",
+      "image" : "./p_48.jpg",
       "category": "dish-detergents",
       "price": 40.0,
       "originalPrice": null,
@@ -710,6 +719,7 @@
     {
       "id": 49,
       "name": "Dish Wash Bar",
+      "image" : "./p_49.jpg",
       "category": "dish-detergents",
       "price": 20.0,
       "originalPrice": null,
@@ -722,6 +732,7 @@
     {
       "id": 50,
       "name": "Scrubber",
+      "image" : "./p_50.jpg",
       "category": "dish-detergents",
       "price": 15.0,
       "originalPrice": null,
@@ -735,6 +746,7 @@
     {
       "id": 51,
       "name": "Soybean Oil",
+      "image" : "./p_51.jpg",
       "category": "oil",
       "price": 90.0,
       "originalPrice": null,
@@ -747,6 +759,7 @@
     {
       "id": 52,
       "name": "Mustard Oil",
+      "image" : "./p_52.jpg",
       "category": "oil",
       "price": 110.0,
       "originalPrice": null,
@@ -759,6 +772,7 @@
     {
       "id": 53,
       "name": "Olive Oil",
+      "image" : "./p_53.jpg",
       "category": "oil",
       "price": 250.0,
       "originalPrice": null,
@@ -771,6 +785,7 @@
     {
       "id": 54,
       "name": "Coconut Oil",
+      "image" : "./p_54.jpg",
       "category": "oil",
       "price": 130.0,
       "originalPrice": null,
@@ -784,6 +799,7 @@
     {
       "id": 55,
       "name": "Hand Wash",
+      "image" : "./p_55.jpg",
       "category": "beauty-health",
       "price": 35.0,
       "originalPrice": null,
@@ -796,6 +812,7 @@
     {
       "id": 56,
       "name": "Shampoo",
+      "image" : "./p_56.jpg",
       "category": "beauty-health",
       "price": 75.0,
       "originalPrice": null,
@@ -808,6 +825,7 @@
     {
       "id": 57,
       "name": "Body Lotion",
+      "image" : "./p_57.jpg",
       "category": "beauty-health",
       "price": 80.0,
       "originalPrice": null,
@@ -820,6 +838,7 @@
     {
       "id": 58,
       "name": "Toothpaste",
+      "image" : "./p_58.jpg",
       "category": "beauty-health",
       "price": 40.0,
       "originalPrice": null,
