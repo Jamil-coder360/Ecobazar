@@ -254,6 +254,7 @@
     {
       "id": 14,
       "name": "Tomato",
+      "image" : "./p_14.png",
       "category": "fresh-vegetables",
       "price": 15.0,
       "originalPrice": null,
@@ -266,6 +267,7 @@
     {
       "id": 15,
       "name": "Onion",
+      "image" : "./p_15.jpg",
       "category": "fresh-vegetables",
       "price": 10.0,
       "originalPrice": null,
@@ -278,6 +280,7 @@
     {
       "id": 16,
       "name": "Garlic",
+      "image" : "./p_16.jpg",
       "category": "fresh-vegetables",
       "price": 22.0,
       "originalPrice": null,
@@ -290,6 +293,7 @@
     {
       "id": 17,
       "name": "Carrot",
+      "image" : "./p_17.jpg",
       "category": "fresh-vegetables",
       "price": 18.0,
       "originalPrice": null,
@@ -302,6 +306,7 @@
     {
       "id": 18,
       "name": "Spinach",
+      "image" : "./p_18.jpg",
       "category": "fresh-vegetables",
       "price": 8.0,
       "originalPrice": null,
@@ -315,6 +320,8 @@
     {
       "id": 19,
       "name": "Chicken Breast",
+      "image" : "./p_19.jpg",
+
       "category": "meat-fish",
       "price": 45.0,
       "originalPrice": null,
@@ -327,6 +334,7 @@
     {
       "id": 20,
       "name": "Beef",
+      "image" : "./p_20.jpg",
       "category": "meat-fish",
       "price": 80.0,
       "originalPrice": null,
@@ -339,6 +347,7 @@
     {
       "id": 21,
       "name": "Hilsa Fish",
+      "image" : "./p_21.jpg",
       "category": "meat-fish",
       "price": 120.0,
       "originalPrice": null,
@@ -351,6 +360,7 @@
     {
       "id": 22,
       "name": "Rohu Fish",
+      "image" : "./p_22.jpg",
       "category": "meat-fish",
       "price": 55.0,
       "originalPrice": null,
@@ -363,6 +373,7 @@
     {
       "id": 23,
       "name": "Shrimp",
+      "image" : "./p_23.jpg",
       "category": "meat-fish",
       "price": 95.0,
       "originalPrice": null,
@@ -375,6 +386,7 @@
     {
       "id": 24,
       "name": "Egg",
+      "image" : "./p_24.jpg",
       "category": "meat-fish",
       "price": 12.0,
       "originalPrice": null,
@@ -388,6 +400,7 @@
     {
       "id": 25,
       "name": "Potato Chips",
+      "image" : "./p_25.jpg",
       "category": "snacks",
       "price": 15.0,
       "originalPrice": null,
@@ -400,6 +413,7 @@
     {
       "id": 26,
       "name": "Biscuits",
+      "image" : "./p_26.jpg",
       "category": "snacks",
       "price": 10.0,
       "originalPrice": null,
@@ -412,6 +426,7 @@
     {
       "id": 27,
       "name": "Chanachur",
+      "image" : "./p_27.jpg",
       "category": "snacks",
       "price": 12.0,
       "originalPrice": null,
@@ -424,6 +439,7 @@
     {
       "id": 28,
       "name": "Chocolate Bar",
+      "image" : "./p_28.jpg",
       "category": "snacks",
       "price": 30.0,
       "originalPrice": null,
@@ -437,6 +453,7 @@
     {
       "id": 29,
       "name": "Mineral Water",
+      "image" : "./p_29.jpg",
       "category": "beverages",
       "price": 20.0,
       "originalPrice": null,
@@ -449,6 +466,7 @@
     {
       "id": 30,
       "name": "Mango Juice",
+      "image" : "./p_30.jpg",
       "category": "beverages",
       "price": 35.0,
       "originalPrice": null,
@@ -461,6 +479,7 @@
     {
       "id": 31,
       "name": "Cola Soft Drink",
+      "image" : "./p_31.jpg",
       "category": "beverages",
       "price": 25.0,
       "originalPrice": null,
@@ -473,6 +492,7 @@
     {
       "id": 32,
       "name": "Green Tea",
+      "image" : "./p_32.jpg",
       "category": "beverages",
       "price": 40.0,
       "originalPrice": null,
@@ -486,6 +506,7 @@
     {
       "id": 33,
       "name": "Sliced Bread",
+      "image" : "./p_33.jpg",
       "category": "bread-bakery",
       "price": 30.0,
       "originalPrice": null,
@@ -498,6 +519,7 @@
     {
       "id": 34,
       "name": "Bun",
+      "image" : "./p_34.jpg",
       "category": "bread-bakery",
       "price": 12.0,
       "originalPrice": null,
@@ -510,6 +532,7 @@
     {
       "id": 35,
       "name": "Croissant",
+      "image" : "./p_35.jpg",
       "category": "bread-bakery",
       "price": 45.0,
       "originalPrice": null,
@@ -523,6 +546,7 @@
     {
       "id": 36,
       "name": "All Purpose Flour",
+      "image" : "./p_36.jpg",
       "category": "baking-needs",
       "price": 55.0,
       "originalPrice": null,
@@ -535,6 +559,7 @@
     {
       "id": 37,
       "name": "Sugar",
+      "image" : "./p_37.jpg",
       "category": "baking-needs",
       "price": 45.0,
       "originalPrice": null,
@@ -547,6 +572,7 @@
     {
       "id": 38,
       "name": "Baking Powder",
+      "image" : "./p_38.jpg",
       "category": "baking-needs",
       "price": 20.0,
       "originalPrice": null,
@@ -559,6 +585,7 @@
     {
       "id": 39,
       "name": "Cocoa Powder",
+      "image" : "./p_39.jpg",
       "category": "baking-needs",
       "price": 60.0,
       "originalPrice": null,
@@ -572,6 +599,7 @@
     {
       "id": 40,
       "name": "Basmati Rice",
+      "image" : "./p_40.jpg",
       "category": "cooking",
       "price": 75.0,
       "originalPrice": null,
