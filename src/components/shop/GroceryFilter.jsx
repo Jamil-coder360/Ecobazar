@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
 import Banner_6 from "../../assets/Bannar-6.png";
@@ -143,6 +143,7 @@ export default function GroceryFilter({
   const [localPriceRange, setLocalPriceRange] = useState([0, 1500]);
   const [localSelectedRatings, setLocalSelectedRatings] = useState([]);
   const [localSelectedTags, setLocalSelectedTags] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const [openSections, setOpenSections] = useState({
     categories: true,
     price: true,
@@ -183,7 +184,7 @@ export default function GroceryFilter({
 
   return (
     <div className="">
-      <div className="w-full max-w-78 ">
+      <div className="w-full lg:max-w-78 ">
         {/* Header */}
         <div className="px-4  pb-6 flex items-center justify-between">
           <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">
@@ -202,9 +203,16 @@ export default function GroceryFilter({
             </svg>
             Filter
           </button>
+
+          <div
+            className="flex sm:hidden cursor-pointer text-black"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X /> : <Menu />}
+          </div>
         </div>
 
-        <div className=" space-y-1">
+        <div className=" space-y-1 hidden sm:block">
           {/* Categories */}
           <div className=" p-3 mb-2">
             <SectionHeader
@@ -366,7 +374,7 @@ export default function GroceryFilter({
 
           {/* Promo Banner */}
           <div
-            className="rounded-xl overflow-hidden w-78 h-73.75 bg-gray-100 mt-4 relative"
+            className="rounded-xl overflow-hidden w-78 h-73.75 bg-gray-100 mt-4 relative hidden lg:block"
             style={getBgImage(Banner_6)}
           >
             <div className="px-5 pt-4 pb-2 relative z-10">
@@ -429,6 +437,170 @@ export default function GroceryFilter({
             </div>
           </div>
         </div>
+
+        {/* mobile filter */}
+        {isOpen && (
+          <>
+            {/* Categories */}
+            <div className=" p-3 mb-2">
+              <SectionHeader
+                title="All Categories"
+                open={openSections.categories}
+                onToggle={() => toggleSection("categories")}
+              />
+              {openSections.categories && (
+                <div className="space-y-2 mt-1">
+                  {categories.map((cat) => (
+                    <label
+                      key={cat.slug}
+                      className="flex items-center gap-3 cursor-pointer group"
+                    >
+                      <div
+                        className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
+                          currentCategory === cat.slug
+                            ? "border-green-500 bg-green-500"
+                            : "border-gray-300 group-hover:border-green-400"
+                        }`}
+                        onClick={() => changeCategory(cat.slug)}
+                      >
+                        {currentCategory === cat.slug && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                        )}
+                      </div>
+                      <span
+                        className="text-sm text-gray_900 flex-1"
+                        onClick={() => changeCategory(cat.slug)}
+                      >
+                        {cat.name}{" "}
+                        <span className="text-gray-400">({cat.count})</span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Price */}
+            <div className="border-b border-gray-100 pb-4">
+              <SectionHeader
+                title="Price"
+                open={openSections.price}
+                onToggle={() => toggleSection("price")}
+              />
+              {openSections.price && (
+                <div className="mt-2 px-1">
+                  <div className="relative">
+                    <input
+                      type="range"
+                      min={0}
+                      max={1500}
+                      value={currentPriceRange[1]}
+                      onChange={(e) =>
+                        changePriceRange([
+                          currentPriceRange[0],
+                          Number(e.target.value),
+                        ])
+                      }
+                      className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
+                      style={{
+                        background: `linear-gradient(to right, #22c55e ${((currentPriceRange[0] - 50) / 14950) * 100}%, #22c55e ${((currentPriceRange[1] - 50) / 14950) * 100}%, #e5e7eb ${((currentPriceRange[1] - 50) / 14950) * 100}%)`,
+                        accentColor: "#22c55e",
+                      }}
+                    />
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">
+                    Price:{" "}
+                    <span className="font-medium text-gray-700">
+                      {currentPriceRange[0]} — {currentPriceRange[1]}
+                    </span>
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Rating */}
+            <div className="border-b border-gray-100 pb-4">
+              <SectionHeader
+                title="Rating"
+                open={openSections.rating}
+                onToggle={() => toggleSection("rating")}
+              />
+              {openSections.rating && (
+                <div className="space-y-2 mt-1">
+                  {ratings.map((r) => (
+                    <label
+                      key={r}
+                      className="flex items-center gap-3 cursor-pointer group"
+                    >
+                      <div
+                        className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
+                          currentRatings.includes(r)
+                            ? "border-green-500 bg-green-500"
+                            : "border-gray-300 group-hover:border-green-400"
+                        }`}
+                        onClick={() => changeToggleRating(r)}
+                      >
+                        {currentRatings.includes(r) && (
+                          <svg
+                            className="w-2.5 h-2.5 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 12 12"
+                          >
+                            <path
+                              d="M10 3L5 8.5 2 5.5"
+                              stroke="white"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              fill="none"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                      <div
+                        className="flex items-center gap-2"
+                        onClick={() => changeToggleRating(r)}
+                      >
+                        <StarRating count={r} />
+                        <span className="text-sm text-gray-600">
+                          {r === 5 ? "5.0" : `${r}.0 & up`}
+                        </span>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Popular Tags */}
+            <div className="border-b border-gray-100 pb-4">
+              <SectionHeader
+                title="Popular Tag"
+                open={openSections.tags}
+                onToggle={() => toggleSection("tags")}
+              />
+              {openSections.tags && (
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {tags.map((tag) => (
+                    <button
+                      key={tag}
+                      onClick={() => changeToggleTag(tag)}
+                      className={`text-xs px-3 py-1.5 rounded-full border transition-all font-medium ${
+                        currentTags.includes(tag)
+                          ? "bg-green-500 text-white border-green-500"
+                          : tag === "Dinner"
+                            ? "border-violet-400 text-violet-600 bg-violet-50 hover:bg-violet-100"
+                            : "border-gray-200 text-gray-600 bg-white hover:bg-gray-50 hover:border-gray-300"
+                      }`}
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

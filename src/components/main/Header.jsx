@@ -104,6 +104,7 @@ const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
   useEffect(() => {
     axios
       .get("https://ecobazar-ktbd.onrender.com/products")
@@ -146,7 +147,7 @@ const Header = () => {
     );
   });
   return (
-    <header >
+    <header>
       {/* desktop section */}
       <section className="py-3.25 border-b border-b-gray_200 px-5 lg:px-0 ">
         <Container>
@@ -373,9 +374,7 @@ const Header = () => {
           </div>
         </Container>
       </nav>
-
       {/* mobile section */}
-
       {isOpen && (
         <div className="lg:hidden  border-t bg-gray_800 border-gray-700 py-5 px-5">
           {/* mobile cart and wishlist icon */}
@@ -481,51 +480,53 @@ const Header = () => {
             )}
           </div>
           {/* mobile menu */}
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-6">
             {menuItems.map((item) => (
-              <li key={item.id}>
-                {item.hasDropdown ? (
-                  <>
-                    <button
-                      onClick={() =>
-                        setShowDropdown(
-                          showDropdown === item.id ? null : item.id,
-                        )
-                      }
-                      className="w-full flex items-center justify-between py-2 text-white"
-                    >
-                      <span>{item.name}</span>
-
-                      <ChevronDownIcon
-                        className={`w-4 h-4 transition-transform ${
-                          showDropdown === item.id ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-
-                    {showDropdown === item.id && (
-                      <div className="ml-4 mt-2 flex flex-col gap-2">
-                        {item.submenu.map((sub) => (
-                          <Link
-                            key={sub.id}
-                            to={sub.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block text-gray-300 text-sm py-1"
-                          >
-                            {sub.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
+              <li key={item.id} className="w-full">
+                <div className="flex items-center justify-between">
                   <Link
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className="block text-white py-2"
+                    className="text-white font-bold text-base"
                   >
                     {item.name}
                   </Link>
+
+                  {item.hasDropdown && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setMobileDropdown(
+                          mobileDropdown === item.id ? null : item.id,
+                        )
+                      }
+                    >
+                      <ChevronDownIcon
+                        size={18}
+                        className={`transition-transform duration-300 text-white ${
+                          mobileDropdown === item.id ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  )}
+                </div>
+
+                {item.hasDropdown && mobileDropdown === item.id && (
+                  <div className="mt-3 ml-4 border-l border-white/30 pl-4 flex flex-col gap-2">
+                    {item.submenu.map((subitem) => (
+                      <Link
+                        key={subitem.id}
+                        to={subitem.href}
+                        onClick={() => {
+                          setMobileDropdown(null);
+                          setIsOpen(false);
+                        }}
+                        className="text-sm text-white/80 hover:text-white transition-colors"
+                      >
+                        {subitem.label}
+                      </Link>
+                    ))}
+                  </div>
                 )}
               </li>
             ))}

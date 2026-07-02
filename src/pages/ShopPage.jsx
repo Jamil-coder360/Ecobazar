@@ -26,7 +26,7 @@ const ShopPage = () => {
       <PageHading pagename="Categories" />
       <Section className="pt-8">
         <Container>
-          <div className="grid grid-cols-[312px_auto] gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[312px_auto] gap-6">
             <div>
               <GroceryFilter
                 selectedCategory={selectedCategory}
@@ -87,7 +87,7 @@ const ShopPage = () => {
                   Results Found
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                 {products.slice(0, 15).map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}

@@ -7,16 +7,16 @@ import PageHading from '../components/global/PageHading';
 const ErrorPage = () => {
   return (<>
     <PageHading pagename="404 Error Page" />
-    <Section className="py-20">
+    <Section className="py-10 lg:py-20">
         <Container>
             <div className="flex flex-col items-center justify-center">
                 <div>
                     <img src={error} alt="" />
                 </div>
-                   <h3 className="font-semibold text-[40px] leading-[120%] text-gray_900 pt-8 pb-5">
+                   <h3 className="font-semibold text-[20px] lg:text-[40px] leading-[120%] text-gray_900 pt-8 pb-5">
                  Oops! page not found
                 </h3>
-                   <p className="font-normal text-[16px] leading-[150%] text-gray_500 pb-6">
+                   <p className="font-normal text-[10px] lg:text-[16px] leading-[150%] text-gray_500 pb-6">
                  Oops! page not found
                 </p>
                 <Button Tagname="a" href="/" variant="green">

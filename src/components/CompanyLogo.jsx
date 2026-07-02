@@ -21,13 +21,13 @@ const CompanyLogo = () => {
   return (
     <Section className="py-15">
       <Container>
-        <div className="flex flex-wrap items-center justify-between">
+        <div className="lg:flex grid grid-cols-3 items-center justify-between">
           {companyLogos.map(({ id, Icon }, index) => (
             <div
               key={id}
-              className={`relative cursor-pointer ${
+              className={`lg:relative cursor-pointer ${
                 index !== companyLogos.length - 1
-                  ? "after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-20 after:h-8 after:border-r after:border-gray_200"
+                  ? "lg:after:content-[''] lg:after:absolute lg:after:top-1/2 lg:after:-translate-y-1/2 lg:after:-right-20 lg:after:h-8 lg:after:border-r lg:after:border-gray_200"
                   : ""
               }`}
             >

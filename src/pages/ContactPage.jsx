@@ -13,7 +13,7 @@ const ContactPage = () => {
       <PageHading pagename="contact" />
       <Section className="py-20">
         <Container>
-          <div className="grid grid-cols-[312px_auto] gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[312px_auto] gap-6">
             <div className="py-5 bg-white rounded-[8px] shadow-xl">
               <div className="flex flex-col items-center justify-center p-6 after:content-[''] after:block after:w-full  after:border-b after:border-gray_100   after:bottom-0 relative after:absolute">
                 <div className="pb-4 ">

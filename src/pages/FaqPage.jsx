@@ -36,13 +36,13 @@ const FaqPage = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <Section className="pt-20">
+    <Section className="pt-8 lg:pt-20">
       <Container>
-        <div className="grid grid-cols-2 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
           <div>
-            <div className="max-w-xl mx-auto px-4 py-10 font-sans">
+            <div className="w-full lg:max-w-xl mx-auto px-4 py-10 font-sans">
               {/* Heading */}
-              <h1 className="text-[48px] font-semibold text-gray_900 leading-[120%] mb-8">
+              <h1 className="text-2xl lg:text-[48px] font-semibold text-gray_900 leading-[120%] mb-8 text-center">
                 Welcome, Let's Talk <br /> About Our Ecobazar
               </h1>
 
