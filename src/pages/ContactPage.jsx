@@ -11,7 +11,7 @@ const ContactPage = () => {
   return (
     <>
       <PageHading pagename="contact" />
-      <Section className="py-20">
+      <Section className="py-8 lg:py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-[312px_auto] gap-6">
             <div className="py-5 bg-white rounded-[8px] shadow-xl">

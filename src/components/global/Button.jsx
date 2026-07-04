@@ -18,13 +18,13 @@ const Button = ({
       {...props}
       className={`
         ${variantClasses[variant]}
-        py-4 px-10
-        text-[16px]
+       py-2 lg:py-4 px-4 lg:px-10
+       text-[8px] lg:text-[16px]
         font-semibold
         leading-[120%]
         flex items-center
         justify-center
-        gap-4
+       gap-2 lg:gap-4
         rounded-full
         ${className}
       `}

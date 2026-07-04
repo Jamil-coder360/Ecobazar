@@ -19,80 +19,108 @@ const WishlistPage = ({showPageHeading=true}) => {
   return (
     <>
       {showPageHeading&&<PageHading pagename="Wishlist" />}
-      <Section className="pt-10 pb-20">
+      <Section className="pt-5 lg:pt-10 pb-8 lg:pb-20">
         <Container>
           <div>
-            <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900 text-center">
+            <h3 className="font-semibold text-[16px] lg:text-[32px] leading-[120%] text-gray_900 text-center">
               My Wishlist
             </h3>
-            <div className="w-full space-y-10 mt-8">
-              <table className="w-full">
-                <thead>
-                  <tr className="text-gray_500 text-[14px] font-medium tracking-[3%] shadow-sm rounded-md border border-gray_100">
-                    <th className="px-5 h-[72px] text-left">Product</th>
-                    <th className="px-5 h-[72px] text-left">Price</th>
-                    <th className="px-5 h-[72px] text-center">Stock Status</th>
-                    {/* <th className="px-5 h-[72px] text-right">Action</th> */}
-                  </tr>
-                </thead>
+         <div className="w-full mt-8 overflow-x-auto">
+  <table className="min-w-[750px] w-full border-separate border-spacing-y-3">
+    <thead>
+      <tr className="text-gray_500 text-xs lg:text-sm font-medium shadow-sm border border-gray_100">
+        <th className="px-4 py-4 text-left">Product</th>
+        <th className="px-4 py-4 text-left">Price</th>
+        <th className="px-4 py-4 text-center">Stock Status</th>
+        {/* <th className="px-4 py-4 text-right">Action</th> */}
+      </tr>
+    </thead>
 
-                <tbody>
-                  {wishlistItems.map((item) => (
-                    <tr key={item.id} className="text-black text-[16px] shadow-sm rounded-md border border-gray_100">
-                      <td className="px-5 h-[72px]">
-                        <div className="flex items-center gap-2">
-                          <div className="size-[54px] overflow-hidden py-3">
-                            <img src={normalizeImage(item.image)} alt={item.name} className="h-full" />
-                          </div>
-                          <p>{item.name}</p>
-                        </div>
-                      </td>
-                      <td className="px-5 h-[72px] py-12.5">${item.price.toFixed(2)}</td>
-                      <td className="px-5 h-[72px] text-center">
-                        <span className="text-green-600 font-medium">In Stock</span>
-                      </td>
-                      <td className="px-5 h-[72px]">
-                        <div className="flex items-center justify-end gap-3">
-                          <Button
-                            variant="green"
-                            onClick={() => dispatch(addToCart({ ...item, quantity: 1 }))}
-                          >
-                            Add to Cart
-                          </Button>
-                          <button
-                            className="p-2 rounded-full border border-gray_200"
-                            onClick={() => dispatch(removeFromWishlist(item.id))}
-                          >
-                            <X size={16} className="text-gray_600" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-                <tfoot>
-                      <tr className="text-black text-[16px] shadow-sm rounded-md border border-gray_100 ">
-                          <div className="flex items-center gap-3">
-            <span className="text-gray-700 font-semibold text-base py-8 pl-6">Share </span>
-            <button className="w-9 h-9 rounded-full  hover:bg-green-600 hover:text-white  text-gray-600  flex items-center justify-center transition-colors">
-              {/* <FacebookIcon /> */}
+    <tbody>
+      {wishlistItems.map((item) => (
+        <tr
+          key={item.id}
+          className="shadow-sm border border-gray_100 bg-white"
+        >
+          <td className="px-4 py-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 lg:w-14 lg:h-14 flex-shrink-0">
+                <img
+                  src={normalizeImage(item.image)}
+                  alt={item.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <p className="text-xs lg:text-base whitespace-nowrap">
+                {item.name}
+              </p>
+            </div>
+          </td>
+
+          <td className="px-4 py-4 text-xs lg:text-base">
+            ${item.price.toFixed(2)}
+          </td>
+
+          <td className="px-4 py-4 text-center">
+            <span className="text-green-600 text-xs lg:text-base font-medium">
+              In Stock
+            </span>
+          </td>
+
+          <td className="px-4 py-4">
+            <div className="flex items-center justify-end gap-2">
+              <Button
+                variant="green"
+                className="text-xs lg:text-sm px-3 lg:px-5"
+                onClick={() =>
+                  dispatch(addToCart({ ...item, quantity: 1 }))
+                }
+              >
+                Add to Cart
+              </Button>
+
+              <button
+                className="p-2 rounded-full border border-gray_200"
+                onClick={() => dispatch(removeFromWishlist(item.id))}
+              >
+                <X size={16} />
+              </button>
+            </div>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colSpan={4} className="px-4 py-6 border border-gray_100">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="font-semibold text-sm lg:text-base">
+              Share
+            </span>
+
+            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white flex items-center justify-center">
               <RiFacebookFill />
             </button>
-            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white  text-gray-600 flex items-center justify-center transition-colors">
-             
-             <IoLogoTwitter />
+
+            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white flex items-center justify-center">
+              <IoLogoTwitter />
             </button>
-            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white  text-gray-600 flex items-center justify-center transition-colors">
-             <FaPinterestP />
+
+            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white flex items-center justify-center">
+              <FaPinterestP />
             </button>
-            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white  text-gray-600 flex items-center justify-center transition-colors">
-             <FaInstagram />
+
+            <button className="w-9 h-9 rounded-full hover:bg-green-600 hover:text-white flex items-center justify-center">
+              <FaInstagram />
             </button>
           </div>
-                    </tr>
-                </tfoot>
-              </table>
-            </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
           </div>
         </Container>
       </Section>
