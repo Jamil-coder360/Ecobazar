@@ -9,10 +9,10 @@ import Button from "../components/global/Button";
 const CheckOutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [shipToDifferent, setShipToDifferent] = useState(false);
-  
+
   // Cart থেকে items নিন
   const cartItems = useAppSelector((state) => state.cart.items);
-  
+
   // Total calculate করুন
   const subtotal = cartItems.reduce((sum, item) => {
     const price = parseFloat(item.price) || 0;
@@ -22,12 +22,12 @@ const CheckOutPage = () => {
     <>
       <PageHading pagename="Checkout" mainname={"Shopping Cart"} />
 
-      <Section className="pt-8 pb-20">
+      <Section className="pt-4 lg:pt-8 pb-8 lg:pb-20">
         <Container>
           <div className="">
-            <div className="flex flex-col lg:flex-row gap-8 items-start">
+            <div className="flex flex-col lg:flex-row gap-5 lg:gap-8 items-start">
               {/* Left: Billing Form */}
-              <div className="w-[872px]">
+              <div className="w-full lg:w-[872px]">
                 <h2 className="text-2xl font-medium leading-[150%] text-gray_900 mb-6">
                   Billing Information
                 </h2>
@@ -51,8 +51,7 @@ const CheckOutPage = () => {
                     <input
                       type="text"
                       placeholder="Your last name"
-                                           className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
-
+                      className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
                     />
                   </div>
                   <div>
@@ -63,8 +62,7 @@ const CheckOutPage = () => {
                     <input
                       type="text"
                       placeholder="Company name"
-                             className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
-
+                      className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
                     />
                   </div>
                 </div>
@@ -77,8 +75,7 @@ const CheckOutPage = () => {
                   <input
                     type="text"
                     placeholder="Street address"
-                                        className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
-
+                    className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
                   />
                 </div>
 
@@ -128,7 +125,7 @@ const CheckOutPage = () => {
                     <input
                       type="email"
                       placeholder="Email Address"
-                     className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
+                      className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
                     />
                   </div>
                   <div>
@@ -138,7 +135,7 @@ const CheckOutPage = () => {
                     <input
                       type="tel"
                       placeholder="Phone number"
-                   className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
+                      className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
                     />
                   </div>
                 </div>
@@ -172,7 +169,7 @@ const CheckOutPage = () => {
                   <textarea
                     rows={5}
                     placeholder="Notes about your order, e.g. special notes for delivery"
-        className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
+                    className="w-full border border-gray_100 rounded-md px-4 py-3.5 text-sm text-gray_700 placeholder-gray-400 focus:outline-none focus:border-green-500"
                   />
                 </div>
               </div>
@@ -191,33 +188,33 @@ const CheckOutPage = () => {
                       className="flex items-center justify-between gap-3 py-3 border-b border-gray-100"
                     >
                       <div className="flex items-center gap-5">
-
-                      <div className="w-15 h-15 rounded-lg bg-green-50 flex items-center justify-center text-xl shrink-0">
-                        {item.image ? (
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="w-full h-full object-cover rounded-lg"
-                          />
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                      <div className="flex items-center justify-between">
-
-                        <p className="text-sm font-normal leading-[150%] text-gray_900">
-                          {item.name}
-                        </p>
-                        {item.quantity >1 &&(
-                        <p className="text-sm font-normal leading-[150%] text-gray_900">x{item.quantity}</p>
-                        )}
-                      </div>
+                        <div className="w-15 h-15 rounded-lg bg-green-50 flex items-center justify-center text-xl shrink-0">
+                          {item.image ? (
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="w-full h-full object-cover rounded-lg"
+                            />
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <p className="text-sm font-normal leading-[150%] text-gray_900">
+                            {item.name}
+                          </p>
+                          {item.quantity > 1 && (
+                            <p className="text-sm font-normal leading-[150%] text-gray_900">
+                              x{item.quantity}
+                            </p>
+                          )}
+                        </div>
                       </div>
 
                       <span className="text-sm font-normal leading-[150%] text-gray_900">
                         ${(parseFloat(item.price) * item.quantity).toFixed(2)}
                       </span>
-                      </div>
+                    </div>
                   ))
                 ) : (
                   <div className="py-4 text-center text-gray-400">
@@ -229,7 +226,9 @@ const CheckOutPage = () => {
                 <div className="pt-3 pb-6 space-y-2">
                   <div className="flex justify-between text-sm text-gray_700 py-3 border-b border-b-gray_100">
                     <span>Subtotal:</span>
-                    <span className="text-gray-800">${subtotal.toFixed(2)}</span>
+                    <span className="text-gray-800">
+                      ${subtotal.toFixed(2)}
+                    </span>
                   </div>
                   <div className="flex justify-between text-sm text-gray_700 py-3 border-b border-b-gray_100">
                     <span>Shipping:</span>
@@ -270,7 +269,6 @@ const CheckOutPage = () => {
                   ))}
                 </div>
 
-               
                 <Button variant="green" className="w-full !py-4">
                   Place Order
                 </Button>
