@@ -42,7 +42,7 @@ import { SlSocialInstagram } from "react-icons/sl";
 
 const Follow = () => {
   return (
-    <Section className="pb-15">
+    <Section className="pb-8 lg:pb-15">
       <Container>
         <div>
           <div className="flex items-center justify-center pb-8">
@@ -54,7 +54,7 @@ const Follow = () => {
 
           {followData.map((item)=>(
 
-          <div className="group relative overflow-hidden rounded-lg w-50 h50">
+          <div className="group relative overflow-hidden rounded-lg w-full h-full lg:w-50 lg:h-50">
             {/* Image */}
             <img
               src={item.image}

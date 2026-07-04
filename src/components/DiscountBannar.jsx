@@ -16,25 +16,22 @@ const getBgImage = (image) => ({
 });
 const DiscountBannar = () => {
   return (
-   <Section className="py-15">
-    <Container style={getBgImage(Discount)} className="rounded-[10px]" >
-        <div className=" flex items-center justify-end">
+   <Section className="py-10 lg:py-15">
+    <Container style={getBgImage(Discount)} className="overflow-hidden rounded-[10px]">
+        <div className="flex items-center justify-center px-4 py-10 sm:justify-end sm:px-6 sm:py-14 lg:px-0 lg:py-15">
 
-          <div className="flex flex-col  items-start justify-end py-15 max-w-[441px]  pr-[51px]">
-              <p className=" text-[16px] leading-[100%] font-medium text-white tracking-[2%]">
+          <div className="flex max-w-full flex-col items-start justify-end sm:max-w-[441px] sm:pr-[20px] lg:pr-[51px]">
+              <p className="text-[14px] font-medium leading-[100%] tracking-[2%] text-white sm:text-[16px]">
                Summer Sale
               </p>
-              <h3 className=" text-[56px] leading-[120%] font-semibold text-branding_warm pt-3 pb-4">
-             37%  <span className=" text-[56px] leading-[120%] font-semibold text-white" > OFF</span>
+              <h3 className="pb-4 pt-3 text-[36px] font-semibold leading-[120%] text-branding_warm sm:text-[48px] lg:text-[56px]">
+             37%  <span className="text-[36px] font-semibold leading-[120%] text-white sm:text-[48px] lg:text-[56px]" > OFF</span>
               </h3>
-              <p className="text-[16px] leading-[150%] font-normal text-white/70  pb-7">
+              <p className="pb-7 text-[14px] font-normal leading-[150%] text-white/70 sm:text-[16px]">
                Free on all your order, Free Shipping and  30 days money-back guarantee
-                {/* <span className="text-[20px] leading-[150%] font-semibold text-branding_warm ">
-                  $79.99
-                </span> */}
               </p>
 
-              <Button as={Link} to="/shop" variant="green">
+              <Button as={Link} to="/shop" variant="green" className="w-full sm:w-auto">
                 Shop Now <ArrowRight />
               </Button>
             </div>

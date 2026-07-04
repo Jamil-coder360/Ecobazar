@@ -41,17 +41,17 @@ const Feature = () => {
   return (
     <Section>
         <Container>
-            <div className="grid grid-cols-2 lg:grid-cols-4 items-center justify-between gap-1.25 p-5 lg:p-10">
+            <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:gap-8 lg:p-10">
                 {data.map((item)=>(
 
-            <div key={item.id} className="flex items-center gap-4  max-w-[306px]">
-                <div className="w-10 h-10 overflow-hidden">
-                    <img src={item.image} alt=""  className=" w-full h-full " />
+            <div key={item.id} className="flex max-w-full items-center gap-3 sm:gap-4 lg:max-w-[306px]">
+                <div className="h-10 w-10 flex-shrink-0 overflow-hidden">
+                    <img src={item.image} alt=""  className="h-full w-full " />
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-1 sm:gap-2">
 
-                <h4 className="font-semibold text-[16px] leading-[120%] text-gray_900">{item.title}</h4>
-                <p className="font-normal text-[14px] leading-[150%] text-gray_400">{item.subtitle}</p>
+                <h4 className="text-[14px] font-semibold leading-[120%] text-gray_900 sm:text-[16px]">{item.title}</h4>
+                <p className="text-[12px] font-normal leading-[150%] text-gray_400 sm:text-[14px]">{item.subtitle}</p>
                 </div>
             </div>
 ))}

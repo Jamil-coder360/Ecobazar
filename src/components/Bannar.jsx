@@ -23,53 +23,52 @@ const Bannar = () => {
   const { days, hours, minutes, seconds } = UseCountDown("2026-08-29");
 
   return (
-    <Section className="py-15">
+    <Section className="py-10 lg:py-15">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
           <div
             style={getBgImage(Banner_1)}
-            className="w-full lg:w-106 py-8 lg:pt-[35px] lg:pb-[296px] rounded-xl"
+            className="w-full rounded-xl px-4 py-8 sm:px-6 lg:py-8 lg:pt-[35px] lg:pb-[296px]"
           >
-            <div className="flex flex-col  items-center ">
-              <p className=" text-[14px] leading-[100%] font-medium text-white tracking-[3%]">
+            <div className="flex flex-col items-center text-center">
+              <p className="text-[13px] font-medium leading-[100%] tracking-[3%] text-white sm:text-[14px]">
                 Best Deals
               </p>
-              <h3 className=" text-[40px] leading-[120%] font-semibold text-white pt-4 pb-2">
+              <h3 className="pb-2 pt-4 text-[26px] font-semibold leading-[120%] text-white sm:text-[32px] lg:text-[40px]">
                 {" "}
                 Sale of the Month
               </h3>
 
-              {/* timmer layout */}
-              <div className="flex items-center justify-center gap-10  pb-6">
-                <div className="flex flex-col items-center justify-center  ">
-                  <span className="text-[18px] leading-[150%]  font-medium text-white">
+              <div className="flex items-center justify-center gap-4 pb-6 sm:gap-8 lg:gap-10">
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-[16px] font-medium leading-[150%] text-white sm:text-[18px]">
                     {days}
                   </span>
-                  <span className="text-[10px] leading-[100%] tracking-[3%] font-medium text-white/80">
+                  <span className="text-[10px] font-medium leading-[100%] tracking-[3%] text-white/80">
                     Days
                   </span>
                 </div>
-                <div className="flex flex-col items-center justify-center ">
-                  <span className="text-[18px] leading-[150%]  font-medium text-white">
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-[16px] font-medium leading-[150%] text-white sm:text-[18px]">
                     {hours}
                   </span>
-                  <span className="text-[10px] leading-[100%] tracking-[3%] font-medium  text-white/80">
+                  <span className="text-[10px] font-medium leading-[100%] tracking-[3%] text-white/80">
                     Hours
                   </span>
                 </div>
-                <div className="flex flex-col items-center justify-center  ">
-                  <span className="text-[18px] leading-[150%]  font-medium text-white">
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-[16px] font-medium leading-[150%] text-white sm:text-[18px]">
                     {minutes}
                   </span>
-                  <span className="text-[10px] leading-[100%] tracking-[3%] font-medium  text-white/80">
+                  <span className="text-[10px] font-medium leading-[100%] tracking-[3%] text-white/80">
                     Mins
                   </span>
                 </div>
-                <div className="flex flex-col items-center justify-center ">
-                  <span className="text-[18px] leading-[150%]  font-medium text-white">
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-[16px] font-medium leading-[150%] text-white sm:text-[18px]">
                     {seconds}
                   </span>
-                  <span className="text-[10px] leading-[100%] tracking-[3%] font-medium  text-white/80">
+                  <span className="text-[10px] font-medium leading-[100%] tracking-[3%] text-white/80">
                     Secs
                   </span>
                 </div>
@@ -81,19 +80,19 @@ const Bannar = () => {
           </div>
           <div
             style={getBgImage(Banner_2)}
-            className=" w-full lg:w-106 py-8 lg:pt-[35px] lg:pb-[296px] rounded-xl"
+            className="w-full rounded-xl px-4 py-8 sm:px-6 lg:py-8 lg:pt-[35px] lg:pb-[296px]"
           >
-            <div className="flex flex-col  items-center ">
-              <p className=" text-[14px] leading-[100%] font-medium text-white tracking-[3%]">
+            <div className="flex flex-col items-center text-center">
+              <p className="text-[13px] font-medium leading-[100%] tracking-[3%] text-white sm:text-[14px]">
                 85% Fat Free
               </p>
-              <h3 className=" text-[40px] leading-[120%] font-semibold text-white pt-4 pb-2">
+              <h3 className="pb-2 pt-4 text-[26px] font-semibold leading-[120%] text-white sm:text-[32px] lg:text-[40px]">
                 {" "}
                 Low-Fat Meat
               </h3>
-              <p className="text-[18px] leading-[150%] font-normal text-white  pb-7.5">
+              <p className="pb-7.5 text-[15px] font-normal leading-[150%] text-white sm:text-[18px]">
                 Started at{" "}
-                <span className="text-[20px] leading-[150%] font-semibold text-branding_warm ">
+                <span className="text-[17px] font-semibold leading-[150%] text-branding_warm sm:text-[20px]">
                   $79.99
                 </span>
               </p>
@@ -105,20 +104,20 @@ const Bannar = () => {
           </div>
           <div
             style={getBgImage(Banner_3)}
-            className="w-full lg:w-106  py-8 lg:pt-[35px] lg:pb-[296px] rounded-xl"
+            className="w-full rounded-xl px-4 py-8 sm:px-6 lg:py-8 lg:pt-[35px] lg:pb-[296px]"
           >
-            <div className="flex flex-col  items-center ">
-              <p className=" text-[14px] leading-[100%] font-medium text-gray_900 tracking-[3%]">
+            <div className="flex flex-col items-center text-center">
+              <p className="text-[13px] font-medium leading-[100%] tracking-[3%] text-gray_900 sm:text-[14px]">
                 Summer Sale
               </p>
-              <h3 className=" text-[40px] leading-[120%] font-semibold text-gray_900 pt-4 pb-2">
+              <h3 className="pb-2 pt-4 text-[26px] font-semibold leading-[120%] text-gray_900 sm:text-[32px] lg:text-[40px]">
                 {" "}
                 100% Fresh Fruit
               </h3>
 
-              <p className="text-[18px] leading-[150%] font-normal text-white  pb-7.5">
+              <p className="pb-7.5 text-[15px] font-normal leading-[150%] text-white sm:text-[18px]">
                 Up to{" "}
-                <span className="text-[20px] leading-[150%] font-semibold text-[#FCC900] bg-gray_900 py-1.5  px-3 rounded-[5px] pl-3">
+                <span className="rounded-[5px] bg-gray_900 px-3 py-1.5 pl-3 text-[17px] font-semibold leading-[150%] text-[#FCC900] sm:text-[20px]">
                   64% OFF
                 </span>
               </p>
