@@ -9,9 +9,9 @@ const QuickView = ({ onClose, product }) => {
 
   return (
     <Section className="fixed inset-0 z-50 bg-[#000000]/70 overflow-auto">
-      <div className="min-h-screen flex items-center justify-center p-6">
+      <div className="min-h-screen flex items-center justify-center p-6 mt-6 lg:mt-0">
         <Container className="bg-white ">
-          <div className="grid grid-cols-[648px_auto] gap-6 p-10 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-[648px_auto] gap-6 p-10 relative">
             <div className="grid grid-cols-[80px_auto] gap-3 items-center justify-between">
               <div className="grid grid-cols-1 gap-4">
                 <div className="w-20 h-22.5 overflow-hidden">
@@ -27,7 +27,7 @@ const QuickView = ({ onClose, product }) => {
                   <img src={imageUrl} alt={product.name} className="w-full h-full" />
                 </div>
               </div>
-              <div className="w-[556px] h-[556px] overflow-hidden">
+              <div className="w-full lg:w-[556px] h-full lg:h-[556px] overflow-hidden">
                 <img src={imageUrl} alt={product.name} className="w-full h-full" />
               </div>
             </div>
