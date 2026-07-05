@@ -33,14 +33,14 @@ const ProductCard = ({ product }) => {
       <button
         type="button"
         onClick={() => dispatch(addToWishlist(product))}
-        className=" absolute top-4 right-4 opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+        className=" absolute top-4 right-4 opacity-100 lg:opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
       >
         <IoMdHeartEmpty size={20} />
       </button>
       <button
         type="button"
         onClick={() => showQuickView?.(product)}
-        className="absolute top-15.5 right-4 opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
+        className="absolute top-15.5 right-4 opacity-100 lg:opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
       >
         <LuEye size={20} />
       </button>
