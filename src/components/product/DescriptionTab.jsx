@@ -31,9 +31,9 @@ const features = [
 
 export default function DescriptionTab() {
   return (
-    <div className="grid grid-cols-[648px_auto] gap-34">
+    <div className="grid grid-cols-1 lg:grid-cols-[648px_auto] gap-34">
       {/* Left */}
-      <div className="w-[648px] flex-1 space-y-4 text-gray-600 text-sm leading-relaxed">
+      <div className="w-full lg:w-[648px] flex-1 space-y-4 text-gray-600 text-sm leading-relaxed">
         <p>
           Sed commodo aliquam dui ac porta. Fusce ipsum felis, imperdiet at
           posuere ac, viverra at mauris. Maecenas tincidunt ligula a sem
@@ -71,7 +71,7 @@ export default function DescriptionTab() {
 
       {/* Right */}
       <div className="flex-shrink-0 space-y-4">
-        <div className="relative rounded-xl overflow-hidden bg-gray-100 w-[535px] h-[300px]">
+        <div className="relative rounded-xl overflow-hidden bg-gray-100 w-full lg:w-[535px] h-full lg:h-[300px]">
           <img
             src={des}
             alt="Delivery person with groceries"

@@ -37,7 +37,7 @@ const details = [
 
 export default function AdditionalInfoTab() {
   return (
-    <div className="grid grid-cols-2 gap-[271px] justify-between text-sm text-gray-500 py-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-[271px] justify-between text-sm text-gray-500 py-6">
       {/* Left: Details Table */}
       <div className="py-4">
         <table className="w-full">
@@ -59,7 +59,7 @@ export default function AdditionalInfoTab() {
 
       {/* Right: Video + Badges */}
       <div className="flex-shrink-0 space-y-4">
-        <div className="relative rounded-xl overflow-hidden bg-gray-100 w-[535px] h-[300px]">
+        <div className="relative rounded-xl overflow-hidden bg-gray-100 w-full lg:w-[535px] h-full lg:h-[300px]">
           <img
             src={des}
             alt="Delivery person with groceries"

@@ -11,7 +11,7 @@ export default function ProductDes() {
   const [activeTab, setActiveTab] = useState("Descriptions");
 
   return (
-    <div className="py-8 font-sans">
+    <div className="py-4 lg:py-8 font-sans">
       {/* Tabs */}
       <div className="flex items-center justify-center gap-8 border-b border-gray-200 mb-8">
         {tabs.map((tab) => (

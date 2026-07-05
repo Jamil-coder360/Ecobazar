@@ -99,7 +99,7 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
       <Section className="">
         <Container className=" bg-white ">
           <div>
-            <div className="grid grid-cols-[648px_auto] gap-6 p-10 relative">
+            <div className="grid grid-cols-1 lg:grid-cols-[648px_auto] gap-6 p-10 relative">
              <div className="grid grid-cols-[80px_auto] gap-3 items-center justify-between">
               <div className="grid grid-cols-1 gap-4">
                 <div className="w-20 h-22.5 overflow-hidden">
@@ -115,7 +115,7 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
                   <img src={imageUrl} alt={product?.name} className="w-full h-full" />
                 </div>
               </div>
-              <div className=" w-[556px] h-[320px] sm:h-[420px] lg:h-[556px] overflow-hidden">
+              <div className="w-full lg:w-[556px] h-full lg:h-[320px] sm:h-[420px] lg:h-[556px] overflow-hidden">
                 <img src={imageUrl} alt={product?.name} className="w-full h-full object-cover" />
               </div>
             </div>
