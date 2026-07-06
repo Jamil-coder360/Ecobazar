@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import Section from "../components/global/Section";
 import Container from "../components/global/Container";
@@ -14,6 +14,8 @@ const ShopPage = () => {
   const [sort, setSort] = useState("Latest");
   const selectedCategory = searchParams.get("category") || "";
   const [products, setProducts] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [priceRange, setPriceRange] = useState([0, 1500]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,6 +27,17 @@ const ShopPage = () => {
       .catch(() => setProducts([]))
       .finally(() => setLoading(false));
   }, [selectedCategory]);
+  const filteredProducts = products.filter((product) => {
+    const matchesTags =
+      selectedTags.length === 0 ||
+      (Array.isArray(product.tags) && product.tags.some((tag) => selectedTags.includes(tag)));
+    const matchesPrice =
+      typeof product.price === "number" &&
+      product.price >= priceRange[0] &&
+      product.price <= priceRange[1];
+    return matchesTags && matchesPrice;
+  });
+
   return (
     <>
       <PageHading pagename="Categories" />
@@ -41,6 +54,14 @@ const ShopPage = () => {
                     setSearchParams({});
                   }
                 }}
+                selectedTags={selectedTags}
+                onToggleTag={(tag) => {
+                  setSelectedTags((prev) =>
+                    prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+                  );
+                }}
+                priceRange={priceRange}
+                onPriceRangeChange={setPriceRange}
               />
             </div>
             <div className="flex flex-col gap-6">
@@ -86,7 +107,7 @@ const ShopPage = () => {
                 </div>
                 <p className="text-base leading-[150%] font-normal text-gray_600">
                   <span className="text-base leading-[120%] font-semibold text-gray_900 pr-2">
-                    {products.length}
+                    {filteredProducts.length}
                   </span>
                   Results Found
                 </p>
@@ -94,7 +115,7 @@ const ShopPage = () => {
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
                 {loading
                   ? Array.from({ length: 9 }).map((_, i) => <ProductLoading key={i} />)
-                  : products.slice(0, 15).map((product) => (
+                  : filteredProducts.slice(0, 15).map((product) => (
                       <ProductCard key={product.id} product={product} />
                     ))}
               </div>

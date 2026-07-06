@@ -1,59 +1,8 @@
-import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import Banner_6 from "../../assets/Bannar-6.png";
-const categories = [
-  { name: "Fresh Fruit", slug: "fresh-fruit", count: 134, total: 134 },
-  {
-    name: "Fresh Vegetables",
-    slug: "fresh-vegetables",
-    count: 150,
-    total: 150,
-  },
-  { name: "Meat & Fish", slug: "meat-fish", count: 32, total: 32 },
-  { name: "Snacks", slug: "snacks", count: 47, total: 47 },
-  { name: "Beverages", slug: "beverages", count: 43, total: 43 },
-  { name: "Beauty & Health", slug: "beauty-health", count: 38, total: 38 },
-  { name: "Bread & Bakery", slug: "bread-bakery", count: 15, total: 15 },
-  { name: "Baking Needs", slug: "baking-needs", count: 20, total: 20 },
-  { name: "Cooking", slug: "cooking", count: 54, total: 54 },
-  { name: "Diabetic Food", slug: "diabetic-food", count: 12, total: 12 },
-  { name: "Dish Detergents", slug: "dish-detergents", count: 18, total: 18 },
-  { name: "Oil", slug: "oil", count: 24, total: 24 },
-];
-
-const tags = [
-  "vegetable",
-  "fruit",
-  "healthy",
-  "cooking",
-  "drink",
-  "oil",
-  "protein",
-  "snack",
-  "bakery",
-  "bread",
-  "cleaning",
-  "diabetic",
-  "leafy",
-  "spice",
-  "staple",
-  "sweet",
-  "beauty",
-  "meat",
-  "seafood",
-  "hygiene",
-  "mango",
-  "orange",
-  "rice",
-  "chili",
-  "juice",
-  "banana",
-  "apple",
-  "chips",
-  "chicken",
-  "fish",
-];
+import GroceryFilterSections from "./GroceryFilterSections";
 
 const ratings = [5, 4, 3, 2, 1];
 
@@ -87,7 +36,7 @@ const products = [
   },
 ];
 
-function StarRating({ count, filled }) {
+function StarRating({ count }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
@@ -104,30 +53,6 @@ function StarRating({ count, filled }) {
   );
 }
 
-function SectionHeader({ title, open, onToggle }) {
-  return (
-    <button
-      onClick={onToggle}
-      className="flex items-center justify-between w-full py-3 text-left"
-    >
-      <span className="font-medium text-gray_900 text-[20px] leading-[150%]">
-        {title}
-      </span>
-      <ChevronUp
-        className={`w-4 h-4 text-gray-500 transition-transform ${open ? "" : "rotate-180"}`}
-      />
-      {/* <svg
-        className={`w-4 h-4 text-gray-500 transition-transform ${open ? "" : "rotate-180"}`}
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-      </svg> */}
-    </button>
-  );
-}
-
 export default function GroceryFilter({
   selectedCategory,
   onCategoryChange,
@@ -138,6 +63,8 @@ export default function GroceryFilter({
   selectedTags,
   onToggleTag,
 }) {
+  const [categories, setCategories] = useState([]);
+  const [tags, setTags] = useState([]);
   const [localSelectedCategory, setLocalSelectedCategory] =
     useState("fresh-vegetables");
   const [localPriceRange, setLocalPriceRange] = useState([0, 1500]);
@@ -151,6 +78,8 @@ export default function GroceryFilter({
     tags: true,
   });
 
+  const [loadingCategories, setLoadingCategories] = useState(true);
+  const [loadingTags, setLoadingTags] = useState(true);
   const currentCategory = selectedCategory ?? localSelectedCategory;
   const currentPriceRange = priceRange ?? localPriceRange;
   const currentRatings = selectedRatings ?? localSelectedRatings;
@@ -174,6 +103,32 @@ export default function GroceryFilter({
 
   const toggleSection = (key) =>
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
+
+  useEffect(() => {
+    setLoadingCategories(true);
+    fetch("https://ecobazar-ktbd.onrender.com/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch(() => setCategories([]))
+      .finally(() => setLoadingCategories(false));
+  }, []);
+
+  useEffect(() => {
+    setLoadingTags(true);
+    fetch("https://ecobazar-ktbd.onrender.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        const uniqueTags = new Set();
+        data.forEach((product) => {
+          if (Array.isArray(product.tags)) {
+            product.tags.forEach((tag) => uniqueTags.add(tag));
+          }
+        });
+        setTags([...uniqueTags].sort());
+      })
+      .catch(() => setTags([]))
+      .finally(() => setLoadingTags(false));
+  }, []);
 
   const getBgImage = (image) => ({
     backgroundImage: `url(${image})`,
@@ -212,165 +167,24 @@ export default function GroceryFilter({
           </div>
         </div>
 
-        <div className=" space-y-1 hidden sm:block">
-          {/* Categories */}
-          <div className=" p-3 mb-2">
-            <SectionHeader
-              title="All Categories"
-              open={openSections.categories}
-              onToggle={() => toggleSection("categories")}
-            />
-            {openSections.categories && (
-              <div className="space-y-2 mt-1">
-                {categories.map((cat) => (
-                  <label
-                    key={cat.slug}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
-                    <div
-                      className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
-                        currentCategory === cat.slug
-                          ? "border-green-500 bg-green-500"
-                          : "border-gray-300 group-hover:border-green-400"
-                      }`}
-                      onClick={() => changeCategory(cat.slug)}
-                    >
-                      {currentCategory === cat.slug && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                      )}
-                    </div>
-                    <span
-                      className="text-sm text-gray_900 flex-1"
-                      onClick={() => changeCategory(cat.slug)}
-                    >
-                      {cat.name}{" "}
-                      <span className="text-gray-400">({cat.count})</span>
-                    </span>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Price */}
-          <div className="border-b border-gray-100 pb-4">
-            <SectionHeader
-              title="Price"
-              open={openSections.price}
-              onToggle={() => toggleSection("price")}
-            />
-            {openSections.price && (
-              <div className="mt-2 px-1">
-                <div className="relative">
-                  <input
-                    type="range"
-                    min={0}
-                    max={1500}
-                    value={currentPriceRange[1]}
-                    onChange={(e) =>
-                      changePriceRange([
-                        currentPriceRange[0],
-                        Number(e.target.value),
-                      ])
-                    }
-                    className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
-                    style={{
-                      background: `linear-gradient(to right, #22c55e ${((currentPriceRange[0] - 50) / 14950) * 100}%, #22c55e ${((currentPriceRange[1] - 50) / 14950) * 100}%, #e5e7eb ${((currentPriceRange[1] - 50) / 14950) * 100}%)`,
-                      accentColor: "#22c55e",
-                    }}
-                  />
-                </div>
-                <p className="text-sm text-gray-500 mt-2">
-                  Price:{" "}
-                  <span className="font-medium text-gray-700">
-                    {currentPriceRange[0]} — {currentPriceRange[1]}
-                  </span>
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Rating */}
-          <div className="border-b border-gray-100 pb-4">
-            <SectionHeader
-              title="Rating"
-              open={openSections.rating}
-              onToggle={() => toggleSection("rating")}
-            />
-            {openSections.rating && (
-              <div className="space-y-2 mt-1">
-                {ratings.map((r) => (
-                  <label
-                    key={r}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
-                    <div
-                      className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
-                        currentRatings.includes(r)
-                          ? "border-green-500 bg-green-500"
-                          : "border-gray-300 group-hover:border-green-400"
-                      }`}
-                      onClick={() => changeToggleRating(r)}
-                    >
-                      {currentRatings.includes(r) && (
-                        <svg
-                          className="w-2.5 h-2.5 text-white"
-                          fill="currentColor"
-                          viewBox="0 0 12 12"
-                        >
-                          <path
-                            d="M10 3L5 8.5 2 5.5"
-                            stroke="white"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            fill="none"
-                          />
-                        </svg>
-                      )}
-                    </div>
-                    <div
-                      className="flex items-center gap-2"
-                      onClick={() => changeToggleRating(r)}
-                    >
-                      <StarRating count={r} />
-                      <span className="text-sm text-gray-600">
-                        {r === 5 ? "5.0" : `${r}.0 & up`}
-                      </span>
-                    </div>
-                  </label>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Popular Tags */}
-          <div className="border-b border-gray-100 pb-4">
-            <SectionHeader
-              title="Popular Tag"
-              open={openSections.tags}
-              onToggle={() => toggleSection("tags")}
-            />
-            {openSections.tags && (
-              <div className="flex flex-wrap gap-2 mt-2">
-                {tags.map((tag) => (
-                  <button
-                    key={tag}
-                    onClick={() => changeToggleTag(tag)}
-                    className={`text-xs px-3 py-1.5 rounded-full border transition-all font-medium ${
-                      currentTags.includes(tag)
-                        ? "bg-green-500 text-white border-green-500"
-                        : tag === "Dinner"
-                          ? "border-violet-400 text-violet-600 bg-violet-50 hover:bg-violet-100"
-                          : "border-gray-200 text-gray-600 bg-white hover:bg-gray-50 hover:border-gray-300"
-                    }`}
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+        <div className="space-y-1 hidden sm:block">
+          <GroceryFilterSections
+            categories={categories}
+            loadingCategories={loadingCategories}
+            currentCategory={currentCategory}
+            changeCategory={changeCategory}
+            currentPriceRange={currentPriceRange}
+            changePriceRange={changePriceRange}
+            ratings={ratings}
+            currentRatings={currentRatings}
+            changeToggleRating={changeToggleRating}
+            tags={tags}
+            loadingTags={loadingTags}
+            currentTags={currentTags}
+            changeToggleTag={changeToggleTag}
+            openSections={openSections}
+            toggleSection={toggleSection}
+          />
 
           {/* Promo Banner */}
           <div
@@ -440,166 +254,23 @@ export default function GroceryFilter({
 
         {/* mobile filter */}
         {isOpen && (
-          <>
-            {/* Categories */}
-            <div className=" p-3 mb-2">
-              <SectionHeader
-                title="All Categories"
-                open={openSections.categories}
-                onToggle={() => toggleSection("categories")}
-              />
-              {openSections.categories && (
-                <div className="space-y-2 mt-1">
-                  {categories.map((cat) => (
-                    <label
-                      key={cat.slug}
-                      className="flex items-center gap-3 cursor-pointer group"
-                    >
-                      <div
-                        className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
-                          currentCategory === cat.slug
-                            ? "border-green-500 bg-green-500"
-                            : "border-gray-300 group-hover:border-green-400"
-                        }`}
-                        onClick={() => changeCategory(cat.slug)}
-                      >
-                        {currentCategory === cat.slug && (
-                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                        )}
-                      </div>
-                      <span
-                        className="text-sm text-gray_900 flex-1"
-                        onClick={() => changeCategory(cat.slug)}
-                      >
-                        {cat.name}{" "}
-                        <span className="text-gray-400">({cat.count})</span>
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Price */}
-            <div className="border-b border-gray-100 pb-4">
-              <SectionHeader
-                title="Price"
-                open={openSections.price}
-                onToggle={() => toggleSection("price")}
-              />
-              {openSections.price && (
-                <div className="mt-2 px-1">
-                  <div className="relative">
-                    <input
-                      type="range"
-                      min={0}
-                      max={1500}
-                      value={currentPriceRange[1]}
-                      onChange={(e) =>
-                        changePriceRange([
-                          currentPriceRange[0],
-                          Number(e.target.value),
-                        ])
-                      }
-                      className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
-                      style={{
-                        background: `linear-gradient(to right, #22c55e ${((currentPriceRange[0] - 50) / 14950) * 100}%, #22c55e ${((currentPriceRange[1] - 50) / 14950) * 100}%, #e5e7eb ${((currentPriceRange[1] - 50) / 14950) * 100}%)`,
-                        accentColor: "#22c55e",
-                      }}
-                    />
-                  </div>
-                  <p className="text-sm text-gray-500 mt-2">
-                    Price:{" "}
-                    <span className="font-medium text-gray-700">
-                      {currentPriceRange[0]} — {currentPriceRange[1]}
-                    </span>
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* Rating */}
-            <div className="border-b border-gray-100 pb-4">
-              <SectionHeader
-                title="Rating"
-                open={openSections.rating}
-                onToggle={() => toggleSection("rating")}
-              />
-              {openSections.rating && (
-                <div className="space-y-2 mt-1">
-                  {ratings.map((r) => (
-                    <label
-                      key={r}
-                      className="flex items-center gap-3 cursor-pointer group"
-                    >
-                      <div
-                        className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
-                          currentRatings.includes(r)
-                            ? "border-green-500 bg-green-500"
-                            : "border-gray-300 group-hover:border-green-400"
-                        }`}
-                        onClick={() => changeToggleRating(r)}
-                      >
-                        {currentRatings.includes(r) && (
-                          <svg
-                            className="w-2.5 h-2.5 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 12 12"
-                          >
-                            <path
-                              d="M10 3L5 8.5 2 5.5"
-                              stroke="white"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              fill="none"
-                            />
-                          </svg>
-                        )}
-                      </div>
-                      <div
-                        className="flex items-center gap-2"
-                        onClick={() => changeToggleRating(r)}
-                      >
-                        <StarRating count={r} />
-                        <span className="text-sm text-gray-600">
-                          {r === 5 ? "5.0" : `${r}.0 & up`}
-                        </span>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Popular Tags */}
-            <div className="border-b border-gray-100 pb-4">
-              <SectionHeader
-                title="Popular Tag"
-                open={openSections.tags}
-                onToggle={() => toggleSection("tags")}
-              />
-              {openSections.tags && (
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {tags.map((tag) => (
-                    <button
-                      key={tag}
-                      onClick={() => changeToggleTag(tag)}
-                      className={`text-xs px-3 py-1.5 rounded-full border transition-all font-medium ${
-                        currentTags.includes(tag)
-                          ? "bg-green-500 text-white border-green-500"
-                          : tag === "Dinner"
-                            ? "border-violet-400 text-violet-600 bg-violet-50 hover:bg-violet-100"
-                            : "border-gray-200 text-gray-600 bg-white hover:bg-gray-50 hover:border-gray-300"
-                      }`}
-                    >
-                      {tag}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </>
+          <GroceryFilterSections
+            categories={categories}
+            loadingCategories={loadingCategories}
+            currentCategory={currentCategory}
+            changeCategory={changeCategory}
+            currentPriceRange={currentPriceRange}
+            changePriceRange={changePriceRange}
+            ratings={ratings}
+            currentRatings={currentRatings}
+            changeToggleRating={changeToggleRating}
+            tags={tags}
+            loadingTags={loadingTags}
+            currentTags={currentTags}
+            changeToggleTag={changeToggleTag}
+            openSections={openSections}
+            toggleSection={toggleSection}
+          />
         )}
       </div>
     </div>
