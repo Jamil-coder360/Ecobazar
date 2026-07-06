@@ -5,14 +5,18 @@ import Button from "../global/Button";
 import { ArrowRight } from "lucide-react";
 import ProductCard from "./ProductCard";
 import HotDealCard from "./HotDealCard";
+import ProductLoading from "./ProductLoading";
 
 const HotDeal = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-       fetch(`https://ecobazar-ktbd.onrender.com/products`)
-
+    setLoading(true);
+    fetch(`https://ecobazar-ktbd.onrender.com/products`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data))
+      .catch(() => setProducts([]))
+      .finally(() => setLoading(false));
   }, []);
 
   console.log(products);
@@ -31,18 +35,22 @@ const HotDeal = () => {
           </div>
           <div className="grid  grid-cols-1 lg:grid-cols-[528px_auto] grid-rows-[654px_auto]">
             <div className="w-full lg:w-[528px] h-full lg:h-[654px] ">
-              {products.length > 0 && <HotDealCard product={products[0]} />}
+              {loading ? <ProductLoading /> : products.length > 0 && <HotDealCard product={products[0]} />}
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3">
-              {products.slice(6, 12).map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+              {loading
+                ? Array.from({ length: 3 }).map((_, i) => <ProductLoading key={i} />)
+                : products.slice(6, 12).map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
             </div>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-5 lg:w-(--container) ">
-            {products.slice(6, 11).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {loading
+              ? Array.from({ length: 5 }).map((_, i) => <ProductLoading key={i} />)
+              : products.slice(6, 11).map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
           </div>
         </div>
       </Container>

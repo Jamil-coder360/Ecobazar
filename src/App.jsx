@@ -16,6 +16,7 @@ import AccounPage from "./pages/AccountPage";
 import FaqPage from "./pages/FaqPage";
 import ContactPage from "./pages/ContactPage";
 import PopupCart from "./pages/PopupCart";
+import ProductLoading from "./components/product/ProductLoading";
 
 
 const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/account",
         element: <AccounPage />,
+      },
+      {
+        path: "/ps",
+        element: <ProductLoading />,
       },
       {
         path: "/signup",

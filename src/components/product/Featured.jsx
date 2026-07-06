@@ -5,13 +5,18 @@ import Container from "../global/Container";
 import Button from "../global/Button";
 import { ArrowRight } from "lucide-react";
 import ProductCard from "./ProductCard";
+import ProductLoading from "./ProductLoading";
 
 const Featured = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     fetch(`https://ecobazar-ktbd.onrender.com/products`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data))
+      .catch(() => setProducts([]))
+      .finally(() => setLoading(false));
   }, []);
 
   console.log(products);
@@ -28,9 +33,13 @@ const Featured = () => {
             </Button>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-5">
-            {products.slice(0, 5).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {loading
+              ? Array.from({ length: 5 }).map((_, i) => (
+                  <ProductLoading key={i} />
+                ))
+              : products.slice(0, 5).map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
           </div>
         </div>
       </Container>

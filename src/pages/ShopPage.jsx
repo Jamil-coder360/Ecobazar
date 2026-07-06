@@ -6,6 +6,7 @@ import PageHading from "../components/global/PageHading";
 import GroceryFilter from "../components/shop/GroceryFilter";
 import { ChevronDown } from "lucide-react";
 import ProductCard from "../components/product/ProductCard";
+import ProductLoading from "../components/product/ProductLoading";
 
 const ShopPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,13 +14,16 @@ const ShopPage = () => {
   const [sort, setSort] = useState("Latest");
   const selectedCategory = searchParams.get("category") || "";
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const query = selectedCategory ? `?category=${encodeURIComponent(selectedCategory)}` : "";
+    setLoading(true);
     fetch(`https://ecobazar-ktbd.onrender.com/products${query}`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
-      .catch(() => setProducts([]));
+      .catch(() => setProducts([]))
+      .finally(() => setLoading(false));
   }, [selectedCategory]);
   return (
     <>
@@ -88,9 +92,11 @@ const ShopPage = () => {
                 </p>
               </div>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-                {products.slice(0, 15).map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
+                {loading
+                  ? Array.from({ length: 9 }).map((_, i) => <ProductLoading key={i} />)
+                  : products.slice(0, 15).map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
               </div>
             </div>
           </div>

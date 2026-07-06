@@ -4,13 +4,18 @@ import Container from "../global/Container";
 import Button from "../global/Button";
 import { ArrowRight } from "lucide-react";
 import ProductCard from "./ProductCard";
+import ProductLoading from "./ProductLoading";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     fetch(`https://ecobazar-ktbd.onrender.com/products`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data))
+      .catch(() => setProducts([]))
+      .finally(() => setLoading(false));
   }, []);
 
   console.log(products);
@@ -27,9 +32,11 @@ const Product = () => {
             </Button>
           </div>
           <div className="grid grid-cols-2 gap-3 lg:gap-0 lg:grid-cols-5">
-            {products.slice(0, 10).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {loading
+              ? Array.from({ length: 10 }).map((_, i) => <ProductLoading key={i} />)
+              : products.slice(0, 10).map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
           </div>
         </div>
       </Container>

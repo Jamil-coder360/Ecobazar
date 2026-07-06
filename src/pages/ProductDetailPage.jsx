@@ -6,11 +6,13 @@ import PageHading from "../components/global/PageHading";
 import ProductDes from "../components/product/ProductDes";
 import ProductCard from "../components/product/ProductCard";
 import { useParams } from "react-router";
+import ProductLoading from "../components/product/ProductLoading";
 
 const ProductDetailPage = () => {
   const [product, setProduct] = useState(null);
   const [detail, setDetail] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [loadingRelated, setLoadingRelated] = useState(true);
   const { id } = useParams();
 
   const imageUrl = product?.image ? product.image.replace(/^\.\//, "/") : "";
@@ -80,6 +82,7 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
       .then((data) => {
         setDetail(data);
         setRelatedProducts(getRelatedItems(product, data));
+        setLoadingRelated(false);
       });
   }, []);
 
@@ -135,9 +138,11 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
                 Related Products
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-                {relatedProducts.map((item) => (
-                  <ProductCard key={item.id ?? item._id} product={item} />
-                ))}
+                {loadingRelated
+                  ? Array.from({ length: 4 }).map((_, i) => <ProductLoading key={i} />)
+                  : relatedProducts.map((item) => (
+                      <ProductCard key={item.id ?? item._id} product={item} />
+                    ))}
               </div>
             </div>
           </div>
