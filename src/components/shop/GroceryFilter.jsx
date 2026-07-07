@@ -62,6 +62,8 @@ export default function GroceryFilter({
   onToggleRating,
   selectedTags,
   onToggleTag,
+  tags: propTags,
+  loadingTags: propLoadingTags,
 }) {
   const [categories, setCategories] = useState([]);
   const [tags, setTags] = useState([]);
@@ -101,11 +103,14 @@ export default function GroceryFilter({
       );
     });
 
+  const displayTags = propTags !== undefined ? propTags : tags;
+  const displayLoadingTags = propLoadingTags !== undefined ? propLoadingTags : loadingTags;
+
   const toggleSection = (key) =>
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
 
   useEffect(() => {
-    setLoadingCategories(true);
+    Promise.resolve().then(() => setLoadingCategories(true));
     fetch("https://ecobazar-ktbd.onrender.com/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
@@ -114,7 +119,7 @@ export default function GroceryFilter({
   }, []);
 
   useEffect(() => {
-    setLoadingTags(true);
+    Promise.resolve().then(() => setLoadingTags(true));
     fetch("https://ecobazar-ktbd.onrender.com/products")
       .then((res) => res.json())
       .then((data) => {
@@ -178,8 +183,8 @@ export default function GroceryFilter({
             ratings={ratings}
             currentRatings={currentRatings}
             changeToggleRating={changeToggleRating}
-            tags={tags}
-            loadingTags={loadingTags}
+            tags={displayTags}
+            loadingTags={displayLoadingTags}
             currentTags={currentTags}
             changeToggleTag={changeToggleTag}
             openSections={openSections}
@@ -264,8 +269,8 @@ export default function GroceryFilter({
             ratings={ratings}
             currentRatings={currentRatings}
             changeToggleRating={changeToggleRating}
-            tags={tags}
-            loadingTags={loadingTags}
+            tags={displayTags}
+            loadingTags={displayLoadingTags}
             currentTags={currentTags}
             changeToggleTag={changeToggleTag}
             openSections={openSections}

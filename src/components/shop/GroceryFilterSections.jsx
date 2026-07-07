@@ -67,7 +67,10 @@ export default function GroceryFilterSections({
                     className="h-8 rounded-lg bg-gray-200 animate-pulse"
                   />
                 ))
-              : categories.map((cat) => (
+              : [
+                  { slug: "", label: "All Categories" },
+                  ...categories
+                ].map((cat) => (
                   <label
                     key={cat.slug}
                     className="flex items-center gap-3 cursor-pointer group"
