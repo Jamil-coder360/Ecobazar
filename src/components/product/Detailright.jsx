@@ -28,7 +28,7 @@ const tags = ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"];
 
 export default function DetailRight({ product }) {
   const dispatch = useAppDispatch();
-  const [quantity, setQuantity] = useState(5);
+  const [quantity, setQuantity] = useState(1);
   const wishlisted = useAppSelector((state) =>
     product ? state.wishlist.items.some((item) => item.id === product.id) : false,
   );

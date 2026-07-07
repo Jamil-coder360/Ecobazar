@@ -4,7 +4,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
 import { useQuickView } from "../../context/QuickViewContext";
 import { Link } from "react-router";
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { addToCart } from "../../features/cart/cartSlice";
 import { addToWishlist } from "../../features/wish/wishlistSlice";
 import { useCartPopup } from "../../context/CartPopupContext";
@@ -18,7 +18,9 @@ const ProductCard = ({ product }) => {
   const discount =
     originalPrice &&
     Math.round(((originalPrice - price) / originalPrice) * 100);
-
+ const wishlisted = useAppSelector((state) =>
+    product ? state.wishlist.items.some((item) => item.id === product.id) : false,
+  );
   return (
     <div className=" relative group bg-white border border-gray-100 hover:border-success_207 hover:shadow-success_207 rounded-md hover:shadow-sm transition-all duration-300 w-full h-[327px] overflow-hidden ">
       {/* Sale Badge */}
@@ -35,7 +37,7 @@ const ProductCard = ({ product }) => {
         onClick={() => dispatch(addToWishlist(product))}
         className=" absolute top-4 right-4 opacity-100 lg:opacity-0 group-hover:opacity-100 p-2.5 rounded-full bg-gray_50 flex items-center justify-center hover:bg-green-500 hover:text-white transition"
       >
-        <IoMdHeartEmpty size={20} />
+        <IoMdHeartEmpty size={20} className={wishlisted ? "text-red-500" : "text-gray_900"} />
       </button>
       <button
         type="button"
