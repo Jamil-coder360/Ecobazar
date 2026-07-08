@@ -5,9 +5,11 @@ import { LuEye } from "react-icons/lu";
 import { useQuickView } from "../../context/QuickViewContext";
 import { Link } from "react-router";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { addToCart } from "../../features/cart/cartSlice";
+import { addToCart, setCartItems } from "../../features/cart/cartSlice";
 import { addToWishlist } from "../../features/wish/wishlistSlice";
 import { useCartPopup } from "../../context/CartPopupContext";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const ProductCard = ({ product }) => {
   const dispatch = useAppDispatch();
@@ -21,6 +23,16 @@ const ProductCard = ({ product }) => {
  const wishlisted = useAppSelector((state) =>
     product ? state.wishlist.items.some((item) => item.id === product.id) : false,
   );
+const cartItems = useSelector((state) => state.cart.items);
+  const handleAddToCart = (product) => {
+      const item = cartItems.find((item) => item.id === product.id);
+      if(item && item.quantity >= 5){
+    toast.info(`${item.name} has reached the maximum quantity of 5.`);
+    return;
+  }
+    dispatch(addToCart({ ...product, quantity: 1 }));
+  showCartPopup(product);
+  };
   return (
     <div className=" relative group bg-white border border-gray-100 hover:border-success_207 hover:shadow-success_207 rounded-md hover:shadow-sm transition-all duration-300 w-full h-[327px] overflow-hidden ">
       {/* Sale Badge */}
@@ -82,10 +94,9 @@ const ProductCard = ({ product }) => {
 
           <button
             type="button"
-        onClick={() => {
-  dispatch(addToCart({ ...product, quantity: 1 }));
-  showCartPopup(product);
-}}
+        onClick={() => 
+handleAddToCart(product)
+}
             className="p-2.5 rounded-full bg-gray_50 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition"
           >
             <HiOutlineShoppingBag size={20} />

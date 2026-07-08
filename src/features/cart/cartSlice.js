@@ -33,6 +33,9 @@ addToCart(state, action) {
       const item = state.items.find((item) => item.id === id);
       if (item) {
        item.quantity = Math.min(5, Math.max(1, quantity));
+       if (item.quantity === 5) {
+         toast.info(`${item.name} is reached Maximum quantity .`);
+       }
       }
     },
     clearCart(state) {
