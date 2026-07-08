@@ -84,7 +84,7 @@ const activeItem = navItems.find(
         </button>
       </div>
 
-      <div className="container mx-auto py-6 flex gap-5">
+      <div className="container mx-auto py-6 flex flex-col md:flex-row gap-5">
         {/* Sidebar */}
         <aside
           className={`
@@ -123,8 +123,8 @@ const activeItem = navItems.find(
             ))}
           </nav>
         </aside>
-        <div className="flex-1 w-[984px]">
-                      {activeItem?.component}
+        <div className="flex-1 min-w-0 w-full">
+          {activeItem?.component}
         </div>
 
       </div>

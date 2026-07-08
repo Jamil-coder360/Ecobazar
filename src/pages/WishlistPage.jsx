@@ -21,12 +21,12 @@ const WishlistPage = ({ showPageHeading = true }) => {
       {showPageHeading && <PageHading pagename="Wishlist" />}
       <Section className="pt-5 lg:pt-10 pb-8 lg:pb-20 px-5 lg:px-0">
         <Container>
-          <div>
+          <div className="w-full min-w-0">
             <h3 className="font-semibold text-[16px] lg:text-[32px] leading-[120%] text-gray_900 text-center">
               My Wishlist
             </h3>
             <div className="w-full mt-8 overflow-x-auto">
-              <table className="min-w-[750px] w-full border-separate border-spacing-y-3">
+              <table className="min-w-[680px] md:min-w-[750px] w-full border-separate border-spacing-y-3">
                 <thead>
                   <tr className="text-gray_500 text-xs lg:text-sm font-medium shadow-sm border border-gray_100">
                     <th className="px-4 py-4 text-left">Product</th>
