@@ -173,7 +173,7 @@ export default function Setting() {
 
             {/* Avatar */}
             <div className="flex flex-col items-center gap-3 sm:pt-2">
-              <div className="w-[224px] h-[224px] rounded-full overflow-hidden ring-4 ring-green-100 bg-gradient-to-br from-green-200 to-green-400 flex items-center justify-center shrink-0">
+              <div className="w-[224px] h-[224px] rounded-full overflow-hidden ring-4 ring-green-100  flex items-center justify-center shrink-0">
                 {avatar ? (
                   <img src={user_1} alt="Avatar" className="w-full h-full object-cover" />
                 ) : (

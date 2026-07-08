@@ -1,4 +1,5 @@
 import React from "react";
+import user_1 from "../../assets/user_1.png"
 
 const Dashboard = () => {
   const orders = [
@@ -61,7 +62,7 @@ const Dashboard = () => {
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col items-center text-center">
             <div className="w-20 h-20 rounded-full overflow-hidden ring-4 ring-green-100 mb-3">
               <div className="w-full h-full bg-gradient-to-br from-green-200 to-green-400 flex items-center justify-center text-white text-2xl font-bold select-none">
-                DN
+                <img src={user_1} alt="Profile" />
               </div>
             </div>
             <p className="font-medium text-gray_900 text-[20px] leading-[150%]">
