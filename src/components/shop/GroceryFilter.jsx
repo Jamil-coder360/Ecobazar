@@ -6,36 +6,6 @@ import GroceryFilterSections from "./GroceryFilterSections";
 
 const ratings = [5, 4, 3, 2, 1];
 
-const products = [
-  {
-    name: "Red Capsicum",
-    price: 32.0,
-    original: 20.99,
-    rating: 4,
-    color: "bg-red-100",
-    emoji: "🫑",
-    highlighted: false,
-  },
-  {
-    name: "Chanise Cabbage",
-    price: 24.0,
-    original: 20.99,
-    rating: 4,
-    color: "bg-yellow-100",
-    emoji: "🥬",
-    highlighted: true,
-  },
-  {
-    name: "Green Capsicum",
-    price: 32.0,
-    original: 20.99,
-    rating: 4,
-    color: "bg-green-100",
-    emoji: "🥒",
-    highlighted: false,
-  },
-];
-
 function StarRating({ count }) {
   return (
     <div className="flex gap-0.5">
@@ -82,6 +52,8 @@ export default function GroceryFilter({
 
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [loadingTags, setLoadingTags] = useState(true);
+  const [saleProducts, setSaleProducts] = useState([]);
+  const [loadingSaleProducts, setLoadingSaleProducts] = useState(true);
   const currentCategory = selectedCategory ?? localSelectedCategory;
   const currentPriceRange = priceRange ?? localPriceRange;
   const currentRatings = selectedRatings ?? localSelectedRatings;
@@ -133,6 +105,20 @@ export default function GroceryFilter({
       })
       .catch(() => setTags([]))
       .finally(() => setLoadingTags(false));
+  }, []);
+
+  useEffect(() => {
+    Promise.resolve().then(() => setLoadingSaleProducts(true));
+    fetch("https://ecobazar-ktbd.onrender.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        const saleItems = Array.isArray(data)
+          ? data.filter((product) => product.sale).slice(0, 4)
+          : [];
+        setSaleProducts(saleItems);
+      })
+      .catch(() => setSaleProducts([]))
+      .finally(() => setLoadingSaleProducts(false));
   }, []);
 
   const getBgImage = (image) => ({
@@ -214,46 +200,65 @@ export default function GroceryFilter({
           </div>
 
           {/* Sale Products */}
-          <div className="pt-4">
+          <div className="pt-4 mb-10">
             <h3 className="font-bold text-gray-800 text-base mb-3">
               Sale Products
             </h3>
-            <div className="space-y-3">
-              {products.map((p) => (
-                <div
-                  key={p.name}
-                  className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
-                    p.highlighted
-                      ? "border-green-400 bg-white shadow-sm"
-                      : "border-gray-100 bg-white hover:border-gray-200"
-                  }`}
-                >
+            {loadingSaleProducts ? (
+              <div className="space-y-3">
+                {Array.from({ length: 3 }).map((_, index) => (
                   <div
-                    className={`w-14 h-14 rounded-xl ${p.color} flex items-center justify-center text-2xl shrink-0`}
-                  >
-                    {p.emoji}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p
-                      className={`text-sm font-medium truncate ${
-                        p.highlighted ? "text-green-600" : "text-gray-800"
-                      }`}
+                    key={index}
+                    className="h-20 animate-pulse rounded-xl bg-gray-100"
+                  />
+                ))}
+              </div>
+            ) : saleProducts.length === 0 ? (
+              <p className="text-sm text-gray-500">No sale products available.</p>
+            ) : (
+              <div className="space-y-3">
+                {saleProducts.map((product) => {
+                  const productId = product.id ?? product._id;
+                  const imageUrl = product.image ? product.image.replace(/^\.\//, "/") : "";
+
+                  return (
+                    <Link
+                      key={productId}
+                      to={`/product/${productId}`}
+                      className="block"
                     >
-                      {p.name}
-                    </p>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-sm font-bold text-gray-800">
-                        ${p.price.toFixed(2)}
-                      </span>
-                      <span className="text-xs text-gray-400 line-through">
-                        ${p.original.toFixed(2)}
-                      </span>
-                    </div>
-                    <StarRating count={p.rating} />
-                  </div>
-                </div>
-              ))}
-            </div>
+                      <div className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 bg-white hover:border-green-400 hover:shadow-sm transition-all">
+                        <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-gray-100">
+                          {imageUrl ? (
+                            <img
+                              src={imageUrl}
+                              alt={product.name}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : null}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium truncate text-gray-800 hover:text-green-600">
+                            {product.name}
+                          </p>
+                          <div className="flex items-center gap-2 mt-0.5">
+                            <span className="text-sm font-bold text-gray-800">
+                              ${Number(product.price ?? 0).toFixed(2)}
+                            </span>
+                            {product.originalPrice ? (
+                              <span className="text-xs text-gray-400 line-through">
+                                ${Number(product.originalPrice).toFixed(2)}
+                              </span>
+                            ) : null}
+                          </div>
+                          <StarRating count={Math.round(Number(product.rating ?? 0))} />
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 

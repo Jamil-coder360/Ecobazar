@@ -66,14 +66,18 @@
       "icon": "./category_11.png",
       "slug": "dish-detergents"
     },
-    { "id": "oil", "label": "Oil", "icon": "./category_12.png", "slug": "oil" }
+    {
+      "id": "oil",
+      "label": "Oil",
+      "icon": "./category_12.png",
+      "slug": "oil"
+    }
   ],
-
   "products": [
     {
       "id": 1,
       "name": "Green Apple",
-      "image" : "./p_1.png",
+      "image": "./p_1.png",
       "category": "fresh-fruit",
       "price": 14.89,
       "originalPrice": 20.99,
@@ -81,12 +85,15 @@
       "rating": 3.5,
       "stock": 50,
       "sale": true,
-      "tags": ["fruit", "green", "apple"]
+      "tags": [
+        "fresh",
+        "sale"
+      ]
     },
     {
       "id": 2,
       "name": "Fresh Indian Malta",
-      "image" : "./p_2.png",
+      "image": "./p_2.png",
       "category": "fresh-fruit",
       "price": 20.0,
       "originalPrice": null,
@@ -94,13 +101,15 @@
       "rating": 4.0,
       "stock": 30,
       "sale": false,
-      "tags": ["fruit", "orange", "malta", "citrus"]
+      "tags": [
+        "fresh",
+        "fruit"
+      ]
     },
     {
       "id": 3,
       "name": "Banana",
-      "image" : "./p_3.jpg",
-
+      "image": "./p_3.jpg",
       "category": "fresh-fruit",
       "price": 8.0,
       "originalPrice": null,
@@ -108,13 +117,15 @@
       "rating": 4.5,
       "stock": 60,
       "sale": false,
-      "tags": ["fruit", "banana", "yellow"]
+      "tags": [
+        "fresh",
+        "fruit"
+      ]
     },
     {
       "id": 4,
       "name": "Mango",
-      "image" : "./p_4.png",
-
+      "image": "./p_4.png",
       "category": "fresh-fruit",
       "price": 25.0,
       "originalPrice": 30.0,
@@ -122,13 +133,15 @@
       "rating": 5.0,
       "stock": 20,
       "sale": true,
-      "tags": ["fruit", "mango", "tropical"]
+      "tags": [
+        "fresh",
+        "sale"
+      ]
     },
     {
       "id": 5,
       "name": "Watermelon",
-      "image" : "./p_5.jpg",
-
+      "image": "./p_5.jpg",
       "category": "fresh-fruit",
       "price": 18.0,
       "originalPrice": null,
@@ -136,14 +149,15 @@
       "rating": 4.0,
       "stock": 15,
       "sale": false,
-      "tags": ["fruit", "watermelon", "summer"]
+      "tags": [
+        "fresh",
+        "fruit"
+      ]
     },
-
     {
       "id": 6,
       "name": "Chinese Cabbage",
-      "image" : "./p_6.png",
-
+      "image": "./p_6.png",
       "category": "fresh-vegetables",
       "price": 12.0,
       "originalPrice": null,
@@ -151,13 +165,15 @@
       "rating": 3.5,
       "stock": 40,
       "sale": false,
-      "tags": ["vegetable", "cabbage", "leafy", "green"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 7,
       "name": "Green Lettuce",
-      "image" : "./p_7.png",
-
+      "image": "./p_7.png",
       "category": "fresh-vegetables",
       "price": 9.0,
       "originalPrice": null,
@@ -165,13 +181,15 @@
       "rating": 3.5,
       "stock": 35,
       "sale": false,
-      "tags": ["vegetable", "lettuce", "leafy", "salad"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 8,
       "name": "Eggplant",
-      "image" : "./p_8.png",
-
+      "image": "./p_8.png",
       "category": "fresh-vegetables",
       "price": 34.0,
       "originalPrice": null,
@@ -179,13 +197,15 @@
       "rating": 3.5,
       "stock": 25,
       "sale": false,
-      "tags": ["vegetable", "eggplant", "brinjal", "purple"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 9,
       "name": "Big Potatoes",
-      "image" : "./p_9.png",
-
+      "image": "./p_9.png",
       "category": "fresh-vegetables",
       "price": 20.0,
       "originalPrice": null,
@@ -193,13 +213,15 @@
       "rating": 4.0,
       "stock": 80,
       "sale": false,
-      "tags": ["vegetable", "potato", "starch"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 10,
       "name": "Corn",
-      "image" : "./p_10.png",
-
+      "image": "./p_10.png",
       "category": "fresh-vegetables",
       "price": 20.0,
       "originalPrice": null,
@@ -207,13 +229,15 @@
       "rating": 4.0,
       "stock": 45,
       "sale": false,
-      "tags": ["vegetable", "corn", "maize", "yellow"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 11,
       "name": "Fresh Cauliflower",
-      "image" : "./p_11.png",
-
+      "image": "./p_11.png",
       "category": "fresh-vegetables",
       "price": 12.0,
       "originalPrice": null,
@@ -221,13 +245,15 @@
       "rating": 4.0,
       "stock": 30,
       "sale": false,
-      "tags": ["vegetable", "cauliflower", "white"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 12,
       "name": "Green Capsicum",
-      "image" : "./p_12.png",
-
+      "image": "./p_12.png",
       "category": "fresh-vegetables",
       "price": 9.0,
       "originalPrice": 20.99,
@@ -235,13 +261,15 @@
       "rating": 4.0,
       "stock": 55,
       "sale": true,
-      "tags": ["vegetable", "capsicum", "pepper", "green"]
+      "tags": [
+        "fresh",
+        "sale"
+      ]
     },
     {
       "id": 13,
       "name": "Green Chili",
-      "image" : "./p_13.png",
-
+      "image": "./p_13.png",
       "category": "fresh-vegetables",
       "price": 34.0,
       "originalPrice": null,
@@ -249,12 +277,15 @@
       "rating": 4.0,
       "stock": 70,
       "sale": false,
-      "tags": ["vegetable", "chili", "spicy", "green"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 14,
       "name": "Tomato",
-      "image" : "./p_14.png",
+      "image": "./p_14.png",
       "category": "fresh-vegetables",
       "price": 15.0,
       "originalPrice": null,
@@ -262,12 +293,15 @@
       "rating": 4.5,
       "stock": 60,
       "sale": false,
-      "tags": ["vegetable", "tomato", "red"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 15,
       "name": "Onion",
-      "image" : "./p_15.jpg",
+      "image": "./p_15.jpg",
       "category": "fresh-vegetables",
       "price": 10.0,
       "originalPrice": null,
@@ -275,12 +309,15 @@
       "rating": 4.0,
       "stock": 100,
       "sale": false,
-      "tags": ["vegetable", "onion"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 16,
       "name": "Garlic",
-      "image" : "./p_16.jpg",
+      "image": "./p_16.jpg",
       "category": "fresh-vegetables",
       "price": 22.0,
       "originalPrice": null,
@@ -288,12 +325,15 @@
       "rating": 4.0,
       "stock": 50,
       "sale": false,
-      "tags": ["vegetable", "garlic", "spice"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 17,
       "name": "Carrot",
-      "image" : "./p_17.jpg",
+      "image": "./p_17.jpg",
       "category": "fresh-vegetables",
       "price": 18.0,
       "originalPrice": null,
@@ -301,12 +341,15 @@
       "rating": 4.5,
       "stock": 40,
       "sale": false,
-      "tags": ["vegetable", "carrot", "orange"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
     {
       "id": 18,
       "name": "Spinach",
-      "image" : "./p_18.jpg",
+      "image": "./p_18.jpg",
       "category": "fresh-vegetables",
       "price": 8.0,
       "originalPrice": null,
@@ -314,14 +357,15 @@
       "rating": 4.0,
       "stock": 35,
       "sale": false,
-      "tags": ["vegetable", "spinach", "leafy", "green"]
+      "tags": [
+        "fresh",
+        "vegetable"
+      ]
     },
-
     {
       "id": 19,
       "name": "Chicken Breast",
-      "image" : "./p_19.jpg",
-
+      "image": "./p_19.jpg",
       "category": "meat-fish",
       "price": 45.0,
       "originalPrice": null,
@@ -329,12 +373,15 @@
       "rating": 4.5,
       "stock": 20,
       "sale": false,
-      "tags": ["meat", "chicken", "protein"]
+      "tags": [
+        "fresh",
+        "protein"
+      ]
     },
     {
       "id": 20,
       "name": "Beef",
-      "image" : "./p_20.jpg",
+      "image": "./p_20.jpg",
       "category": "meat-fish",
       "price": 80.0,
       "originalPrice": null,
@@ -342,12 +389,15 @@
       "rating": 4.0,
       "stock": 15,
       "sale": false,
-      "tags": ["meat", "beef", "protein"]
+      "tags": [
+        "fresh",
+        "protein"
+      ]
     },
     {
       "id": 21,
       "name": "Hilsa Fish",
-      "image" : "./p_21.jpg",
+      "image": "./p_21.jpg",
       "category": "meat-fish",
       "price": 120.0,
       "originalPrice": null,
@@ -355,12 +405,15 @@
       "rating": 5.0,
       "stock": 10,
       "sale": false,
-      "tags": ["fish", "hilsa", "seafood"]
+      "tags": [
+        "fresh",
+        "protein"
+      ]
     },
     {
       "id": 22,
       "name": "Rohu Fish",
-      "image" : "./p_22.jpg",
+      "image": "./p_22.jpg",
       "category": "meat-fish",
       "price": 55.0,
       "originalPrice": null,
@@ -368,12 +421,15 @@
       "rating": 4.0,
       "stock": 18,
       "sale": false,
-      "tags": ["fish", "rohu", "freshwater"]
+      "tags": [
+        "fresh",
+        "protein"
+      ]
     },
     {
       "id": 23,
       "name": "Shrimp",
-      "image" : "./p_23.jpg",
+      "image": "./p_23.jpg",
       "category": "meat-fish",
       "price": 95.0,
       "originalPrice": null,
@@ -381,12 +437,15 @@
       "rating": 4.5,
       "stock": 12,
       "sale": false,
-      "tags": ["seafood", "shrimp", "prawn"]
+      "tags": [
+        "fresh",
+        "protein"
+      ]
     },
     {
       "id": 24,
       "name": "Egg",
-      "image" : "./p_24.jpg",
+      "image": "./p_24.jpg",
       "category": "meat-fish",
       "price": 12.0,
       "originalPrice": null,
@@ -394,13 +453,15 @@
       "rating": 4.5,
       "stock": 100,
       "sale": false,
-      "tags": ["egg", "protein"]
+      "tags": [
+        "fresh",
+        "protein"
+      ]
     },
-
     {
       "id": 25,
       "name": "Potato Chips",
-      "image" : "./p_25.jpg",
+      "image": "./p_25.jpg",
       "category": "snacks",
       "price": 15.0,
       "originalPrice": null,
@@ -408,12 +469,15 @@
       "rating": 4.0,
       "stock": 60,
       "sale": false,
-      "tags": ["snack", "chips", "crunchy"]
+      "tags": [
+        "snack",
+        "daily"
+      ]
     },
     {
       "id": 26,
       "name": "Biscuits",
-      "image" : "./p_26.jpg",
+      "image": "./p_26.jpg",
       "category": "snacks",
       "price": 10.0,
       "originalPrice": null,
@@ -421,12 +485,15 @@
       "rating": 3.5,
       "stock": 80,
       "sale": false,
-      "tags": ["snack", "biscuit", "sweet"]
+      "tags": [
+        "snack",
+        "daily"
+      ]
     },
     {
       "id": 27,
       "name": "Chanachur",
-      "image" : "./p_27.jpg",
+      "image": "./p_27.jpg",
       "category": "snacks",
       "price": 12.0,
       "originalPrice": null,
@@ -434,12 +501,15 @@
       "rating": 4.0,
       "stock": 50,
       "sale": false,
-      "tags": ["snack", "chanachur", "spicy"]
+      "tags": [
+        "snack",
+        "daily"
+      ]
     },
     {
       "id": 28,
       "name": "Chocolate Bar",
-      "image" : "./p_28.jpg",
+      "image": "./p_28.jpg",
       "category": "snacks",
       "price": 30.0,
       "originalPrice": null,
@@ -447,13 +517,15 @@
       "rating": 4.5,
       "stock": 40,
       "sale": false,
-      "tags": ["snack", "chocolate", "sweet"]
+      "tags": [
+        "snack",
+        "daily"
+      ]
     },
-
     {
       "id": 29,
       "name": "Mineral Water",
-      "image" : "./p_29.jpg",
+      "image": "./p_29.jpg",
       "category": "beverages",
       "price": 20.0,
       "originalPrice": null,
@@ -461,12 +533,15 @@
       "rating": 4.0,
       "stock": 200,
       "sale": false,
-      "tags": ["drink", "water", "hydration"]
+      "tags": [
+        "drink",
+        "refreshing"
+      ]
     },
     {
       "id": 30,
       "name": "Mango Juice",
-      "image" : "./p_30.jpg",
+      "image": "./p_30.jpg",
       "category": "beverages",
       "price": 35.0,
       "originalPrice": null,
@@ -474,12 +549,15 @@
       "rating": 4.0,
       "stock": 50,
       "sale": false,
-      "tags": ["drink", "juice", "mango", "fruit"]
+      "tags": [
+        "drink",
+        "refreshing"
+      ]
     },
     {
       "id": 31,
       "name": "Cola Soft Drink",
-      "image" : "./p_31.jpg",
+      "image": "./p_31.jpg",
       "category": "beverages",
       "price": 25.0,
       "originalPrice": null,
@@ -487,12 +565,15 @@
       "rating": 3.5,
       "stock": 60,
       "sale": false,
-      "tags": ["drink", "soda", "cola", "carbonated"]
+      "tags": [
+        "drink",
+        "refreshing"
+      ]
     },
     {
       "id": 32,
       "name": "Green Tea",
-      "image" : "./p_32.jpg",
+      "image": "./p_32.jpg",
       "category": "beverages",
       "price": 40.0,
       "originalPrice": null,
@@ -500,13 +581,15 @@
       "rating": 4.5,
       "stock": 30,
       "sale": false,
-      "tags": ["drink", "tea", "green", "healthy"]
+      "tags": [
+        "drink",
+        "refreshing"
+      ]
     },
-
     {
       "id": 33,
       "name": "Sliced Bread",
-      "image" : "./p_33.jpg",
+      "image": "./p_33.jpg",
       "category": "bread-bakery",
       "price": 30.0,
       "originalPrice": null,
@@ -514,12 +597,15 @@
       "rating": 4.0,
       "stock": 40,
       "sale": false,
-      "tags": ["bread", "bakery", "sliced"]
+      "tags": [
+        "bakery",
+        "fresh"
+      ]
     },
     {
       "id": 34,
       "name": "Bun",
-      "image" : "./p_34.jpg",
+      "image": "./p_34.jpg",
       "category": "bread-bakery",
       "price": 12.0,
       "originalPrice": null,
@@ -527,12 +613,15 @@
       "rating": 3.5,
       "stock": 30,
       "sale": false,
-      "tags": ["bread", "bakery", "bun", "soft"]
+      "tags": [
+        "bakery",
+        "fresh"
+      ]
     },
     {
       "id": 35,
       "name": "Croissant",
-      "image" : "./p_35.jpg",
+      "image": "./p_35.jpg",
       "category": "bread-bakery",
       "price": 45.0,
       "originalPrice": null,
@@ -540,13 +629,15 @@
       "rating": 4.5,
       "stock": 20,
       "sale": false,
-      "tags": ["bread", "bakery", "croissant", "pastry"]
+      "tags": [
+        "bakery",
+        "fresh"
+      ]
     },
-
     {
       "id": 36,
       "name": "All Purpose Flour",
-      "image" : "./p_36.jpg",
+      "image": "./p_36.jpg",
       "category": "baking-needs",
       "price": 55.0,
       "originalPrice": null,
@@ -554,12 +645,15 @@
       "rating": 4.0,
       "stock": 70,
       "sale": false,
-      "tags": ["baking", "flour", "staple"]
+      "tags": [
+        "baking",
+        "kitchen"
+      ]
     },
     {
       "id": 37,
       "name": "Sugar",
-      "image" : "./p_37.jpg",
+      "image": "./p_37.jpg",
       "category": "baking-needs",
       "price": 45.0,
       "originalPrice": null,
@@ -567,12 +661,15 @@
       "rating": 4.5,
       "stock": 90,
       "sale": false,
-      "tags": ["baking", "sugar", "sweet", "staple"]
+      "tags": [
+        "baking",
+        "kitchen"
+      ]
     },
     {
       "id": 38,
       "name": "Baking Powder",
-      "image" : "./p_38.jpg",
+      "image": "./p_38.jpg",
       "category": "baking-needs",
       "price": 20.0,
       "originalPrice": null,
@@ -580,12 +677,15 @@
       "rating": 4.0,
       "stock": 40,
       "sale": false,
-      "tags": ["baking", "powder", "leavening"]
+      "tags": [
+        "baking",
+        "kitchen"
+      ]
     },
     {
       "id": 39,
       "name": "Cocoa Powder",
-      "image" : "./p_39.jpg",
+      "image": "./p_39.jpg",
       "category": "baking-needs",
       "price": 60.0,
       "originalPrice": null,
@@ -593,13 +693,15 @@
       "rating": 4.5,
       "stock": 25,
       "sale": false,
-      "tags": ["baking", "cocoa", "chocolate"]
+      "tags": [
+        "baking",
+        "kitchen"
+      ]
     },
-
     {
       "id": 40,
       "name": "Basmati Rice",
-      "image" : "./p_40.jpg",
+      "image": "./p_40.jpg",
       "category": "cooking",
       "price": 75.0,
       "originalPrice": null,
@@ -607,13 +709,15 @@
       "rating": 4.5,
       "stock": 100,
       "sale": false,
-      "tags": ["cooking", "rice", "grain", "staple"]
+      "tags": [
+        "cooking",
+        "pantry"
+      ]
     },
     {
       "id": 41,
       "name": "Lentil (Masoor Dal)",
-      "image" : "./p_41.jpg",
-
+      "image": "./p_41.jpg",
       "category": "cooking",
       "price": 50.0,
       "originalPrice": null,
@@ -621,12 +725,15 @@
       "rating": 4.0,
       "stock": 80,
       "sale": false,
-      "tags": ["cooking", "dal", "lentil", "protein"]
+      "tags": [
+        "cooking",
+        "pantry"
+      ]
     },
     {
       "id": 42,
       "name": "Turmeric Powder",
-      "image" : "./p_42.jpg",
+      "image": "./p_42.jpg",
       "category": "cooking",
       "price": 25.0,
       "originalPrice": null,
@@ -634,12 +741,15 @@
       "rating": 4.0,
       "stock": 60,
       "sale": false,
-      "tags": ["cooking", "spice", "turmeric"]
+      "tags": [
+        "cooking",
+        "pantry"
+      ]
     },
     {
       "id": 43,
       "name": "Cumin Seeds",
-      "image" : "./p_43.jpg",
+      "image": "./p_43.jpg",
       "category": "cooking",
       "price": 30.0,
       "originalPrice": null,
@@ -647,12 +757,15 @@
       "rating": 4.0,
       "stock": 45,
       "sale": false,
-      "tags": ["cooking", "spice", "cumin"]
+      "tags": [
+        "cooking",
+        "pantry"
+      ]
     },
     {
       "id": 44,
       "name": "Soy Sauce",
-      "image" : "./p_44.jpg",
+      "image": "./p_44.jpg",
       "category": "cooking",
       "price": 35.0,
       "originalPrice": null,
@@ -660,13 +773,15 @@
       "rating": 4.0,
       "stock": 35,
       "sale": false,
-      "tags": ["cooking", "sauce", "soy", "condiment"]
+      "tags": [
+        "cooking",
+        "pantry"
+      ]
     },
-
     {
       "id": 45,
       "name": "Diabetic Biscuits",
-      "image" : "./p_45.jpg",
+      "image": "./p_45.jpg",
       "category": "diabetic-food",
       "price": 50.0,
       "originalPrice": null,
@@ -674,12 +789,15 @@
       "rating": 4.0,
       "stock": 20,
       "sale": false,
-      "tags": ["diabetic", "sugar-free", "biscuit", "healthy"]
+      "tags": [
+        "healthy",
+        "diet"
+      ]
     },
     {
       "id": 46,
       "name": "Brown Rice",
-      "image" : "./p_46.jpg",
+      "image": "./p_46.jpg",
       "category": "diabetic-food",
       "price": 80.0,
       "originalPrice": null,
@@ -687,12 +805,15 @@
       "rating": 4.5,
       "stock": 25,
       "sale": false,
-      "tags": ["diabetic", "rice", "whole-grain", "healthy"]
+      "tags": [
+        "healthy",
+        "diet"
+      ]
     },
     {
       "id": 47,
       "name": "Oats",
-      "image" : "./p_47.jpg",
+      "image": "./p_47.jpg",
       "category": "diabetic-food",
       "price": 65.0,
       "originalPrice": null,
@@ -700,13 +821,15 @@
       "rating": 4.5,
       "stock": 30,
       "sale": false,
-      "tags": ["diabetic", "oats", "fiber", "healthy"]
+      "tags": [
+        "healthy",
+        "diet"
+      ]
     },
-
     {
       "id": 48,
       "name": "Dish Wash Liquid",
-      "image" : "./p_48.jpg",
+      "image": "./p_48.jpg",
       "category": "dish-detergents",
       "price": 40.0,
       "originalPrice": null,
@@ -714,12 +837,15 @@
       "rating": 4.0,
       "stock": 50,
       "sale": false,
-      "tags": ["cleaning", "dish", "liquid", "detergent"]
+      "tags": [
+        "cleaning",
+        "home"
+      ]
     },
     {
       "id": 49,
       "name": "Dish Wash Bar",
-      "image" : "./p_49.jpg",
+      "image": "./p_49.jpg",
       "category": "dish-detergents",
       "price": 20.0,
       "originalPrice": null,
@@ -727,12 +853,15 @@
       "rating": 4.0,
       "stock": 70,
       "sale": false,
-      "tags": ["cleaning", "dish", "bar", "detergent"]
+      "tags": [
+        "cleaning",
+        "home"
+      ]
     },
     {
       "id": 50,
       "name": "Scrubber",
-      "image" : "./p_50.jpg",
+      "image": "./p_50.jpg",
       "category": "dish-detergents",
       "price": 15.0,
       "originalPrice": null,
@@ -740,13 +869,15 @@
       "rating": 3.5,
       "stock": 80,
       "sale": false,
-      "tags": ["cleaning", "scrubber", "kitchen"]
+      "tags": [
+        "cleaning",
+        "home"
+      ]
     },
-
     {
       "id": 51,
       "name": "Soybean Oil",
-      "image" : "./p_51.jpg",
+      "image": "./p_51.jpg",
       "category": "oil",
       "price": 90.0,
       "originalPrice": null,
@@ -754,12 +885,15 @@
       "rating": 4.0,
       "stock": 60,
       "sale": false,
-      "tags": ["oil", "soybean", "cooking"]
+      "tags": [
+        "cooking",
+        "oil"
+      ]
     },
     {
       "id": 52,
       "name": "Mustard Oil",
-      "image" : "./p_52.jpg",
+      "image": "./p_52.jpg",
       "category": "oil",
       "price": 110.0,
       "originalPrice": null,
@@ -767,12 +901,15 @@
       "rating": 4.5,
       "stock": 40,
       "sale": false,
-      "tags": ["oil", "mustard", "cooking"]
+      "tags": [
+        "cooking",
+        "oil"
+      ]
     },
     {
       "id": 53,
       "name": "Olive Oil",
-      "image" : "./p_53.jpg",
+      "image": "./p_53.jpg",
       "category": "oil",
       "price": 250.0,
       "originalPrice": null,
@@ -780,12 +917,15 @@
       "rating": 5.0,
       "stock": 20,
       "sale": false,
-      "tags": ["oil", "olive", "healthy"]
+      "tags": [
+        "cooking",
+        "oil"
+      ]
     },
     {
       "id": 54,
       "name": "Coconut Oil",
-      "image" : "./p_54.jpg",
+      "image": "./p_54.jpg",
       "category": "oil",
       "price": 130.0,
       "originalPrice": null,
@@ -793,13 +933,15 @@
       "rating": 4.5,
       "stock": 25,
       "sale": false,
-      "tags": ["oil", "coconut", "cooking"]
+      "tags": [
+        "cooking",
+        "oil"
+      ]
     },
-
     {
       "id": 55,
       "name": "Hand Wash",
-      "image" : "./p_55.jpg",
+      "image": "./p_55.jpg",
       "category": "beauty-health",
       "price": 35.0,
       "originalPrice": null,
@@ -807,12 +949,15 @@
       "rating": 4.0,
       "stock": 40,
       "sale": false,
-      "tags": ["hygiene", "handwash", "soap"]
+      "tags": [
+        "health",
+        "care"
+      ]
     },
     {
       "id": 56,
       "name": "Shampoo",
-      "image" : "./p_56.jpg",
+      "image": "./p_56.jpg",
       "category": "beauty-health",
       "price": 75.0,
       "originalPrice": null,
@@ -820,12 +965,15 @@
       "rating": 4.0,
       "stock": 30,
       "sale": false,
-      "tags": ["hair", "shampoo", "beauty"]
+      "tags": [
+        "health",
+        "care"
+      ]
     },
     {
       "id": 57,
       "name": "Body Lotion",
-      "image" : "./p_57.jpg",
+      "image": "./p_57.jpg",
       "category": "beauty-health",
       "price": 80.0,
       "originalPrice": null,
@@ -833,12 +981,15 @@
       "rating": 4.5,
       "stock": 25,
       "sale": false,
-      "tags": ["skin", "lotion", "beauty", "moisturizer"]
+      "tags": [
+        "health",
+        "care"
+      ]
     },
     {
       "id": 58,
       "name": "Toothpaste",
-      "image" : "./p_58.jpg",
+      "image": "./p_58.jpg",
       "category": "beauty-health",
       "price": 40.0,
       "originalPrice": null,
@@ -846,7 +997,10 @@
       "rating": 4.5,
       "stock": 50,
       "sale": false,
-      "tags": ["dental", "toothpaste", "hygiene"]
+      "tags": [
+        "health",
+        "care"
+      ]
     }
   ]
 }
