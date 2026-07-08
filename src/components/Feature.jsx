@@ -39,7 +39,7 @@ const data=[
 
 const Feature = () => {
   return (
-    <Section>
+    <Section className="px-5 lg:px-0">
         <Container>
             <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-4 lg:gap-8 lg:p-10">
                 {data.map((item)=>(

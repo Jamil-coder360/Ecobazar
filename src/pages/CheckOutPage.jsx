@@ -10,10 +10,10 @@ const CheckOutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("cod");
   const [shipToDifferent, setShipToDifferent] = useState(false);
 
-  // Cart থেকে items নিন
+  // Cart items 
   const cartItems = useAppSelector((state) => state.cart.items);
 
-  // Total calculate করুন
+  // Total calculate 
   const subtotal = cartItems.reduce((sum, item) => {
     const price = parseFloat(item.price) || 0;
     return sum + price * item.quantity;
@@ -22,7 +22,7 @@ const CheckOutPage = () => {
     <>
       <PageHading pagename="Checkout" mainname={"Shopping Cart"} />
 
-      <Section className="pt-4 lg:pt-8 pb-8 lg:pb-20">
+      <Section className="pt-4 lg:pt-8 pb-8 lg:pb-20 px-5 lg:px-0">
         <Container>
           <div className="">
             <div className="flex flex-col lg:flex-row gap-5 lg:gap-8 items-start">

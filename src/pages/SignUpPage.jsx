@@ -58,7 +58,7 @@ const SignUpPage = () => {
   return (
     <>
       <PageHading mainname={"Account"} pagename={"Create Account"} />
-      <Section>
+      <Section className="px-5 lg:px-0">
         <Container>
           <div className="flex items-center justify-center py-20">
             <div className="w-[520px] border border-gray_50 shadow-xl rounded-[8px]  flex flex-col items-center justify-center gap-5 p-6">

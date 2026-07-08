@@ -101,7 +101,7 @@ const ShopPage = () => {
   return (
     <>
       <PageHading pagename="Categories" />
-      <Section className="pt-8">
+      <Section className="pt-8 px-5 lg:px-0">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-[312px_auto] gap-6">
             <div>

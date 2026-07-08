@@ -99,10 +99,10 @@ fetch(`https://ecobazar-ktbd.onrender.com/products/${id}`)
         subname={getProductValue(product, ["subcategory", "subCategory"]) || "Products"}
       />
 
-      <Section className="">
+      <Section className="px-5 lg:px-0">
         <Container className=" bg-white ">
           <div>
-            <div className="grid grid-cols-1 lg:grid-cols-[648px_auto] gap-6 p-10 relative">
+            <div className="grid grid-cols-1 lg:grid-cols-[648px_auto] gap-6  lg:py-10 relative">
              <div className="grid grid-cols-[80px_auto] gap-3 items-center justify-between">
               <div className="grid grid-cols-1 gap-4">
                 <div className="w-20 h-22.5 overflow-hidden">

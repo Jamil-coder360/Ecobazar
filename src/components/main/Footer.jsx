@@ -43,7 +43,7 @@ const Footer = () => {
   return (
     <div>
       {/* Newsletter Strip */}
-      <div className="bg-gray-100 px-8 py-8">
+      <div className="bg-gray-100 px-5 lg:px-8 py-8">
         <Container>
           <div className=" flex flex-col md:flex-row items-center gap-6">
             {/* Left text */}

@@ -14,7 +14,7 @@ const bgPage = (image) => ({
 });
 const PageHading = ({ pagename = "404 Error Page", mainname, subname }) => {
   return (
-    <Section style={bgPage(page)} className="py-12">
+    <Section style={bgPage(page)} className="py-12 px-5 lg:px-0">
       <Container>
         <div className="flex items-center gap-2">
           <Link to={"/"}>

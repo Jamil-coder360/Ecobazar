@@ -18,7 +18,7 @@ const Categories = () => {
       console.log(categories);
 
   return (
-   <Section className="py-15">
+   <Section className="py-15 px-5 lg:px-0">
     <Container>
         <div>
             <div className="flex items-center justify-between mb-8">

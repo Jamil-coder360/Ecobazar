@@ -23,7 +23,7 @@ const CartPage = ({ showPageHeading = true }) => {
   return (
     <>
       {showPageHeading && <PageHading pagename="Shopping cart" />}
-      <Section className="pt-10 pb-20">
+      <Section className="pt-10 pb-20 px-5 lg:px-0">
         <Container>
           <div>
             <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900 text-center mb-8">

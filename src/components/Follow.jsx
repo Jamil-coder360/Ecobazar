@@ -42,7 +42,7 @@ import { SlSocialInstagram } from "react-icons/sl";
 
 const Follow = () => {
   return (
-    <Section className="pb-8 lg:pb-15">
+    <Section className="pb-8 lg:pb-15 px-5 lg:px-0">
       <Container>
         <div>
           <div className="flex items-center justify-center pb-8">

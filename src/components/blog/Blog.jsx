@@ -28,7 +28,7 @@ const blogData = [
 ];
 const Blog = () => {
   return (
-    <Section className="py-15">
+    <Section className="py-15 px-5 lg:px-0">
       <Container>
         <div>
           <div className="flex items-center justify-center pb-8">

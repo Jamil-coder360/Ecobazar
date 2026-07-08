@@ -20,7 +20,7 @@ const getBgImage = (image) => ({
 
 const Hero = () => {
   return (
-    <Section className="py-6 sm:py-8 lg:py-10">
+    <Section className="py-6 sm:py-8 lg:py-10 ">
       <Container>
         <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-[872px_423px]">
           <div

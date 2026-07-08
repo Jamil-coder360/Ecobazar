@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Testimonial = () => {
   return (
-    <Section className="bg-gray_50 py-15">
+    <Section className="bg-gray_50 py-15 px-5 lg:px-0">
       <Container>
         <div className="flex items-center justify-between mb-8">
           <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900">

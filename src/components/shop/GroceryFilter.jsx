@@ -146,7 +146,7 @@ export default function GroceryFilter({
     <div className="">
       <div className="w-full lg:max-w-78 ">
         {/* Header */}
-        <div className="px-4  pb-6 flex items-center justify-between">
+        <div className="  pb-6 flex items-center justify-between">
           <button className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors">
             <svg
               className="w-4 h-4"

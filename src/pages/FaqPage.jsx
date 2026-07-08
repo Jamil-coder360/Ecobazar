@@ -36,7 +36,7 @@ const FaqPage = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <Section className="pt-8 lg:pt-20">
+    <Section className="pt-8 lg:pt-20 px-5 lg:px-0">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
           <div>
