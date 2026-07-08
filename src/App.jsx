@@ -17,6 +17,7 @@ import FaqPage from "./pages/FaqPage";
 import ContactPage from "./pages/ContactPage";
 import PopupCart from "./pages/PopupCart";
 import ProductLoading from "./components/product/ProductLoading";
+import OrderHistory from "./components/account/OrderHistory";
 
 
 const router = createBrowserRouter([
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/account",
         element: <AccounPage />,
+      },
+      {
+        path: "/order_history",
+        element: <OrderHistory/>,
       },
       {
         path: "/ps",

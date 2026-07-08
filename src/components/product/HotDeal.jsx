@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import ProductCard from "./ProductCard";
 import HotDealCard from "./HotDealCard";
 import ProductLoading from "./ProductLoading";
+import { Link } from "react-router";
 
 const HotDeal = () => {
   const [products, setProducts] = useState([]);
@@ -22,35 +23,49 @@ const HotDeal = () => {
   console.log(products);
 
   return (
-    <Section className="py-15 px-5 lg:px-0">
+    <Section className="py-15 px-5 lg:px-0 bg-gray_50">
       <Container>
         <div>
           <div className="flex items-center justify-between mb-8">
             <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900">
               Hot Deals
             </h3>
-            <Button variant={"transparent"}>
-              View All <ArrowRight />{" "}
-            </Button>
+            <Link to={`/shop`}>
+              <Button variant={"transparent"}>
+                View All <ArrowRight />{" "}
+              </Button>
+            </Link>
           </div>
           <div className="grid  grid-cols-1 lg:grid-cols-[528px_auto] grid-rows-[654px_auto]">
             <div className="w-full lg:w-[528px] h-full lg:h-[654px] ">
-              {loading ? <ProductLoading /> : products.length > 0 && <HotDealCard product={products[0]} />}
+              {loading ? (
+                <ProductLoading />
+              ) : (
+                products.length > 0 && <HotDealCard product={products[0]} />
+              )}
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3">
               {loading
-                ? Array.from({ length: 3 }).map((_, i) => <ProductLoading key={i} />)
-                : products.slice(6, 12).map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                  ))}
+                ? Array.from({ length: 3 }).map((_, i) => (
+                    <ProductLoading key={i} />
+                  ))
+                : products
+                    .slice(6, 12)
+                    .map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
             </div>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-5 lg:w-(--container) ">
             {loading
-              ? Array.from({ length: 5 }).map((_, i) => <ProductLoading key={i} />)
-              : products.slice(6, 11).map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
+              ? Array.from({ length: 5 }).map((_, i) => (
+                  <ProductLoading key={i} />
+                ))
+              : products
+                  .slice(6, 11)
+                  .map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
           </div>
         </div>
       </Container>

@@ -5,6 +5,7 @@ import Button from "../global/Button";
 import { ArrowRight } from "lucide-react";
 import ProductCard from "./ProductCard";
 import ProductLoading from "./ProductLoading";
+import { Link } from "react-router";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -27,9 +28,11 @@ const Product = () => {
             <h3 className="font-semibold text-base lg:text-[32px] leading-[120%] text-gray_900">
               Popular Products
             </h3>
+           <Link to={`/shop`}>
             <Button variant={"transparent"}>
               View All <ArrowRight />{" "}
             </Button>
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-3 lg:gap-0 lg:grid-cols-5">
             {loading

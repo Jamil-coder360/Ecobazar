@@ -136,7 +136,7 @@ const Footer = () => {
                 <ul className="space-y-2 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href="/account"
                       className="hover:text-green-400 transition-colors"
                     >
                       My Account
@@ -144,7 +144,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/order_history"
                       className="hover:text-green-400 transition-colors"
                     >
                       Order History
@@ -155,7 +155,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/wishlist"
                       className="hover:text-green-400 transition-colors"
                     >
                       Wishlist
@@ -170,7 +170,7 @@ const Footer = () => {
                 <ul className="space-y-2 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href="/contact"
                       className="hover:text-green-400 transition-colors"
                     >
                       Contact
@@ -178,7 +178,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/faqs"
                       className="hover:text-green-400 transition-colors"
                     >
                       Faqs
@@ -209,7 +209,7 @@ const Footer = () => {
                 <ul className="space-y-2 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href="/about"
                       className="hover:text-green-400 transition-colors"
                     >
                       About
@@ -225,7 +225,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/product/:id"
                       className="hover:text-green-400 transition-colors"
                     >
                       Product
@@ -233,7 +233,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/check"
                       className="hover:text-green-400 transition-colors"
                     >
                       Track Order
@@ -250,7 +250,7 @@ const Footer = () => {
                 <ul className="space-y-2 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href="/shop?category=fruit-vegetables"
                       className="hover:text-green-400 transition-colors"
                     >
                       Fruit & Vegetables
@@ -258,7 +258,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/shop?category=meat-fish"
                       className="hover:text-green-400 transition-colors"
                     >
                       Meat & Fish
@@ -266,7 +266,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/shop?category=bread-bakery"
                       className="hover:text-green-400 transition-colors"
                     >
                       Bread & Bakery
@@ -274,7 +274,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/shop?category=beverages"
                       className="hover:text-green-400 transition-colors"
                     >
                       Beauty & Health

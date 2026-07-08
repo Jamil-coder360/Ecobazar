@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   items: [],
@@ -13,6 +14,7 @@ const wishlistSlice = createSlice({
       const exists = state.items.some((item) => item.id === product.id);
       if (!exists) {
         state.items.push(product);
+        toast.success(`${product.name} added to wishlist`);
       }
     },
     removeFromWishlist(state, action) {

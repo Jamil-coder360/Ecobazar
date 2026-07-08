@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import TestimonialCard from "./TestimonialCard";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
 import Section from "../global/Section";
 import Container from "../global/Container";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Testimonial = () => {
+  const swiperRef = useRef(null);
   return (
     <Section className="bg-gray_50 py-15 px-5 lg:px-0">
       <Container>
@@ -28,11 +34,30 @@ const Testimonial = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {[...Array(3)].map((_, i) => (
-            <TestimonialCard />
+        {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-6"> */}
+        <Swiper
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          spaceBetween={24}
+          autoplay={false}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {[...Array(6)].map((_, i) => (
+            <SwiperSlide key={i}>
+              <TestimonialCard />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
+        {/* </div> */}
       </Container>
     </Section>
   );

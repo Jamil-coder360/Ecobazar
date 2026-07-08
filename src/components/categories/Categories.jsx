@@ -4,6 +4,7 @@ import Container from '../global/Container';
 import Button from '../global/Button';
 import { ArrowRight } from 'lucide-react';
 import CategoriesCard from './CategoriesCard';
+import { Link } from 'react-router';
 
 const Categories = () => {
 
@@ -25,7 +26,9 @@ const Categories = () => {
                 <h3 className="font-semibold text-[32px] leading-[120%] text-gray_900">
                     Popular Categories
                 </h3>
+                <Link to={`/shop?category=`}> 
                 <Button variant={"transparent"} >View All <ArrowRight /> </Button>
+                </Link>
             </div>
                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {categories.map((category) => (
